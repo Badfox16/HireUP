@@ -1,0 +1,209 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    -webkit-font-smoothing: antialiased;
+    -webkit-text-size-adjust: 100%;
+}
+
+body{
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    line-height: 1.2;
+    color: #030407;
+}
+
+
+
+.navbar {
+    position: -webkit-sticky;
+    position: sticky;
+    display: flex;
+    justify-content: space-around;
+    z-index: 999;
+    top: 0px;
+    background-color: #fff;
+    border-bottom: 1px solid #ebebef;
+    padding: 20px 58px;
+    background-attachment: scroll !important;
+  }
+
+  .left-nav{
+    display: flex;
+    align-items: center;
+    -webkit-box-align: center;
+  }
+
+  .brand{
+    position: relative;
+    float: left;
+    text-decoration: none;
+    color: #333333;
+  }
+
+  img {
+    display: inline-block;
+    vertical-align: middle;
+    max-width: 100%;
+    border:0;
+    overflow-clip-margin: content-box;
+    overflow: clip;
+  }
+
+  .nav-menu{
+    display: flex;
+    width: 100%;
+    -webkit-box-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    align-items: center;
+    grid-column-gap: 12px;
+  }
+
+  .right-nav{
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 12px;
+    -webkit-box-pack: end;
+    -webkit-box-align: center;
+  }
+  
+.nav-link {
+    padding: 10px 16px;
+    -webkit-box-align: center;
+    color: #3e404c;
+    font-size: 14px;
+    line-height: 24px;
+    font-weight: 500;
+    white-space: nowrap;
+    letter-spacing: -0.02em;
+}
+
+.btn-primary {
+  padding: 10px 20px;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -webkit-box-pack: center;
+    background-color: #443fde;
+    transition: all 500ms cubic-bezier(0.6, 0.6, 0, 1);
+    color: #fff;
+    font-size: 14px;
+    line-height: 24px;
+    font-weight: 500;
+    text-align: center;
+    letter-spacing: -0.02em;
+}
+
+a {
+    background-color: transparent;
+    text-decoration: none;
+}
+  
+.content { 
+    display: flex;
+    height: 100%;
+    max-width: 100%;
+    min-height: 90vh;
+    margin-left: 0;
+    margin-right: 0;
+    flex-direction: row;
+}
+
+.left{
+  display: flex;
+    width: 50%;
+    align-items: center;
+    padding-right: 3%;
+    padding-left: 5%;
+    -webkit-box-align: center;
+}
+
+.right{
+    display: flex;
+    width: 50%;
+    margin-left: auto;
+    padding: 64px 5%;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    flex-direction: column;
+    -webkit-box-pack: center;
+    justify-content: center;
+    background-image: url(../img/login.svg);
+    background-position: 0px 0px;
+    background-size: cover;
+    color: #fff;
+}
+
+.form-block{
+    width: 100%;
+    max-width: 480px;
+    margin-left: auto;
+    position: relative;
+    margin-bottom: 0px;
+}
+
+.form-title{
+  margin-bottom: 48px;
+  border-style: none;
+  text-align: left;
+}
+
+input, button {
+  font: inherit;
+}
+
+h3{
+  margin-top: 0px;
+  margin-bottom: 0px;
+  font-family: 'Archivo', sans-serif;
+  font-size: 40px;
+  line-height: 1.2;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+}
+
+p {
+  margin-bottom: 0px;
+  color: #3e404c;
+  font-size: 16px;
+  line-height: 32px;
+}
+
+.form-field{
+  height: 48px;
+  margin-bottom: 24px;
+  padding: 12px;
+  border: 1px solid #ebebef;
+}
+
+.w-input{
+  display: block;
+  width: 100%;
+  font-size: 14px;
+  line-height: 1.443;
+  color: #333333;
+  background-color: #ffffff;
+  border: 1px solid #cccccc;
+}
+
+.w-button {
+  width: 100%;
+  display: inline-block;
+  border: 0;
+  margin: 0;
+  text-decoration: none;
+  cursor: pointer;
+  border-radius: 0;
+}
+
+  /* The sticky class is added to the navbar with JS when it reaches its scroll position */
+  .sticky {
+    position: fixed;
+    top: 0;
+    width: 100%;
+  }
+  
+  /* Add some top padding to the page content to prevent sudden quick movement (as the navigation bar gets a new position at the top of the page (position:fixed and top:0) */
+  .sticky + .content {
+    padding-top: 60px;
+  }
