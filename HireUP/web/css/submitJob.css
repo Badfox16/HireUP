@@ -1,0 +1,169 @@
+@import url("https://fonts.googleapis.com/css2?family=Archivo:wght@100;300;400;700;800;900&family=Inter:wght@100;200;300;400;500;600;700;800;900&family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  font-family: Inter, sans-serif;
+  color: #030407;
+  font-size: 14px;
+  line-height: 1.2;
+}
+
+h2 {
+  margin-top: 0px;
+  margin-bottom: 0px;
+  font-family: Archivo, sans-serif;
+  font-size: 48px;
+  line-height: 1.2;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+p {
+  margin-bottom: 0px;
+  color: #3e404c;
+  font-size: 16px;
+  line-height: 32px;
+}
+
+.top-info {
+  display: flex;
+  max-width: 610px;
+  margin-right: auto;
+  margin-bottom: 72px;
+  margin-left: auto;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  align-items: center;
+  text-align: center;
+  flex-direction: column;
+}
+
+.top-info div:first-child {
+  width: 100%;
+  margin-bottom: 16px;
+}
+.top-info div:first-child h2 {
+  margin-block-start: 0.83em;
+  margin-block-end: 0.83em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+}
+
+.cadastrar-form-container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.cadastrar-form{
+    background-color: #f9f9fb;
+    padding: 5rem;
+    width: 60rem;
+}
+
+.cadastrar-form .header-cadastrar{
+    display: flex;
+    align-items: center;
+}
+
+.cadastrar-form .header-cadastrar div{
+    background-color: #fff;
+    padding: 1rem;
+    margin-left: -2rem;
+    margin-right: 0.5rem;
+    border: 1px solid #ebebef ;
+}
+
+.cadastrar-form .header-cadastrar div span{
+    color: #030407;
+    font-size: 1rem;
+    font-weight: 700;
+}
+.cadastrar-form .header-cadastrar h2{
+    margin-top: 0px;
+    margin-bottom: 0px;
+    font-family: Archivo, sans-serif;
+    font-size: 24px;
+    line-height: 1.4;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    margin-block-start: 1.67em;
+    margin-block-end: 1.67em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+}
+
+.cadastrar-form form{
+    margin-left: 5rem;
+}
+
+.cadastrar-form form div{
+    display: flex;
+    flex-direction: column;
+}
+
+.cadastrar-form form label{
+    display: block;
+    margin-bottom: 5px;
+    font-size: 1.5rem;
+    color: #3e404c;
+    font-weight: 500;
+    cursor: pointer;
+    user-select: none;
+    
+}
+
+.cadastrar-form form input, .cadastrar-form form select{
+    height: 48px;
+    margin-bottom: 24px;
+    padding: 12px;
+    border-style: solid;
+    border-width: 1px;
+    width: 100%;
+    font-size: 1rem;
+    border-color: #ebebef;
+}
+
+select{
+    font-size: 1.2rem;
+}
+
+textarea{
+    border: 1px solid #ebebef;
+    padding: 12px;
+    margin-bottom: 24px;
+}
+
+.cadastrar-form form div button{
+    padding: 10px 32px;
+    background-color: #443fde;
+    transition: all 500ms cubic-bezier(0.6, 0.6, 0, 1);
+    color: #fff;
+    cursor: pointer;
+    font-size: 14px;
+    line-height: 24px;
+    font-weight: 500;
+    text-align: center;
+    letter-spacing: -0.02em;
+    text-transform: capitalize;
+    border: none;
+   margin-top: 2rem;
+}
+
+.cadastrar-form form div button:hover{
+    background-color: #3935b6;
+}
+
+*::placeholder{
+    font-size: 1rem;
+    color: #b1b3c0;
+}
