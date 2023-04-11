@@ -136,5 +136,57 @@ public class EmpregosDAO {
 
         }
     }
+    
+     public List<EmpregosDTO> pesquisarEmpregos(String valor) throws SQLException, ClassNotFoundException {
+        List<EmpregosDTO> listaEmpregos = new ArrayList<>();
+        String sql = "SELECT * FROM tbempregos WHERE Nome LIKE ?";
+        conexao = new ConexaoDAO().conexaoBD();
+        PreparedStatement stmt = null;
+        ResultSet rs = null;
+        try {
+            stmt = conexao.prepareStatement(sql);
+            stmt.setString(1, "%" + valor + "%");
+            rs = stmt.executeQuery();
+
+            while (rs.next()) {
+                int id = rs.getInt("Id_Emprego");
+                String titulo = rs.getString("Titulo");
+                String posicao = rs.getString("Posicao");
+                int salarioMin = rs.getInt("SalarioMin");
+                int salarioMax = rs.getInt("SalarioMax");
+                String categoria = rs.getString("Categoria");
+                String localizacao = rs.getString("Localizacao");
+                String tipo = rs.getString("Tipo");
+                String descricao = rs.getString("Descricao");
+                String requisitos = rs.getString("Requisitos");
+
+                EmpregosDTO emprego = new EmpregosDTO();
+                emprego.setIdEmprego(id);
+                emprego.setTitulo(titulo);
+                emprego.setPosicao(posicao);
+                emprego.setSalarioMin(salarioMin);
+                emprego.setSalarioMax(salarioMax);
+                emprego.setCategoria(categoria);
+                emprego.setLocalizacao(localizacao);
+                emprego.setTipo(tipo);
+                emprego.setDescricao(descricao);
+                emprego.setRequisitos(requisitos);
+                
+                listaEmpregos.add(emprego);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            if (stmt != null) {
+                stmt.close();
+            }
+            if (rs != null) {
+                rs.close();
+            }
+            conexao.close();
+        }
+        return listaEmpregos;
+    }
+
 
 }
