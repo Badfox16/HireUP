@@ -1,0 +1,113 @@
+@import url("https://fonts.googleapis.com/css2?family=Archivo:wght@100;300;400;700;800;900&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  font-family: Inter, sans-serif;
+  color: #030407;
+  font-size: 14px;
+  line-height: 1.2;
+}
+
+h2 {
+  margin-top: 0px;
+  margin-bottom: 0px;
+  font-family: Archivo, sans-serif;
+  font-size: 48px;
+  line-height: 1.2;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+p {
+  margin-bottom: 0px;
+  color: #3e404c;
+  font-size: 16px;
+  line-height: 32px;
+}
+
+.top-info {
+  display: flex;
+  max-width: 610px;
+  margin-right: auto;
+  margin-bottom: 72px;
+  margin-left: auto;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  align-items: center;
+  text-align: center;
+  flex-direction: column;
+}
+
+.top-info div:first-child {
+  width: 100%;
+  margin-bottom: 16px;
+}
+.top-info div:first-child h2 {
+  margin-block-start: 0.83em;
+  margin-block-end: 0.83em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+}
+
+.search {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.search1 {
+  border: 1px solid #ebebef;
+  display: flex;
+  width: 100%;
+  max-width: 720px;
+  padding: 14px;
+}
+
+.input-wrapper {
+  display: flex;
+  flex-grow: 1;
+  justify-content: flex-start;
+  align-items: center;
+  font-size: 1.2rem;
+  padding-top: 0.2rem;
+}
+.input-wrapper span {
+  color: #3e404c;
+  margin-left: 0.5rem;
+}
+.input-wrapper input {
+  height: 44px;
+  font-size: 1.2rem;
+  line-height: 1.42857143;
+  color: #333333;
+  border: 1px none #000;
+  outline: none;
+  margin-left: 0.5rem;
+  vertical-align: middle;
+}
+
+.search button {
+  padding: 10px 32px;
+  background-color: #443fde;
+  transition: all 500ms cubic-bezier(0.6, 0.6, 0, 1);
+  color: #fff;
+  cursor: pointer;
+  font-size: 14px;
+  line-height: 24px;
+  font-weight: 500;
+  text-align: center;
+  letter-spacing: -0.02em;
+  border: none;
+}
+
+.search button:hover{
+    background-color: #3935b6;
+}
