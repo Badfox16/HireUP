@@ -19,14 +19,13 @@
                     
                     UsuariosDAO objUsuariosDAO = new UsuariosDAO();
                     objUsuariosDAO.Cadastrar(objUsuariosDTO);
-
-                    response.sendRedirect("login.html");
+                   
                     
             } catch (Exception e) {
                 out.print("<script> alert('O login falhou')</script>");
             }
 
-            
+             response.sendRedirect("login.html");
         %>
     </body>
 </html>

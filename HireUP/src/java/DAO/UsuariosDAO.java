@@ -52,7 +52,7 @@ public class UsuariosDAO {
             prepS.close();
             conexao.close();
         } catch (SQLException e) {
-
+JOptionPane.showMessageDialog(null, "ConexaoSQL: " + e.getMessage());
         }
 
     }
