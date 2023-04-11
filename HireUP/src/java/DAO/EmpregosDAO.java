@@ -62,8 +62,8 @@ public class EmpregosDAO {
             while (rs.next()) {
                 String titulo = rs.getString("titulo");
                 String posicao = rs.getString("Posicao");
-                int SalarioMin = rs.getInt("SalarioMin");
-                int SalarioMax = rs.getInt("SalarioMax");
+                int SalarioMin = rs.getInt("Salario_Min");
+                int SalarioMax = rs.getInt("Salario_Max");
                 String Categoria = rs.getString("Categoria");
                 String Localizacao = rs.getString("Localizacao");
                 String Tipo = rs.getString("Tipo");
