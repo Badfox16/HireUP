@@ -1,7 +1,14 @@
+<%-- 
+    Document   : applyTo
+    Created on : 12 Apr 2023, 01:52:55
+    Author     : Pedro Nhamirre
+--%>
+
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="pt-br">
-	<head>
-		<meta charset="UTF-8" />
+    <head>
+        <meta charset="UTF-8" />
 		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<link rel="shortcut icon" href="../img/logo.png" type="image/x-icon" />
@@ -12,9 +19,9 @@
 			crossorigin="anonymous"
 		></script>
 		<title>Aplicar - para trabalhar</title>
-	</head>
-	<body>
-		<header>
+    </head>
+    <body>
+        <header>
 			<div class="navbar">
 				<div class="left-nav">
 					<a href="../index.html" class="brand"
@@ -169,5 +176,5 @@
 				</section>
 			</form>
 		</main>
-	</body>
+    </body>
 </html>

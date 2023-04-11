@@ -13,7 +13,7 @@
     </head>
     <body>
        <% 
-       response.sendRedirect("applyTo.html");
+       response.sendRedirect("applyTo.jsp");
        
        %>
     </body>
