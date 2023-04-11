@@ -60,6 +60,7 @@ public class EmpregosDAO {
             rs = stmt.executeQuery(sql);
 
             while (rs.next()) {
+                String titulo = rs.getString("titulo");
                 String posicao = rs.getString("Posicao");
                 int SalarioMin = rs.getInt("SalarioMin");
                 int SalarioMax = rs.getInt("SalarioMax");
@@ -70,6 +71,7 @@ public class EmpregosDAO {
                 String Requisitos = rs.getString("Requisitos");
 
                 EmpregosDTO Emprego = new EmpregosDTO();
+                Emprego.setTitulo(titulo);
                 Emprego.setPosicao(posicao);
                 Emprego.setSalarioMin(SalarioMin);
                 Emprego.setSalarioMax(SalarioMax);
