@@ -1,0 +1,98 @@
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Submeter Empresa</title>
+    <link rel="stylesheet" href="../css/submitJob.css" />
+    <link rel="stylesheet" href="../css/navbar.css" />
+    <link rel="shortcut icon" href="../img/logo.png" type="image/x-icon" />
+    <script
+      src="https://kit.fontawesome.com/7a342b9685.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <section>
+      <div class="navbar">
+        <div class="left-nav">
+          <a href="../index.html" class="brand"
+            ><img src="../img/logo.png" alt="Logo" class="logo" height="30"
+          /></a>
+        </div>
+
+        <div class="nav-middle">
+          <nav class="nav-menu">
+            <a href="../index.html" class="nav-link">Home</a>
+            <a href="#" class="nav-link">Empresas</a>
+            <a href="../pages/browse.html" class="nav-link">Pesquise</a>
+            <a href="#" class="nav-link">Submeter Empresa</a>
+          </nav>
+        </div>
+
+        <div>
+          <nav class="right-nav">
+            <a href="#" class="nav-link">Poste um Emprego</a>
+            <form action="./login.html">
+              <button class="btn-primary">Log in</button>
+            </form>
+          </nav>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="top-info">
+        <div>
+          <h2>Submeter Empresa</h2>
+        </div>
+        <div>
+          <p>
+            "Cadastre a sua empresa! Após a submissão, a sua candidatura sera revista e receberá um e-mail para comprovar a identidade da empresa."
+          </p>
+        </div>
+      </div>
+    </section>
+
+
+    <section class="cadastrar-form-container">
+
+        <div class="cadastrar-form">
+            <div class="header-cadastrar">
+                <div>
+                    <span>1</span>
+                </div>
+                <h2>Informação básicas sobre a empresa</h2>
+            </div>
+            <form action="mailto:701210019@ucm.ac.mz" method="post" enctype="multipart/form-data">
+               
+                <div>
+                    <label for="nome">Nome da Empresa:</label>
+                    <input name="nome" id="nome" type="text" required>
+                </div>
+                
+                <div>
+                    <label for="contato">Contacto:</label>
+                    <input name="contato" id="contato" type="text" maxlength="12" required>
+                </div>
+
+                <div>
+                    <label for="logo">Logomarca:</label>
+                    <input name="logo" value="Escolha uma imagem" id="logo" type="file" accept="image/*" required>
+                </div>
+
+                <div>
+                    <label for="email">Email:</label>
+                    <input name="email" id="email" type="number" min="5000" required>
+                </div>
+                <div>
+                    <label for="descricao">Descrição do empresa:</label>
+                    <textarea name="descricao" id="descricao" cols="30" rows="15" placeholder="Digite as informações sobre a empresa, deixe-nos saber quem voces são e o que representam" required></textarea>
+                </div>
+
+                <div>
+                    <button style="font-weight: bold; font-size: 17px;">Submeter</button>
+                </div>
+            </form>
+        </div>
+
+    </section>
