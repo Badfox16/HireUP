@@ -3,9 +3,15 @@ package DTO;
 public class EmpregosDTO {
     private int IdEmprego, SalarioMin, SalarioMax;
     private String Posicao, Categoria, Descricao, Requisitos;
-    private String Localizacao, Tipo;
+    private String Localizacao, Tipo, Titulo;
     
  
+    public String getTitulo() {
+        return Titulo;
+    }
+    public void setTitulo(String titulo) {
+        Titulo = titulo;
+    }
     public String getLocalizacao() {
         return Localizacao;
     }

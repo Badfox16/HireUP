@@ -9,6 +9,8 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.swing.JOptionPane;
+
 import DTO.EmpregosDTO;
 
 public class EmpregosDAO {
@@ -18,20 +20,22 @@ public class EmpregosDAO {
     ResultSet rSet;
 
     public void Cadastrar(EmpregosDTO objEmpregosDTO) throws ClassNotFoundException {
-        String sql = "insert into tbEmpregos(Posicao, SalarioMin, SalarioMax, Categoria, Localizacao, Tipo, Descricao, Requisitos) values(?,?,?,?,?,?,?,?)";
+        String sql = "insert into tbEmpregos(Titulo, Posicao, SalarioMin, SalarioMax, Categoria, Localizacao, Tipo, Descricao, Requisitos) values(?,?,?,?,?,?,?,?,?)";
         conexao = new ConexaoDAO().conexaoBD();
 
         try {
             prepS = conexao.prepareStatement(sql);
 
-            prepS.setString(1, objEmpregosDTO.getPosicao());
-            prepS.setInt(2, objEmpregosDTO.getSalarioMin());
-            prepS.setInt(3, objEmpregosDTO.getSalarioMax());
-            prepS.setString(4, objEmpregosDTO.getCategoria());
-            prepS.setString(5, objEmpregosDTO.getLocalizacao());
-            prepS.setString(6, objEmpregosDTO.getTipo());
-            prepS.setString(7, objEmpregosDTO.getDescricao());
-            prepS.setString(8, objEmpregosDTO.getRequisitos());
+            
+            prepS.setString(1, objEmpregosDTO.getTitulo());
+            prepS.setString(2, objEmpregosDTO.getPosicao());
+            prepS.setInt(3, objEmpregosDTO.getSalarioMin());
+            prepS.setInt(4, objEmpregosDTO.getSalarioMax());
+            prepS.setString(5, objEmpregosDTO.getCategoria());
+            prepS.setString(6, objEmpregosDTO.getLocalizacao());
+            prepS.setString(7, objEmpregosDTO.getTipo());
+            prepS.setString(8, objEmpregosDTO.getDescricao());
+            prepS.setString(9, objEmpregosDTO.getRequisitos());
 
             prepS.execute();
             prepS.close();
@@ -78,15 +82,15 @@ public class EmpregosDAO {
                 listaEmpregos.add(Emprego);
             }
         } catch (Exception e) {
-
+            JOptionPane.showMessageDialog(null, "ConexaoSQL: " + e.getMessage());
         } finally {
             stmt.close();
             rs.close();
             conexao.close();
         }
-
         return listaEmpregos;
     }
+
 
     public void Remover(EmpregosDTO objEmpregosDTO) throws ClassNotFoundException {
         String sql = "delete from tbEmpregos where Id_Emprego=?";
@@ -101,7 +105,7 @@ public class EmpregosDAO {
             prepS.close();
 
         } catch (SQLException e) {
-
+            JOptionPane.showMessageDialog(null, "ConexaoSQL: " + e.getMessage());
         }
 
     }

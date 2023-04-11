@@ -7,8 +7,11 @@ Email varchar(120) primary key,
 Nome varchar(120),
 Senha varchar(50));
 
+insert into tbUsuarios() values();
+
 create table tbEmpregos(
 Id_Emprego int auto_increment primary key,
+Titulo varchar(120),
 Posicao varchar(120),
 Salario_Min int ,
 Salario_Max int ,
