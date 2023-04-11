@@ -38,7 +38,7 @@ public class UsuariosDAO {
     }
 
     public void Cadastrar(UsuariosDTO objUsuariosDTO) throws ClassNotFoundException {
-        String sql = "insert into tbUsuarios(Email, Nome, Idade, Senha) values(?,?,?)";
+        String sql = "insert into tbUsuarios(Email, Nome, Senha) values(?,?,?)";
         conexao = new ConexaoDAO().conexaoBD();
 
         try {
