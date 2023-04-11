@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Submit a job</title>
+    <link rel="stylesheet" href="../css/submitJob.css" />
+    <link rel="stylesheet" href="../css/navbar.css" />
+    <link rel="shortcut icon" href="../img/logo.png" type="image/x-icon" />
+    <script
+      src="https://kit.fontawesome.com/7a342b9685.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <section>
+      <div class="navbar">
+        <div class="left-nav">
+          <a href="../index.html" class="brand"
+            ><img src="../img/logo.png" alt="Logo" class="logo" height="30"
+          /></a>
+        </div>
+
+        <div class="nav-middle">
+          <nav class="nav-menu">
+            <a href="../index.html" class="nav-link">Home</a>
+            <a href="#" class="nav-link">Empresas</a>
+            <a href="../pages/browse.html" class="nav-link">Browse</a>
+            <a href="#" class="nav-link">Blog</a>
+          </nav>
+        </div>
+
+        <div>
+          <nav class="right-nav">
+            <a href="#" class="nav-link">Poste um Emprego</a>
+            <form action="./login.html">
+              <button class="btn-primary">Log in</button>
+            </form>
+          </nav>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="top-info">
+        <div>
+          <h2>Cadastrar emprego</h2>
+        </div>
+        <div>
+          <p>
+            "Não deixe seu negócio sem funcionários, preencha seu futuro
+            conosco! Cadastre-se agora e comece a construir uma trajetória de
+            sucesso."
+          </p>
+        </div>
+      </div>
+    </section>
+
+
+    <section class="cadastrar-form-container">
+
+        <div class="cadastrar-form">
+            <div class="header-cadastrar">
+                <div>
+                    <span>1</span>
+                </div>
+                <h2>Informação de emprego</h2>
+            </div>
+            <form action="">
+               
+                <div>
+                    <label for="titulo">Título emprego</label>
+                    <input  id="titulo" type="text" required>
+                </div>
+                
+                <div>
+                    <label for="cargo">Cargo</label>
+                    <input id="cargo" type="text" required>
+                </div>
+
+                <div>
+                    <label for="min-salario">Salário mínimo</label>
+                    <input id="min-salario" type="number" min="5000" required>
+                </div>
+
+                <div>
+                    <label for="max-salario">Salário máximo</label>
+                    <input id="max-salario" type="number" min="5000" required>
+                </div>
+
+                
+                <select class="class="custom-select"" name="categoria" id="categoria">
+                    <option selected disabled>Selecionar categoria:</option>
+                    <option value="">hiiii</option>
+                    <option value="">aaaa</option>
+                </select>
+            </form>
+        </div>
+
+    </section>
+
+    
+  </body>
+</html>
