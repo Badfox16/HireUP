@@ -43,11 +43,11 @@
           <h3>Login</h3>
           <p>Faça login para criar e se candidatar a empregos</p>
         </div>
-        <form action="" method="post">
+        <form action="login.jsp" method="post">
           <label for="email">Email</label>
-          <input type="email" name="Email" maxlength="120" placeholder="" id="email" class="form-field w-input">
-          <label for="password">Password</label>
-          <input type="password" name="Password" id="password" maxlength="20" class="form-field w-input" placeholder="">
+          <input type="email" name="email" maxlength="120" required="" placeholder="" id="email" class="form-field w-input">
+          <label for="password">Senha</label>
+          <input type="password" name="senha" id="password"  required="" maxlength="80" class="form-field w-input" placeholder="">
           <input type="submit" value="Login" data-wait="Por favor aguarde..." class="btn-primary w-button">
         </form>
         <div class="form-footer">
