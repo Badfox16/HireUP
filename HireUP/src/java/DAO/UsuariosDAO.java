@@ -21,7 +21,6 @@ public class UsuariosDAO {
         conexao = new ConexaoDAO().conexaoBD();
         
         try {
-
             prepS = conexao.prepareStatement(sql);
             
             prepS.setString(1, objUsuariosDTO.getEmail());
