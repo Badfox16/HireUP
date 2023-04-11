@@ -1,10 +1,12 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 	<head>
 		<meta charset="UTF-8" />
 		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<link rel="stylesheet" href="./css/index.css" />
+		<link rel="stylesheet" href="./css/navbar.css" />
+		<link rel="shortcut icon" href="./img/logo.png" type="image/x-icon" />
 		<script
 			src="https://kit.fontawesome.com/1f168297b1.js"
 			crossorigin="anonymous"
@@ -12,15 +14,44 @@
 		<title>HireUp - Home...</title>
 	</head>
 	<body>
+		<header>
+			<div class="navbar">
+				<div class="left-nav">
+					<a href="#" class="brand"
+						><img
+							src="./img/logo.png"
+							alt="Logo"
+							class="logo"
+							height="30"
+					/></a>
+				</div>
+
+				<div class="nav-middle">
+					<nav class="nav-menu">
+						<a href="#" class="nav-link">Home</a>
+						<a href="#" class="nav-link">Empresas</a>
+						<a href="#" class="nav-link">Browse</a>
+						<a href="#" class="nav-link">Blog</a>
+					</nav>
+				</div>
+
+				<div>
+					<nav class="right-nav">
+						<a href="#" class="nav-link">Poste um Emprego</a>
+						<button class="btn-primary">Log in</button>
+					</nav>
+				</div>
+			</div>
+		</header>
 		<main>
 			<section class="left-side">
 				<div class="new">
 					<p>New</p>
-					<p>Stay connected to get upcoming jobs</p>
+					<p>Fique conectado para obter os os melhores trabalhos</p>
 				</div>
 				<div class="find">
-					<h1>Find the most</h1>
-					<h1>exciting startup jobs</h1>
+					<h1>Encontre os</h1>
+					<h1>trabalhos mais interessantes do mercado</h1>
 				</div>
 				<div class="left-content">
 					<p>
@@ -32,7 +63,12 @@
 				<div class="search">
 					<form action="">
 						<i class="fa-solid fa-magnifying-glass"></i>
-						<input type="search" name="" id="" placeholder="Search..." />
+						<input
+							type="search"
+							name=""
+							id=""
+							placeholder="Pesquise..."
+						/>
 						<button>Search</button>
 					</form>
 				</div>
@@ -44,9 +80,7 @@
 							src="https://assets.website-files.com/63337525695d8ba70ab44222/6358b2bbb9fdec69f1b1c7a4_adam-rhodes-ep5lX958f7E-unsplash-p-2000.webp"
 							alt=""
 						/>
-						<figcaption>
-							Partnership with Glassdoor and LinkedIn
-						</figcaption>
+						<figcaption>O mais alto que você possa ir.</figcaption>
 					</figure>
 				</div>
 			</section>
