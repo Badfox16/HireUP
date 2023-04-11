@@ -71,30 +71,59 @@
                
                 <div>
                     <label for="titulo">Título emprego</label>
-                    <input  id="titulo" type="text" required>
+                    <input name="titulo" id="titulo" type="text" required>
                 </div>
                 
                 <div>
                     <label for="cargo">Cargo</label>
-                    <input id="cargo" type="text" required>
+                    <input name="posicao" id="cargo" type="text" required>
                 </div>
 
                 <div>
                     <label for="min-salario">Salário mínimo</label>
-                    <input id="min-salario" type="number" min="5000" required>
+                    <input name="salario_min" id="min-salario" type="number" min="5000" required>
                 </div>
 
                 <div>
                     <label for="max-salario">Salário máximo</label>
-                    <input id="max-salario" type="number" min="5000" required>
+                    <input name="salario_max" id="max-salario" type="number" min="5000" required>
                 </div>
 
                 
-                <select class="class="custom-select"" name="categoria" id="categoria">
-                    <option selected disabled>Selecionar categoria:</option>
-                    <option value="">hiiii</option>
-                    <option value="">aaaa</option>
-                </select>
+                <div>
+                    <select name="categoria" id="categoria" required>
+                        <option selected disabled>Selecionar categoria:</option>
+                        <option value=""></option>
+                        <option value=""></option>
+                    </select>
+                </div>
+
+                <div>
+                    <label for="location">Localização</label>
+                    <input id="location" name="localizacao" placeholder="Beira" type="address" required>
+                </div>
+
+                <div>
+                    <select name="tipo" id="tipo-emprego" required>
+                        <option selected disabled>Selecione o tipo de emprego:</option>
+                        <option value="">Full time</option>
+                        <option value="">Part Time</option>
+                    </select>
+                </div>
+
+                <div>
+                    <label for="requisitos">Requisitos do emprego:</label>
+                    <textarea required name="requisitos" id="requisitos" cols="30" rows="15" placeholder="Digite os requisitos necessários que a empresa precisa"></textarea>
+                </div>
+
+                <div>
+                    <label for="descricao">Descrição do emprego:</label>
+                    <textarea name="descricao" id="descricao" cols="30" rows="15" placeholder="Digite as obrigações do funcionário" required></textarea>
+                </div>
+
+                <div>
+                    <button>Submeter</button>
+                </div>
             </form>
         </div>
 
