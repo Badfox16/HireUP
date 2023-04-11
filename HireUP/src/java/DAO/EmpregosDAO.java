@@ -20,7 +20,7 @@ public class EmpregosDAO {
     ResultSet rSet;
 
     public void Cadastrar(EmpregosDTO objEmpregosDTO) throws ClassNotFoundException {
-        String sql = "insert into tbEmpregos(Titulo, Posicao, SalarioMin, SalarioMax, Categoria, Localizacao, Tipo, Descricao, Requisitos) values(?,?,?,?,?,?,?,?,?)";
+        String sql = "insert into tbempregos(Titulo, Posicao, Salario_Min, Salario_Max, Categoria, Localizacao, Tipo, Descricao, Requisitos) values(?,?,?,?,?,?,?,?,?)";
         conexao = new ConexaoDAO().conexaoBD();
 
         try {
