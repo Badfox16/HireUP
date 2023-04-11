@@ -62,13 +62,11 @@ p {
     display: flex;
     align-items: center;
     justify-content: center;
-    border: solid red;
 }
 
 .cadastrar-form{
     background-color: #f9f9fb;
     padding: 5rem;
-    border: solid green;
     width: 60rem;
 }
 
