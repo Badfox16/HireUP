@@ -14,10 +14,11 @@
     ></script>
   </head>
   <body>
+
     <section>
       <div class="navbar">
         <div class="left-nav">
-          <a href="#" class="brand"><img src="../img/logo.png" alt="Logo" class="logo"  height="30"></a>
+          <a href="../index.html" class="brand"><img src="../img/logo.png" alt="Logo" class="logo"  height="30"></a>
     
         </div>
     
@@ -34,13 +35,17 @@
         <div>
           <nav class="right-nav">
             <a href="#" class="nav-link">Poste um Emprego</a>
-          <button class="btn-primary">Log in</button>
+          <form action="./login.html">
+            <button class="btn-primary">Log in</button>
+          </form>
           </nav>
           
         </div>
       </div>
 
+
     </section>
+
     <section>
       <div class="top-info">
         <div>
@@ -57,7 +62,7 @@
       <form action="./searchResults.html" class="search1">
         <div class="input-wrapper">
           <span><i class="fa-solid fa-magnifying-glass"></i></span>
-          <input type="search" placeholder="Pesquisar..." />
+          <input type="search" name="pesquisa" placeholder="Pesquisar..." />
         </div>
         <button>pesquisar</button>
       </form>
@@ -130,7 +135,13 @@
                 <span><i class="fa-solid fa-coins"></i> <span class="dollar-sign"><i class="fa-solid fa-dollar-sign"></i></span> 150k <span>-</span> 200k </span>
               </div>
               <div class="card-ver-mais">
-                <form action="" method="post">
+                <form action="./applyTo.html" method="post">
+                  <input type="hidden" name="">
+                  <input type="hidden" name="">
+                  <input type="hidden" name="">
+                  <input type="hidden" name="">
+                  <input type="hidden" name="">
+                  
                   <button>Ver mais</button>
                 </form>
               </div>
