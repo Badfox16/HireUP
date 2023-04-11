@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Browse Jobs!</title>
     <link rel="stylesheet" href="../css/browse.css" />
+    <link rel="stylesheet" href="../css/navbar.css">
     <script
       src="https://kit.fontawesome.com/7a342b9685.js"
       crossorigin="anonymous"
@@ -13,16 +14,40 @@
   </head>
   <body>
     <section>
+      <div class="navbar">
+        <div class="left-nav">
+          <a href="#" class="brand"><img src="../img/logo.png" alt="Logo" class="logo"  height="30"></a>
+    
+        </div>
+    
+        <div class="nav-middle">
+          <nav class="nav-menu">
+            <a href="../index.html" class="nav-link">Home</a>
+            <a href="#" class="nav-link">Empresas</a>
+            <a href="../pages/browse.html" class="nav-link">Browse</a>
+            <a href="#" class="nav-link">Blog</a>
+          </nav>
+        </div>
+    
+    
+        <div>
+          <nav class="right-nav">
+            <a href="#" class="nav-link">Poste um Emprego</a>
+          <button class="btn-primary">Log in</button>
+          </nav>
+          
+        </div>
+      </div>
+
+    </section>
+    <section>
       <div class="top-info">
         <div>
-          <h2>Build a complete job board with Webflow memberships</h2>
+          <h2>Descubra as melhores ofertas de empregos para si</h2>
         </div>
         <div>
           <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum
-            culpa in inventore amet dolores totam eaque doloremque dignissimos
-            similique impedit nesciunt repudiandae sed, obcaecati iste molestias
-            qui officia adipisci nulla!
+            "A sua busca por emprego começa aqui. Conheça agora mesmo o nosso website e encontre as melhores oportunidades de trabalho, de forma fácil e rápida!" - ChatOpenAI, 2023.
           </p>
         </div>
       </div>
@@ -31,9 +56,9 @@
       <form action="" class="search1">
         <div class="input-wrapper">
           <span><i class="fa-solid fa-magnifying-glass"></i></span>
-          <input type="search" placeholder="Search..." />
+          <input type="search" placeholder="Pesquisar..." />
         </div>
-        <button>Search</button>
+        <button>pesquisar</button>
       </form>
     </section>
     <section class="listar-jobs">
@@ -41,7 +66,7 @@
         <div class="left-filters">
           <div>
             <p>
-              <span><i class="fa-solid fa-circle-info"></i></span>Filter Jobs
+              <span><i class="fa-solid fa-circle-info"></i></span>Filtrar  vagas
             </p>
           </div>
 
@@ -75,13 +100,43 @@
                 <label for="Categories">teste</label>
               </div>
             </div>
-            <hr />
+            <hr/>
           </div>
         </div>
 
         <div class="right-filter">
           <div class="top-right-filter">
-            <h2>Showing</h2>
+            <h2>Vagas filtradas</h2>
+          </div>
+
+          <div class="mostrar-jobs">
+            <!-- listar jobs com jsp-->
+            <div class="card-jobs">
+              <div class="card-top">
+                <div>
+                  <img src="https://upload.wikimedia.org/wikipedia/commons/3/35/Tux.svg" width="100%">
+                </div>
+                <span>Nome_Empresa</span>
+              </div>
+              <div class="card-middle">
+                <span>Front-end Developer</span>
+              </div>
+              <div class="card-category-and-type">
+                <div>Marketing</div>
+                <div>Part Time</div>
+              </div>
+              <div class="card-botttom">
+                <span><i class="fa-solid fa-coins"></i> <span class="dollar-sign"><i class="fa-solid fa-dollar-sign"></i></span> 150k <span>-</span> 200k </span>
+              </div>
+              <div class="card-ver-mais">
+                <form action="" method="post">
+                  <button>Ver mais</button>
+                </form>
+              </div>
+            </div>
+            <!-- termina aqui listar-->
+            
+            
           </div>
         </div>
       </div>
