@@ -18,19 +18,15 @@
 			<div class="navbar">
 				<div class="left-nav">
 					<a href="#" class="brand"
-						><img
-							src="./img/logo.png"
-							alt="Logo"
-							class="logo"
-							height="30"
+						><img src="img/logo.png" alt="Logo" class="logo" height="30"
 					/></a>
 				</div>
 
 				<div class="nav-middle">
 					<nav class="nav-menu">
-						<a href="#" class="nav-link">Home</a>
+						<a href="index.html" class="nav-link">Home</a>
 						<a href="#" class="nav-link">Empresas</a>
-						<a href="#" class="nav-link">Browse</a>
+						<a href="pages/browse.html" class="nav-link">Browse</a>
 						<a href="#" class="nav-link">Blog</a>
 					</nav>
 				</div>
@@ -38,7 +34,9 @@
 				<div>
 					<nav class="right-nav">
 						<a href="#" class="nav-link">Poste um Emprego</a>
-						<button class="btn-primary">Log in</button>
+						<form action="./pages/login.jsp">
+							<button class="btn-primary">Log in</button>
+						</form>
 					</nav>
 				</div>
 			</div>
@@ -65,7 +63,7 @@
 						<i class="fa-solid fa-magnifying-glass"></i>
 						<input
 							type="search"
-							name=""
+							name="pesquisa"
 							id=""
 							placeholder="Pesquise..."
 						/>

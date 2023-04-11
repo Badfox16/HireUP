@@ -17,7 +17,7 @@ public class UsuariosDAO {
     ResultSet rSet;
     
     public ResultSet LoginUsr(UsuariosDTO objUsuariosDTO) throws ClassNotFoundException{
-        String sql = "select * from tbUsuarios where Email = ? and Password = ?";
+        String sql = "select * from tbUsuarios where Email = ? and Senha = ?";
         conexao = new ConexaoDAO().conexaoBD();
         
         try {
@@ -38,7 +38,7 @@ public class UsuariosDAO {
     }
 
     public void Cadastrar(UsuariosDTO objUsuariosDTO) throws ClassNotFoundException {
-        String sql = "insert into tbUsuarios(Email, Nome, Idade, Senha) values(?,?,?)";
+        String sql = "insert into tbUsuarios(Email, Nome, Senha) values(?,?,?)";
         conexao = new ConexaoDAO().conexaoBD();
 
         try {

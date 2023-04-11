@@ -12,9 +12,7 @@
         <%
             try {
                 UsuariosDTO objUsuariosDTO = new UsuariosDTO();
-                if (!(request.getParameter("email") == null && request.getParameter("nome") == null
-                        && request.getParameter("senha") == null)) {
-                        
+                  
                     objUsuariosDTO.setEmail(request.getParameter("email"));
                     objUsuariosDTO.setNome(request.getParameter("nome"));
                     objUsuariosDTO.setSenha(request.getParameter("senha"));
@@ -22,12 +20,13 @@
                     UsuariosDAO objUsuariosDAO = new UsuariosDAO();
                     objUsuariosDAO.Cadastrar(objUsuariosDTO);
 
-                }
+                    response.sendRedirect("login.html");
+                    
             } catch (Exception e) {
                 out.print("<script> alert('O login falhou')</script>");
             }
 
-            response.sendRedirect("login.html");
+            
         %>
     </body>
 </html>

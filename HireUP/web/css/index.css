@@ -118,3 +118,9 @@ form {
 	width: 100%;
 	height: 560px;
 }
+.right-side figcaption {
+	color: var(--color-GraySmoke);
+	text-align: center;
+	border: 1px solid #3e404c1e;
+	font-style: italic;
+}
