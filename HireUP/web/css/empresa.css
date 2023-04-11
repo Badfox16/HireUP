@@ -1,0 +1,72 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400&family=Open+Sans:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500;1,600&display=swap");
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	overflow: hidden;
+}
+:root {
+	--color-GraySmoke: #3e404c;
+	--bg-BlueMain: #443fde;
+	--bg-BlueButton: #3935b6;
+}
+body {
+	font-family: "Inter", sans-serif;
+	width: 100vw;
+	height: 100vh;
+}
+main {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	margin: 0 auto;
+	height: 100%;
+}
+
+#prev {
+	position: absolute;
+	left: 12%;
+	top: 55%;
+}
+#next {
+	position: absolute;
+	right: 12%;
+	top: 55%;
+}
+.btn {
+	width: 100px;
+	border-radius: 5px;
+	border: 1px solid black;
+	font-size: 12px;
+	font-weight: bold;
+	padding: 12px 25px;
+	cursor: pointer;
+	transition: all 0.35s ease-in-out;
+}
+
+.infinite-carousel {
+	position: relative;
+	width: 10%;
+	height: 25rem;
+	margin: auto;
+	overflow: hidden;
+	margin: 10px auto;
+	display: block;
+	justify-content: center;
+	border-radius: 5px;
+}
+.carousel-wrapper {
+	overflow: hidden;
+	position: relative;
+	left: 50%;
+	transform: translateX(-50%);
+}
+
+.carousel-items {
+	width: 10000px;
+	position: relative;
+	display: flex;
+	overflow-x: auto;
+	-webkit-overflow-scrolling: touch;
+}
