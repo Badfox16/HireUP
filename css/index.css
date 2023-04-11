@@ -1,0 +1,88 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400&family=Open+Sans:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500;1,600&display=swap");
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+:root {
+	--color-GraySmoke: #3e404c;
+	--bg-BlueMain: #443fde;
+	--bg-BlueButton: #3935b6;
+}
+body {
+	font-family: "Inter", sans-serif;
+	width: 100vw;
+	height: 100vh;
+}
+main {
+	display: flex;
+	width: 80%;
+	/* height: 100%; */
+	justify-content: center;
+	align-items: center;
+	margin: 0 auto;
+	gap: 1rem;
+}
+
+.left-side {
+	float: left;
+	width: 50%;
+}
+.left-side .new {
+	display: flex;
+	gap: 0.5rem;
+}
+.new p:first-of-type {
+	background-color: var(--bg-BlueMain);
+	color: white;
+	font-size: 0.8rem;
+	font-weight: 600;
+	padding: 0.2rem 0.5rem;
+}
+.new p:last-of-type {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-size: 0.8rem;
+}
+.find {
+	padding: 1rem 0;
+	font-size: 2rem;
+}
+.find h1 {
+	letter-spacing: 0.1em;
+}
+.left-content {
+	width: 60%;
+	text-align: justify;
+}
+.left-content p {
+	font-size: 1rem;
+	line-height: 1.5rem;
+	color: var(--color-GraySmoke);
+}
+.search {
+	display: flex;
+	margin-top: 1rem;
+	position: relative;
+}
+.search i {
+	position: absolute;
+}
+.search input[type="search"] {
+	width: 19rem;
+	height: 5rem;
+}
+.search button {
+	border: none;
+	background-color: var(--bg-BlueButton);
+	color: white;
+	padding: 0px 60px;
+}
+.right-side {
+	float: right;
+	width: 50%;
+}
+.right-side img {
+	width: 80%;
+}

@@ -1,32 +1,65 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../css/navbar.css">
-    <title>Document</title>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../css/login.css">
+  <title>Document</title>
 </head>
+
 <body>
-    <div id="navbar">
-        <div class="leftnav">
+  <div class="navbar">
+    <div class="left-nav">
+      <a href="#" class="brand"><img src="../img/logo.png" alt="Logo" class="logo"  height="30"></a>
 
-        </div>
-        <a href="#">Home</a>
-        <a href="#">News</a>
-        <a href="#">News</a>
-        <a href="#">Blog</a>
-
-        <div class="rightnav">
-
-        </div>
-      </div>
-
-      <div>Alguma coisa</div>
-      <p>Outra coisa</p>
-      <div><h3>alguma coisa</h3>
-    <p>e outra coisa</p>
     </div>
-      <script src="../js/navbar.js"></script>
+
+    <div class="nav-middle">
+      <nav class="nav-menu">
+        <a href="#" class="nav-link">Home</a>
+        <a href="#" class="nav-link">Company</a>
+        <a href="#" class="nav-link">Browse</a>
+        <a href="#" class="nav-link">Blog</a>
+      </nav>
+    </div>
+
+
+    <div>
+      <nav class="right-nav">
+        <a href="#" class="nav-link">Post a Job</a>
+      <button class="btn-primary">Log in</button>
+      </nav>
+      
+    </div>
+  </div>
+
+  <div class="content">
+    <div class="left">
+      <div class="form-block">
+        <div class="form-title">
+          <h3>Login</h3>
+          <p>Faça login para criar e se candidatar a empregos</p>
+        </div>
+        <form action="" method="post">
+          <label for="email">Email</label>
+          <input type="email" name="Email" maxlength="120" placeholder="" id="email" class="form-field w-input">
+          <label for="password">Password</label>
+          <input type="password" name="Password" id="password" maxlength="20" class="form-field w-input" placeholder="">
+          <input type="submit" value="Login" data-wait="Por favor aguarde..." class="btn-primary w-button">
+        </form>
+      </div>
+    </div>
+    
+    <div class="right">
+      <div class="content-block">
+        <h1>Bem-vindo ao HireUP.</h1>
+      </div>
+    </div>
+  </div>
+
+  <script src="../js/navbar.js"></script>
 </body>
+
 </html>
