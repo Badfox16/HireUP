@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Archivo:wght@100;300;400;700;800;900&family=Inter:wght@100;400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Archivo:wght@100;300;400;700;800;900&family=Inter:wght@100;200;300;400;500;600;700;800;900&family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap');
 
 * {
   margin: 0;
@@ -103,7 +103,7 @@ input[type="search"]::-webkit-search-results-decoration {
   display: none;
 }
 
-.search button {
+.search button , .card-ver-mais>form>button{
   padding: 10px 32px;
   background-color: #443fde;
   transition: all 500ms cubic-bezier(0.6, 0.6, 0, 1);
@@ -114,18 +114,20 @@ input[type="search"]::-webkit-search-results-decoration {
   font-weight: 500;
   text-align: center;
   letter-spacing: -0.02em;
+  text-transform: capitalize;
   border: none;
 }
 
-.search button:hover {
+.search button:hover , .card-ver-mais>form>button:hover{
   background-color: #3935b6;
 }
 
 .listar-jobs {
-  height: 500rem;
+  height: 100%;
   width: 100%;
   padding: 2rem;
   margin-top: -4.5rem;
+  margin-bottom: 0;
 }
 
 .background-listar-jobs {
@@ -135,7 +137,6 @@ input[type="search"]::-webkit-search-results-decoration {
 }
 
 .left-filters{
-  border: solid red;
   width: 15rem;
 }
 
@@ -159,6 +160,10 @@ input[type="search"]::-webkit-search-results-decoration {
   line-height: 1.8;
   font-weight: 500;
   letter-spacing: -0.02em;
+}
+
+.background-listar-jobs > div > div:first-child p > span .fa-solid{
+  margin-right: 0.5rem;
 }
 
 .div-filters button{
@@ -226,16 +231,115 @@ input[type="search"]::-webkit-search-results-decoration {
 }
 
 .right-filter{
-  border: red solid;
-  padding: 0 5rem;
+  padding-left:5rem;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 51rem;
 }
 
 .right-filter .top-right-filter h2{
-  
   margin-bottom: 0px;
   font-size: 14px;
   line-height: 1.6;
   letter-spacing: -0.02em;
   color: #030407;
+  text-align: center;
+}
 
+.right-filter .mostrar-jobs{
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin-left: 1.5rem;
+}
+.right-filter .mostrar-jobs .card-jobs{
+  background-color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  padding: 1rem;
+  width: 20rem;
+  margin-bottom: 5rem;
+}
+
+.right-filter .mostrar-jobs .card-jobs div{
+  margin: 0.5rem 0;
+}
+
+.right-filter .mostrar-jobs .card-jobs .card-top{
+  display: flex;
+  width: 100%;
+  align-items: center;
+}
+
+.right-filter .mostrar-jobs .card-jobs .card-top div:first-child{
+  width: 3rem;
+  padding: 0.5rem;
+  background-color: #fff;
+  margin-right: 1rem;
+  border: 1px solid #ebebef;
+}
+.right-filter .mostrar-jobs .card-jobs .card-top span{
+  margin-top: 0px;
+  margin-bottom: 0px;
+  font-size: 16px;
+  line-height: 1.8;
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  color: #030407;
+}
+
+.right-filter .mostrar-jobs .card-jobs .card-middle{
+  width: 100%;
+  word-wrap: break-word;
+}
+
+.right-filter .mostrar-jobs .card-jobs .card-middle span{
+  margin-top: 0px;
+  margin-bottom: 0px;
+  font-family: Archivo, sans-serif;
+  font-size: 18px;
+  line-height: 1.3;
+  font-weight: 700;
+}
+
+.right-filter .mostrar-jobs .card-jobs .card-category-and-type{
+  display: flex;
+}
+
+.right-filter .mostrar-jobs .card-jobs .card-category-and-type div{
+  display: inline-block;
+  padding: 6px 12px;
+  background-color: #f3f3fc;
+  margin-right: 1rem;
+}
+
+.right-filter .mostrar-jobs .card-jobs .card-category-and-type div:first-child{
+  color: #443fde;
+}
+
+.right-filter .mostrar-jobs .card-jobs .card-category-and-type div:last-child{
+  color: #c98b40;
+}
+
+.right-filter .mostrar-jobs .card-jobs .card-bottom{
+  display: flex;
+  color:#606476;
+  font-weight: 500;
+  letter-spacing: -0.03em;
+}
+
+.right-filter .mostrar-jobs .card-jobs .card-bottom span{
+  color:#606476;
+  font-weight: 500;
+  letter-spacing: -0.03em;
+}
+.card-ver-mais{
+  display: flex;
+  margin-top: 2rem;
+  align-items: center;
+  justify-content:center ;
 }
