@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Browse Jobs!</title>
+    <link rel="stylesheet" href="../css/browse.css" />
+    <script
+      src="https://kit.fontawesome.com/7a342b9685.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <section>
+      <div class="top-info">
+        <div>
+          <h2>Build a complete job board with Webflow memberships</h2>
+        </div>
+        <div>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum
+            culpa in inventore amet dolores totam eaque doloremque dignissimos
+            similique impedit nesciunt repudiandae sed, obcaecati iste molestias
+            qui officia adipisci nulla!
+          </p>
+        </div>
+      </div>
+    </section>
+    <section class="search">
+      <form action="" class="search1">
+        <div class="input-wrapper">
+          <span><i class="fa-solid fa-magnifying-glass"></i></span>
+          <input type="search" placeholder="Search..." />
+        </div>
+        <button>Search</button>
+      </form>
+    </section>
+    <section class="listar-jobs">
+      <div class="background-listar-jobs">
+        <div class="left-filters">
+          <div>
+            <p>
+              <span><i class="fa-solid fa-circle-info"></i></span>Filter Jobs
+            </p>
+          </div>
+
+          <div class="div-filters">
+            <button onclick="mostrar()">
+              Job Types <span><i class="fa-solid fa-angle-down"></i></span>
+            </button>
+            <div class="checkbox-wrapper">
+              <div><input type="checkbox" /> <label>teste</label></div>
+            </div>
+            <hr />
+          </div>
+          <div class="div-filters">
+            <button onclick="mostrar()">
+              Roles <span><i class="fa-solid fa-angle-down"></i></span>
+            </button>
+            <div class="checkbox-wrapper">
+              <div><input type="checkbox" /> <label>teste</label></div>
+            </div>
+            <hr />
+          </div>
+
+          <div class="div-filters">
+            <button onclick="mostrar()">
+              Categories <span><i class="fa-solid fa-angle-down"></i></span>
+            </button>
+
+            <div class="checkbox-wrapper">
+              <div>
+                <input type="checkbox" id="Categories" />
+                <label for="Categories">teste</label>
+              </div>
+            </div>
+            <hr />
+          </div>
+        </div>
+
+        <div class="right-filter">
+          <div class="top-right-filter">
+            <h2>Showing</h2>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <script>
+      function mostrar() {
+        let elemento =
+          event.currentTarget.parentElement.querySelector(".checkbox-wrapper");
+        elemento.style.display === "block"
+          ? (elemento.style.display = "none")
+          : (elemento.style.display = "block");
+      }
+    </script>
+  </body>
+</html>

@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Archivo:wght@100;300;400;700;800;900&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Archivo:wght@100;300;400;700;800;900&family=Inter:wght@100;400;700&display=swap');
 
 * {
   margin: 0;
@@ -134,10 +134,108 @@ input[type="search"]::-webkit-search-results-decoration {
   display: flex;
 }
 
-.background-listar-jobs>div>div:first-child{
-  
+.left-filters{
+  border: solid red;
+  width: 15rem;
 }
 
-.background-listar-jobs>div>div:first-child p{
+.background-listar-jobs > div > div:first-child{
+  margin-bottom: 2rem;
+}
+
+.background-listar-jobs > div > div:first-child p {
   color: #443fde;
+  font-size: 14px;
+  line-height: 1.8;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.background-listar-jobs > div > div:first-child p > span {
+  margin-top: 0px;
+  margin-bottom: 0px;
+  font-size: 16px;
+  line-height: 1.8;
+  font-weight: 500;
+  letter-spacing: -0.02em;
+}
+
+.div-filters button{
+  color: #222222;
+  cursor: pointer;
+  margin-top: 0px;
+  border: none;
+  background-color: transparent;
+  margin-bottom: 0px;
+  font-size: 16px;
+  line-height: 1.8;
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  position: relative;
+}
+
+
+.div-filters button span{
+  display: flex;
+  align-items: center;
+  position: absolute;
+  right: 0.5rem;
+}
+
+.div-filters .checkbox-wrapper{
+  width: 100%;
+  border: none;
+  display: none;
+} 
+
+.div-filters .checkbox-wrapper div{
+  display: flex;
+  align-items: center;
+  margin: 1.5rem 0;
+  border: none;
+  user-select: none;
+}
+
+.div-filters .checkbox-wrapper div input{
+    width: 20px;
+    height: 20px;
+    margin-top: 0px;
+    margin-right: 12px;
+    border-color: #d6d7e0;
+    border-radius: 0px;
+    cursor: pointer;
+}
+
+.div-filters .checkbox-wrapper div label{
+  margin-bottom: 0px;
+  font-size: 16px;
+  line-height: 1.8;
+  letter-spacing: -0.02em;  
+  cursor: pointer;
+}
+
+.div-filters hr{
+  height: 1px;
+  margin-top: 12px;
+  margin-bottom: 12px;
+  background-color: #e9ecf0;
+}
+
+.right-filter{
+  border: red solid;
+  padding: 0 5rem;
+}
+
+.right-filter .top-right-filter h2{
+  
+  margin-bottom: 0px;
+  font-size: 14px;
+  line-height: 1.6;
+  letter-spacing: -0.02em;
+  color: #030407;
+
 }
