@@ -68,7 +68,7 @@
             </div>
         </section>
         <section class="search">
-            <form action="./searchResults.html" class="search1">
+            <form action="RedirecionarPesquisa.jsp" class="search1">
                 <div class="input-wrapper">
                     <span><i class="fa-solid fa-magnifying-glass"></i></span>
                     <input type="search" name="pesquisa" placeholder="Pesquisar..." />
@@ -131,9 +131,15 @@
                             EmpregosDAO dao = new EmpregosDAO();
                             List<EmpregosDTO> lista = (List<EmpregosDTO>) dao.listarEmpregos();
                             
-
+                            if(lista.isEmpty() == true){
+                                out.print("<div class=\"card-jobs\"><h3>nenhum dado existente encontrado</h3></div>");
+                                
+                            }else{
                             for (EmpregosDTO novoDado : lista){
                         %>
+                        
+                        
+                        
                         
                         <div class="card-jobs">
                             <div class="card-top">
@@ -168,7 +174,10 @@
                             </div>
                         </div>
                         
-                        <% } %>
+                        <% }
+
+                        }
+                        %>
                         <!-- termina aqui listar-->
                     </div>
                 </div>

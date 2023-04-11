@@ -76,29 +76,37 @@
 
                 <div class="mostrar-jobs">
                     <!-- listar jobs com jsp-->
-                    
+
                     <%
                         List<EmpregosDTO> teste = (List<EmpregosDTO>) request.getAttribute("listar");
                         
-                        for(EmpregosDTO novoDado: teste){
+                        if(teste.isEmpty() == true){
+                                out.print("<div class=\"card-jobs\"><h3>nenhum dado existente encontrado</h3></div>");
+                                
+                            }else{
+
+                        for (EmpregosDTO novoDado : teste) {
                     %>
-                    
+
                     <div class="card-jobs">
                         <div class="card-top">
                             <div>
                                 <img src="https://upload.wikimedia.org/wikipedia/commons/3/35/Tux.svg" width="100%">
                             </div>
-                            <span> <%= novoDado.getTitulo() %> </span>
+                            <span> <%= novoDado.getTitulo()%> </span>
                         </div>
                         <div class="card-middle">
                             <span><%= novoDado.getPosicao()%> </span>
                         </div>
                         <div class="card-category-and-type">
                             <div><%= novoDado.getCategoria()%></div>
-                            <div><%= novoDado.getTipo() %> </div>
+                            <div><%= novoDado.getTipo()%> </div>
                         </div>
                         <div class="card-botttom">
-                            <span><i class="fa-solid fa-coins"></i> <span class="dollar-sign"><i class="fa-solid fa-dollar-sign"></i></span> <%= novoDado.getSalarioMin()%> <span>-</span> <%= novoDado.getSalarioMax()%> Mzn </span>
+                            <span>
+                                <i class="fa-solid fa-coins"></i> 
+                                <span class="dollar-sign"><i class="fa-solid fa-dollar-sign"></i></span>
+                                <%= novoDado.getSalarioMin()%> <span>-</span> <%= novoDado.getSalarioMax()%> Mzn </span>
                         </div>
                         <div class="card-ver-mais">
                             <form action="vermais.jsp" method="post">
@@ -113,7 +121,7 @@
                         </div>
                     </div>
 
-                    <% } %>
+                    <% }}%>
 
                 </div>
         </section>
