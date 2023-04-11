@@ -67,7 +67,7 @@
                 </div>
                 <h2>Informação de emprego</h2>
             </div>
-            <form action="">
+            <form action="submitJob.jsp">
                
                 <div>
                     <label for="titulo">Título emprego</label>
@@ -93,21 +93,29 @@
                 <div>
                     <select name="categoria" id="categoria" required>
                         <option selected disabled>Selecionar categoria:</option>
-                        <option value=""></option>
-                        <option value=""></option>
+                        <option value="TI">TI</option>
+                        <option value="Automovel">Automovel</option>
+                        <option value="Culinaria">Culinária</option>
+                        <option value="Agricultura">Agricultura</option>
+                        <option value="Lazer">Lazer</option>
+                        <option value="Saude">Saúde</option>
+                        <option value="Gestão">Gestão</option>
+                        <option value="Direito">Direito</option>
+                        <option value="Outro">Outro</option>
+                        
                     </select>
                 </div>
 
                 <div>
                     <label for="location">Localização</label>
-                    <input id="location" name="localizacao" placeholder="Beira" type="address" required>
+                    <input id="location" name="localizacao" placeholder="Beira" type="text" required>
                 </div>
 
                 <div>
                     <select name="tipo" id="tipo-emprego" required>
                         <option selected disabled>Selecione o tipo de emprego:</option>
-                        <option value="">Full time</option>
-                        <option value="">Part Time</option>
+                        <option value="Full Time">Full time</option>
+                        <option value="Part Time">Part Time</option>
                     </select>
                 </div>
 
