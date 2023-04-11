@@ -40,7 +40,7 @@
             EmpregosDAO dao = new EmpregosDAO();
             dao.Cadastrar(newEmprego);
             
-            response.sendRedirect("browse.html");
+            response.sendRedirect("browse.jsp");
         %>
         
     </body>

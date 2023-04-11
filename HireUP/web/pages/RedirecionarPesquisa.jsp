@@ -21,9 +21,9 @@
         
         List<EmpregosDTO> lista = (List<EmpregosDTO>) dao.pesquisarEmpregos( request.getParameter("pesquisa"));
         
-        request.setAttribute("listar", lista);
         
-        response.sendRedirect("searchResults.jsp");
+        
+        request.getRequestDispatcher("searchResults.jsp").forward(request, response);
         %>
     </body>
 </html>

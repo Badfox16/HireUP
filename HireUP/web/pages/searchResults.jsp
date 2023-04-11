@@ -4,6 +4,7 @@
     Author     : Pedro Nhamirre
 --%>
 
+<%@page import="DAO.EmpregosDAO"%>
 <%@page import="java.util.*"%>
 <%@page import="DTO.EmpregosDTO"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -36,7 +37,7 @@
                     <nav class="nav-menu">
                         <a href="../index.html" class="nav-link">Home</a>
                         <a href="#" class="nav-link">Empresas</a>
-                        <a href="../pages/browse.html" class="nav-link">Pesquise</a>
+                        <a href="../pages/browse.jsp" class="nav-link">Pesquise</a>
                         <a href="#" class="nav-link">Perfil</a>
                     </nav>
                 </div>
@@ -60,7 +61,7 @@
         </section>
 
         <section class="search">
-            <form action="./searchResults.html" class="search1">
+            <form action="./RedirecionarPesquisa.jsp" class="search1">
                 <div class="input-wrapper">
                     <span><i class="fa-solid fa-magnifying-glass"></i></span>
                     <input type="search" name="pesquisa" placeholder="Pesquisar..." />
@@ -78,7 +79,11 @@
                     <!-- listar jobs com jsp-->
 
                     <%
-                        List<EmpregosDTO> teste = (List<EmpregosDTO>) request.getAttribute("listar");
+                        EmpregosDAO dao = new EmpregosDAO();
+                        
+                   
+                        
+                        List<EmpregosDTO> teste = (List<EmpregosDTO>) dao.pesquisarEmpregos(request.getParameter("pesquisa"));
                         
                         if(teste.isEmpty() == true){
                                 out.print("<div class=\"card-jobs\"><h3>nenhum dado existente encontrado</h3></div>");
