@@ -4,6 +4,9 @@
     Author     : Pedro Nhamirre
 --%>
 
+<%@page import="java.util.*"%>
+<%@page import="DTO.EmpregosDTO"%>
+<%@page import="DAO.EmpregosDAO"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -13,6 +16,12 @@
     </head>
     <body>
         <%
+        
+        EmpregosDAO dao = new EmpregosDAO();
+        
+        List<EmpregosDTO> lista = (List<EmpregosDTO>) dao.pesquisarEmpregos( request.getParameter("pesquisa"));
+        
+        request.setAttribute("listar", lista);
         
         response.sendRedirect("searchResults.jsp");
         %>
