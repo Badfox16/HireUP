@@ -25,14 +25,14 @@ public class EmpresasDAO {
 
             prepS.setString(1, objEmpresasDTO.getNomeEmpresa());
             prepS.setString(2, objEmpresasDTO.getContato());
-            prepS.setString(3, objEmpresasDTO.getEmail());        
+            prepS.setString(3, objEmpresasDTO.getEmail());
             prepS.setString(4, objEmpresasDTO.getDescricao());
 
             prepS.execute();
             prepS.close();
             conexao.close();
         } catch (SQLException e) {
-JOptionPane.showMessageDialog(null, "ConexaoSQL: " + e.getMessage());
+            JOptionPane.showMessageDialog(null, "ConexaoSQL: " + e.getMessage());
         }
 
     }
