@@ -6,12 +6,13 @@ html,
 	padding: 0;
 	box-sizing: border-box;
 	scroll-behavior: smooth;
-	overflow-x: auto;
+	overflow-x: hidden;
 }
 :root {
 	--color-GraySmoke: #3e404c;
 	--bg-BlueMain: #443fde;
 	--bg-BlueButton: #3935b6;
+	--color-BorderWhite: #ebebef;
 }
 body {
 	font-family: "Inter", sans-serif;
@@ -82,4 +83,25 @@ main {
 .qualification ul li,
 .about-job p {
 	color: var(--color-GraySmoke);
+}
+
+/* Comecando com os texts */
+.personal-info {
+	display: flex;
+	flex-direction: column;
+	gap: 1rem;
+}
+.pDetails {
+	display: flex;
+	flex-direction: column;
+}
+.pDetailsSub {
+	display: flex;
+	flex-direction: column;
+	gap: 1rem;
+}
+.pDetailsSub input {
+	width: 80%;
+	height: 3rem;
+	border: 2px solid var(--color-BorderWhite);
 }
