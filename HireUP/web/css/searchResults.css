@@ -86,7 +86,6 @@ input[type="search"]::-webkit-search-results-decoration {
   min-height: 45rem;
   background-color: #f9f9fb;
   margin-top: -2rem;
-  border: solid red;
 }
 
 .right-filter .top-right-filter h2 {
@@ -102,7 +101,6 @@ input[type="search"]::-webkit-search-results-decoration {
   width: 100%;
   display: flex;
   flex-wrap: wrap;
-  border: solid red;
 
 }
 .right-filter .mostrar-jobs .card-jobs {
