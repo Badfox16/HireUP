@@ -108,6 +108,10 @@ form {
 .right-side {
 	width: 60vw;
 }
+.right-side .image-height {
+	width: 80%;
+	height: 80vh;
+}
 .right-side img {
 	width: 80%;
 }
