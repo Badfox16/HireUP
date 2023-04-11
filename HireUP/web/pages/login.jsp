@@ -19,8 +19,8 @@
             ResultSet rSetUSR = objUsuariosDAO.LoginUsr(objUsuariosDTO);
             
             if (rSetUSR.next()) {
-                    RequestDispatcher rd = request.getRequestDispatcher("browse.html");
-                    rd.forward(request, response);
+                    response.sendRedirect("browse.html");
+                   
                 } else {
                  RequestDispatcher rd = request.getRequestDispatcher("login.html");
                  out.println("<script> alert('Falha no Login, verifique o email ou senha') </sript>");

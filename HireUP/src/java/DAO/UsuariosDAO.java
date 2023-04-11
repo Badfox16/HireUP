@@ -21,7 +21,6 @@ public class UsuariosDAO {
         conexao = new ConexaoDAO().conexaoBD();
         
         try {
-
             prepS = conexao.prepareStatement(sql);
             
             prepS.setString(1, objUsuariosDTO.getEmail());
@@ -52,7 +51,7 @@ public class UsuariosDAO {
             prepS.close();
             conexao.close();
         } catch (SQLException e) {
-
+JOptionPane.showMessageDialog(null, "ConexaoSQL: " + e.getMessage());
         }
 
     }
