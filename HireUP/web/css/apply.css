@@ -153,3 +153,17 @@ h1 {
 	font-weight: bolder;
 	font-size: 1rem;
 }
+.right-side {
+	width: 13%;
+}
+.right-side button {
+	position: fixed;
+	left: 75%;
+	top: 32%;
+	width: 10%;
+	height: 3.1rem;
+	border: none;
+	background-color: var(--bg-BlueMain);
+	color: white;
+	font-size: 1rem;
+}
