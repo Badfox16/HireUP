@@ -37,14 +37,15 @@ main {
 .btn {
 	width: 100px;
 	border-radius: 5px;
-	border: 1px solid black;
-	font-size: 12px;
-	font-weight: bold;
+	background-color: var(--bg-BlueButton);
+	color: white;
+	font-weight: bolder;
+	font-size: larger;
+	border: none;
 	padding: 12px 25px;
 	cursor: pointer;
 	transition: all 0.35s ease-in-out;
 }
-
 .infinite-carousel {
 	position: relative;
 	width: 10%;
