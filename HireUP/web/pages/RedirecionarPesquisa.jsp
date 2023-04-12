@@ -16,13 +16,6 @@
     </head>
     <body>
         <%
-        
-        EmpregosDAO dao = new EmpregosDAO();
-        
-        List<EmpregosDTO> lista = (List<EmpregosDTO>) dao.pesquisarEmpregos( request.getParameter("pesquisa"));
-        
-        
-        
         request.getRequestDispatcher("searchResults.jsp").forward(request, response);
         %>
     </body>

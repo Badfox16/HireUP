@@ -126,21 +126,21 @@
 
                     <div class="mostrar-jobs">
                         <!-- listar jobs com jsp-->
-                        
+
                         <%
                             EmpregosDAO dao = new EmpregosDAO();
                             List<EmpregosDTO> lista = (List<EmpregosDTO>) dao.listarEmpregos();
-                            
-                            if(lista.isEmpty() == true){
+
+                            if (lista.isEmpty() == true) {
                                 out.print("<div class=\"card-jobs\"><h3>nenhum dado existente encontrado</h3></div>");
-                                
-                            }else{
-                            for (EmpregosDTO novoDado : lista){
+
+                            } else {
+                                for (EmpregosDTO novoDado : lista) {
                         %>
-                        
-                        
-                        
-                        
+
+
+
+
                         <div class="card-jobs">
                             <div class="card-top">
                                 <div>
@@ -149,34 +149,42 @@
                                         width="100%"
                                         />
                                 </div>
-                                <span> <%= novoDado.getTitulo() %> </span>
+                                <span> <%= novoDado.getTitulo()%> </span>
                             </div>
                             <div class="card-middle">
                                 <span><%= novoDado.getPosicao()%> </span>
                             </div>
                             <div class="card-category-and-type">
                                 <div><%= novoDado.getCategoria()%> </div>
-                                <div><%= novoDado.getTipo() %> </div>
+                                <div><%= novoDado.getTipo()%> </div>
                             </div>
                             <div class="card-botttom">
-                                <span
-                                    ><i class="fa-solid fa-coins"></i>
-                                    <span class="dollar-sign"
-                                          ><i class="fa-solid fa-dollar-sign"></i
-                                        ></span>
-                                    <%= novoDado.getSalarioMin()%> <span>-</span> <%= novoDado.getSalarioMax()%> Mzn
-                                </span>
+                                <span><i class="fa-solid fa-location-dot"></i> <%= novoDado.getLocalizacao() %></span>
+                                <div> 
+                                    <span class="dollar-sign"><i class="fa-solid fa-coins"></i></span>
+                                    <%= novoDado.getSalarioMin()%> <span>-</span> <%= novoDado.getSalarioMax()%> Mzn 
+                                </div>
                             </div>
                             <div class="card-ver-mais">
-                                <form action="vermais.jsp" method="post">               
+                                <form action="vermais.jsp" method="post">
+                                    <input type="hidden" name="titulo" value="<%= novoDado.getTitulo()%> ">
+                                    <input type="hidden" name="posicao" value="<%= novoDado.getPosicao()%>">
+                                    <input type="hidden" name="categoria" value="<%= novoDado.getCategoria()%>">
+                                    <input type="hidden" name="tipo" value="<%= novoDado.getTipo()%>">
+                                    <input type="hidden" name="salarioMin" value="<%= novoDado.getSalarioMin()%>">
+                                    <input type="hidden" name="salarioMax" value="<%= novoDado.getSalarioMax()%>">
+                                    <input type="hidden" name="descricao" value="<%= novoDado.getDescricao()%>">
+                                    <input type="hidden" name="localizacao" value="<%= novoDado.getLocalizacao()%>">
+                                    <input type="hidden" name="requisitos" value="<%= novoDado.getRequisitos()%>">
+                                    
                                     <button>Ver mais</button>
                                 </form>
                             </div>
                         </div>
-                        
+
                         <% }
 
-                        }
+                            }
                         %>
                         <!-- termina aqui listar-->
                     </div>

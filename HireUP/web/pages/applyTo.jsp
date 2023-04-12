@@ -1,7 +1,14 @@
+<%-- 
+    Document   : applyTo
+    Created on : 12 Apr 2023, 01:52:55
+    Author     : Pedro Nhamirre
+--%>
+
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="pt-br">
-	<head>
-		<meta charset="UTF-8" />
+    <head>
+        <meta charset="UTF-8" />
 		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<link rel="shortcut icon" href="../img/logo.png" type="image/x-icon" />
@@ -12,9 +19,9 @@
 			crossorigin="anonymous"
 		></script>
 		<title>Aplicar - para trabalhar</title>
-	</head>
-	<body>
-		<header>
+    </head>
+    <body>
+        <header>
 			<div class="navbar">
 				<div class="left-nav">
 					<a href="../index.html" class="brand"
@@ -30,14 +37,14 @@
 					<nav class="nav-menu">
 						<a href="../index.html" class="nav-link">Home</a>
 						<a href="#" class="nav-link">Empresas</a>
-						<a href="../pages/browse.html" class="nav-link">Browse</a>
+						<a href="../pages/browse.jsp" class="nav-link">Browse</a>
 						<a href="#" class="nav-link">Blog</a>
 					</nav>
 				</div>
 
 				<div>
 					<nav class="right-nav">
-						<a href="#" class="nav-link">Poste um Emprego</a>
+						<a href="submitJob.html" class="nav-link">Poste um Emprego</a>
 						<form action="./login.jsp">
 							<button class="btn-primary">Log in</button>
 						</form>
@@ -53,24 +60,24 @@
 							<img src="../img/logo.png" alt="" style="height: 48px" />
 						</div>
 						<div class="image-title">
-							<p>Dribble</p>
-							<p>Outubro 26, 2022</p>
+							<p> <%= request.getParameter("titulo")%></p>
+							
 						</div>
 					</div>
 					<div class="location-info">
-						<h1>Front End Developer</h1>
+						<h1> <%= request.getParameter("posicao")%></h1>
 						<div class="location">
 							<p>
 								<span class="icon-location"
 									><i class="fa-solid fa-location-dot"></i
 								></span>
-								San Antonio
+								<%= request.getParameter("localizacao")%>
 							</p>
 							<p>
 								<span class="icon-dolar"
 									><i class="fa-solid fa-dollar-sign"></i
 								></span>
-								130k-160k
+								<%= request.getParameter("salarioMin")%> - <%= request.getParameter("salarioMax")%>
 							</p>
 						</div>
 					</div>
@@ -80,11 +87,7 @@
 							<br />
 							<ul>
 								<li>
-									Lorem ipsum dolor sit, amet consectetur adipisicing
-									elit. Quibusdam blanditiis ullam aliquam natus, illo
-									minus hic sequi modi iure, id deleniti, provident
-									perferendis quia tempore voluptate distinctio in
-									aspernatur inventore!
+									<%= request.getParameter("requisitos")%>
 								</li>
 							</ul>
 						</div>
@@ -92,11 +95,7 @@
 							<h1>Descrićão do emprego</h1>
 							<br />
 							<p>
-								Lorem ipsum dolor sit, amet consectetur adipisicing
-								elit. Quibusdam blanditiis ullam aliquam natus, illo
-								minus hic sequi modi iure, id deleniti, provident
-								perferendis quia tempore voluptate distinctio in
-								aspernatur inventore!
+								<%= request.getParameter("descricao")%>
 							</p>
 						</div>
 					</div>
@@ -169,5 +168,5 @@
 				</section>
 			</form>
 		</main>
-	</body>
+    </body>
 </html>

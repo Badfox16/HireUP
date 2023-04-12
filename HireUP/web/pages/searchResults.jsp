@@ -80,17 +80,15 @@
 
                     <%
                         EmpregosDAO dao = new EmpregosDAO();
-                        
-                   
-                        
-                        List<EmpregosDTO> teste = (List<EmpregosDTO>) dao.pesquisarEmpregos(request.getParameter("pesquisa"));
-                        
-                        if(teste.isEmpty() == true){
-                                out.print("<div class=\"card-jobs\"><h3>nenhum dado existente encontrado</h3></div>");
-                                
-                            }else{
 
-                        for (EmpregosDTO novoDado : teste) {
+                        List<EmpregosDTO> teste = (List<EmpregosDTO>) dao.pesquisarEmpregos(request.getParameter("pesquisa"));
+
+                        if (teste.isEmpty() == true) {
+                            out.print("<div class=\"card-jobs\"><h3>nenhum dado existente encontrado</h3></div>");
+
+                        } else {
+
+                            for (EmpregosDTO novoDado : teste) {
                     %>
 
                     <div class="card-jobs">
@@ -115,11 +113,15 @@
                         </div>
                         <div class="card-ver-mais">
                             <form action="vermais.jsp" method="post">
-                                <input type="hidden" name="">
-                                <input type="hidden" name="">
-                                <input type="hidden" name="">
-                                <input type="hidden" name="">
-                                <input type="hidden" name="">
+                                <input type="hidden" name="titulo" value="<%= novoDado.getTitulo()%> ">
+                                <input type="hidden" name="posicao" value="<%= novoDado.getPosicao()%>">
+                                <input type="hidden" name="categoria" value="<%= novoDado.getCategoria()%>">
+                                <input type="hidden" name="tipo" value="<%= novoDado.getTipo()%>">
+                                <input type="hidden" name="salarioMin" value="<%= novoDado.getSalarioMin()%>">
+                                <input type="hidden" name="salarioMax" value="<%= novoDado.getSalarioMax()%>">
+                                <input type="hidden" name="descricao" value="<%= novoDado.getDescricao()%>">
+                                <input type="hidden" name="localizacao" value="<%= novoDado.getLocalizacao()%>">
+                                <input type="hidden" name="requisitos" value="<%= novoDado.getRequisitos()%>">
 
                                 <button>Ver mais</button>
                             </form>

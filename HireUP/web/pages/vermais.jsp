@@ -12,8 +12,9 @@
         <title>Ver mais</title>
     </head>
     <body>
-       <% 
-       response.sendRedirect("applyTo.html");
+       <%
+    
+       request.getRequestDispatcher("applyTo.jsp").forward(request, response);
        
        %>
     </body>
