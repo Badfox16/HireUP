@@ -37,14 +37,14 @@
 					<nav class="nav-menu">
 						<a href="../index.html" class="nav-link">Home</a>
 						<a href="#" class="nav-link">Empresas</a>
-						<a href="../pages/browse.html" class="nav-link">Browse</a>
+						<a href="../pages/browse.jsp" class="nav-link">Browse</a>
 						<a href="#" class="nav-link">Blog</a>
 					</nav>
 				</div>
 
 				<div>
 					<nav class="right-nav">
-						<a href="#" class="nav-link">Poste um Emprego</a>
+						<a href="submitJob.html" class="nav-link">Poste um Emprego</a>
 						<form action="./login.jsp">
 							<button class="btn-primary">Log in</button>
 						</form>
@@ -60,24 +60,24 @@
 							<img src="../img/logo.png" alt="" style="height: 48px" />
 						</div>
 						<div class="image-title">
-							<p>Dribble</p>
-							<p>Outubro 26, 2022</p>
+							<p> <%= request.getParameter("titulo")%></p>
+							
 						</div>
 					</div>
 					<div class="location-info">
-						<h1>Front End Developer</h1>
+						<h1> <%= request.getParameter("posicao")%></h1>
 						<div class="location">
 							<p>
 								<span class="icon-location"
 									><i class="fa-solid fa-location-dot"></i
 								></span>
-								San Antonio
+								<%= request.getParameter("localizacao")%>
 							</p>
 							<p>
 								<span class="icon-dolar"
 									><i class="fa-solid fa-dollar-sign"></i
 								></span>
-								130k-160k
+								<%= request.getParameter("salarioMin")%> - <%= request.getParameter("salarioMax")%>
 							</p>
 						</div>
 					</div>
@@ -87,11 +87,7 @@
 							<br />
 							<ul>
 								<li>
-									Lorem ipsum dolor sit, amet consectetur adipisicing
-									elit. Quibusdam blanditiis ullam aliquam natus, illo
-									minus hic sequi modi iure, id deleniti, provident
-									perferendis quia tempore voluptate distinctio in
-									aspernatur inventore!
+									<%= request.getParameter("requisitos")%>
 								</li>
 							</ul>
 						</div>
@@ -99,11 +95,7 @@
 							<h1>Descrićão do emprego</h1>
 							<br />
 							<p>
-								Lorem ipsum dolor sit, amet consectetur adipisicing
-								elit. Quibusdam blanditiis ullam aliquam natus, illo
-								minus hic sequi modi iure, id deleniti, provident
-								perferendis quia tempore voluptate distinctio in
-								aspernatur inventore!
+								<%= request.getParameter("descricao")%>
 							</p>
 						</div>
 					</div>
