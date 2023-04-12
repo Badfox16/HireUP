@@ -106,11 +106,12 @@
                             <div><%= novoDado.getTipo()%> </div>
                         </div>
                         <div class="card-botttom">
-                            <span>
-                                <i class="fa-solid fa-coins"></i> 
-                                <span class="dollar-sign"><i class="fa-solid fa-dollar-sign"></i></span>
-                                <%= novoDado.getSalarioMin()%> <span>-</span> <%= novoDado.getSalarioMax()%> Mzn </span>
-                        </div>
+                                <span><i class="fa-solid fa-location-dot"></i> <%= novoDado.getLocalizacao() %></span>
+                                <div> 
+                                    <span class="dollar-sign"><i class="fa-solid fa-coins"></i></span>
+                                    <%= novoDado.getSalarioMin()%> <span>-</span> <%= novoDado.getSalarioMax()%> Mzn 
+                                </div>
+                            </div>
                         <div class="card-ver-mais">
                             <form action="vermais.jsp" method="post">
                                 <input type="hidden" name="titulo" value="<%= novoDado.getTitulo()%> ">
