@@ -26,7 +26,7 @@
           <nav class="nav-menu">
             <a href="../index.html" class="nav-link">Home</a>
             <a href="#" class="nav-link">Empresas</a>
-            <a href="../pages/browse.html" class="nav-link">Pesquise</a>
+            <a href="../pages/browse.jsp" class="nav-link">Pesquise</a>
             <a href="#" class="nav-link">Submeter Empresa</a>
           </nav>
         </div>
@@ -127,6 +127,14 @@
                 <div>
                     <label for="descricao">Descrição do emprego:</label>
                     <textarea name="descricao" id="descricao" cols="30" rows="15" placeholder="Digite as obrigações do funcionário" required></textarea>
+                </div>
+
+                <div>
+                    <select name="empresa" id="empresa" >
+                        <option selected disabled>Selecione a empresa:</option>
+                        <option value="Full Time">Full time</option>
+                        <option value="Part Time">Part Time</option>
+                    </select>
                 </div>
 
                 <div>
