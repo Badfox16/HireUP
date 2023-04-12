@@ -1,4 +1,3 @@
-
 package DAO;
 
 import java.sql.Connection;
@@ -9,6 +8,8 @@ import java.sql.SQLException;
 import javax.swing.JOptionPane;
 
 import DTO.EmpresasDTO;
+import java.util.ArrayList;
+import java.util.List;
 
 public class EmpresasDAO {
 
@@ -35,5 +36,27 @@ public class EmpresasDAO {
             JOptionPane.showMessageDialog(null, "ConexaoSQL: " + e.getMessage());
         }
 
+    }
+
+    public List<EmpresasDTO> listar() {
+        String sql = "select Nome_Empresa, Contato, Email from tbEmpresas";
+        ArrayList<EmpresasDTO> listar = new ArrayList<>();
+        EmpresasDTO empDao = new EmpresasDTO();
+
+        try {
+            conexao = new ConexaoDAO().conexaoBD();
+            prepS = conexao.prepareStatement(sql);
+            rSet = prepS.executeQuery();
+
+            while (rSet.next()) {
+                empDao.setNomeEmpresa(rSet.getString("Nome_Empresa"));
+                empDao.setContato(rSet.getString("Contato"));
+                empDao.setEmail(rSet.getString("Email"));
+                listar.add(empDao);
+            }
+
+        } catch (Exception e) {
+        }
+        return listar;
     }
 }
