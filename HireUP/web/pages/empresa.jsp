@@ -36,9 +36,9 @@
                 <div class="nav-middle">
                     <nav class="nav-menu">
                         <a href="../index.html" class="nav-link">Home</a>
-                        <a href="empressa.html" class="nav-link">Empresas</a>
-                        <a href="../pages/browse.html" class="nav-link">Browse</a>
-                        <a href="#" class="nav-link">Blog</a>
+                        <a href="./empresa.jsp" class="nav-link">Empresas</a>
+                        <a href="./browse.jsp" class="nav-link">Pesquise</a>
+                        <a href="./subEmpresa.html" class="nav-link">Blog</a>
                     </nav>
                 </div>
 
