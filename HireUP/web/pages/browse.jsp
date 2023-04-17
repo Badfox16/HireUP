@@ -35,10 +35,10 @@
 
                 <div class="nav-middle">
                     <nav class="nav-menu">
-                        <a href="../index.html" class="nav-link">Home</a>
-                        <a href="./empresa.jsp" class="nav-link">Empresas</a>
-                        <a href="./browse.jsp" class="nav-link">Pesquise</a>
-                        <a href="./subEmpresa.html" class="nav-link">Blog</a>
+                    <a href="../index.html" class="nav-link">Home</a>
+        <a href="./empresa.jsp" class="nav-link">Empresas</a>
+        <a href="./browse.jsp" class="nav-link">Pesquise</a>
+        <a href="./subEmpresa.html" class="nav-link">Submeter Empresa</a>
                     </nav>
                 </div>
 

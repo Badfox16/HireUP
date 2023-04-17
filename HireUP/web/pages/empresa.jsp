@@ -18,6 +18,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <link rel="stylesheet" href="../css/empresa.css" />
         <link rel="stylesheet" href="../css/navbar.css" />
+        <link rel="shortcut icon" href="../img/logo.png" type="image/x-icon" />
         <title>Empresas</title>
     </head>
     <body>
@@ -35,10 +36,10 @@
 
                 <div class="nav-middle">
                     <nav class="nav-menu">
-                        <a href="../index.html" class="nav-link">Home</a>
-                        <a href="./empresa.jsp" class="nav-link">Empresas</a>
-                        <a href="./browse.jsp" class="nav-link">Pesquise</a>
-                        <a href="./subEmpresa.html" class="nav-link">Blog</a>
+                       <a href="../index.html" class="nav-link">Home</a>
+        <a href="./empresa.jsp" class="nav-link">Empresas</a>
+        <a href="./browse.jsp" class="nav-link">Pesquise</a>
+        <a href="./subEmpresa.html" class="nav-link">Submeter Empresa</a>
                     </nav>
                 </div>
 

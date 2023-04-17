@@ -1,4 +1,3 @@
-
 package DAO;
 
 import java.sql.Connection;
@@ -20,13 +19,12 @@ public class EmpregosDAO {
     ResultSet rSet;
 
     public void Cadastrar(EmpregosDTO objEmpregosDTO) throws ClassNotFoundException {
-        String sql = "insert into tbempregos(Titulo, Posicao, SalarioMin, SalarioMax, Categoria, Localizacao, Tipo, Descricao, Requisitos) values(?,?,?,?,?,?,?,?,?)";
+        String sql = "insert into tbEmpregos(Titulo, Posicao, SalarioMin, SalarioMax, Categoria, Localizacao, Tipo, Descricao, Requisitos) values(?,?,?,?,?,?,?,?,?)";
         conexao = new ConexaoDAO().conexaoBD();
 
         try {
             prepS = conexao.prepareStatement(sql);
 
-            
             prepS.setString(1, objEmpregosDTO.getTitulo());
             prepS.setString(2, objEmpregosDTO.getPosicao());
             prepS.setInt(3, objEmpregosDTO.getSalarioMin());
@@ -41,7 +39,7 @@ public class EmpregosDAO {
             prepS.close();
             conexao.close();
         } catch (SQLException e) {
-
+            JOptionPane.showMessageDialog(null, "Broooooooo" + e.getMessage());
         }
 
     }
@@ -93,7 +91,6 @@ public class EmpregosDAO {
         return listaEmpregos;
     }
 
-
     public void Remover(EmpregosDTO objEmpregosDTO) throws ClassNotFoundException {
         String sql = "delete from tbEmpregos where Id_Emprego=?";
         conexao = new ConexaoDAO().conexaoBD();
@@ -113,7 +110,7 @@ public class EmpregosDAO {
     }
 
     public void editarEmpregos(EmpregosDTO objEmpregosDTO) throws ClassNotFoundException {
-        String sql = "update tbEmpregInt Posicao=?, SalarioMin=?, SalarioMax=?, Categoria=?, Localizacao=?, Tipo=?, Descricao=?, Requisitos=? where Id_Emprego=?";
+        String sql = "update tbEmpreg Posicao=?, SalarioMin=?, SalarioMax=?, Categoria=?, Localizacao=?, Tipo=?, Descricao=?, Requisitos=? where Id_Emprego=?";
         conexao = new ConexaoDAO().conexaoBD();
 
         try {
@@ -136,10 +133,10 @@ public class EmpregosDAO {
 
         }
     }
-    
-     public List<EmpregosDTO> pesquisarEmpregos(String valor) throws SQLException, ClassNotFoundException {
+
+    public List<EmpregosDTO> pesquisarEmpregos(String valor) throws SQLException, ClassNotFoundException {
         List<EmpregosDTO> listaEmpregos = new ArrayList<>();
-        String sql = "SELECT * FROM tbempregos WHERE titulo LIKE ?";
+        String sql = "SELECT * FROM tbEmpregos WHERE titulo LIKE ?";
         conexao = new ConexaoDAO().conexaoBD();
         PreparedStatement stmt = null;
         ResultSet rs = null;
@@ -171,7 +168,7 @@ public class EmpregosDAO {
                 emprego.setTipo(tipo);
                 emprego.setDescricao(descricao);
                 emprego.setRequisitos(requisitos);
-                
+
                 listaEmpregos.add(emprego);
             }
         } catch (Exception e) {
@@ -187,6 +184,5 @@ public class EmpregosDAO {
         }
         return listaEmpregos;
     }
-
 
 }
