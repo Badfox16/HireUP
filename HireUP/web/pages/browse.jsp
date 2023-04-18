@@ -44,7 +44,7 @@
 
                 <div>
                     <nav class="right-nav">
-                        <a href="submitJob.html" class="nav-link">Poste um Emprego</a>
+                        <a href="submitJob.jsp" class="nav-link">Poste um Emprego</a>
                         <form action="./login.html">
                             <button class="btn-primary">Log in</button>
                         </form>
@@ -90,7 +90,7 @@
                             Job Types <span><i class="fa-solid fa-angle-down"></i></span>
                         </button>
                         <div class="checkbox-wrapper">
-                            <div><input type="checkbox" /> <label>teste</label></div>
+                            <div><input type="checkbox" disabled/> <label>teste</label></div>
                         </div>
                         <hr />
                     </div>
@@ -99,7 +99,7 @@
                             Roles <span><i class="fa-solid fa-angle-down"></i></span>
                         </button>
                         <div class="checkbox-wrapper">
-                            <div><input type="checkbox" /> <label>teste</label></div>
+                            <div><input type="checkbox" disabled/> <label>teste</label></div>
                         </div>
                         <hr />
                     </div>
@@ -111,7 +111,7 @@
 
                         <div class="checkbox-wrapper">
                             <div>
-                                <input type="checkbox" id="Categories" />
+                                <input type="checkbox" id="Categories" disabled/>
                                 <label for="Categories">teste</label>
                             </div>
                         </div>

@@ -44,7 +44,7 @@
 
 				<div>
 					<nav class="right-nav">
-						<a href="submitJob.html" class="nav-link">Poste um Emprego</a>
+						<a href="submitJob.jsp" class="nav-link">Poste um Emprego</a>
 						<form action="./login.jsp">
 							<button class="btn-primary">Log in</button>
 						</form>
@@ -92,7 +92,7 @@
 							</ul>
 						</div>
 						<div class="about-job">
-							<h1>Descrićão do emprego</h1>
+							<h1>Descrição do emprego</h1>
 							<br />
 							<p>
 								<%= request.getParameter("descricao")%>
@@ -151,7 +151,7 @@
 							</div>
 						</div>
 						<div class="sProfile">
-							<h1>3. Submeter aplicaćão</h1>
+							<h1>3. Submeter aplicação</h1>
 							<p>
 								A fim de contatá-lo com trabalhos futuros que você pode
 								ser interessado, precisamos armazenar seus dados
