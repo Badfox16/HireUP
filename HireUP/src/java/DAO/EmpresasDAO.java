@@ -39,7 +39,7 @@ public class EmpresasDAO {
     }
 
     public List<EmpresasDTO> listar() {
-        String sql = "select * from tbEmpresas;";
+        String sql = "select Nome_Empresa,Contato,Email from tbEmpresas;";
         ArrayList<EmpresasDTO> listar = new ArrayList<>();
         EmpresasDTO empDao = new EmpresasDTO();
 
