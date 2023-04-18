@@ -58,10 +58,11 @@ main {
 	border-radius: 5px;
 }
 .carousel-wrapper {
-	overflow: hidden;
-	position: relative;
-	left: 50%;
-	transform: translateX(-50%);
+        overflow: hidden;
+        position: relative;
+        left: 50%;
+        top: 25%;
+        transform: translateX(-50%);
 }
 
 .carousel-items {

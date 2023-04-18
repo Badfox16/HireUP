@@ -36,10 +36,10 @@
 
                 <div class="nav-middle">
                     <nav class="nav-menu">
-                       <a href="../index.html" class="nav-link">Home</a>
-        <a href="./empresa.jsp" class="nav-link">Empresas</a>
-        <a href="./browse.jsp" class="nav-link">Pesquise</a>
-        <a href="./subEmpresa.html" class="nav-link">Submeter Empresa</a>
+                        <a href="../index.html" class="nav-link">Home</a>
+                        <a href="./empresa.jsp" class="nav-link">Empresas</a>
+                        <a href="./browse.jsp" class="nav-link">Pesquise</a>
+                        <a href="./subEmpresa.html" class="nav-link">Submeter Empresa</a>
                     </nav>
                 </div>
 
@@ -63,18 +63,20 @@
                     <div id="carousel" class="carousel-wrapper">
                         <div class="carousel-items">
 
-                            <% 
+                            <%
                                 EmpresasDAO dao = new EmpresasDAO();
-                                List<EmpresasDTO> listar = dao.listar();
+                                List<EmpresasDTO> listar = (List<EmpresasDTO>) dao.listar();
                             %>
                             <%
-                                for (EmpresasDTO dados : listar) {
+                                for (EmpresasDTO lister : listar) {
 
                             %>
                             <div class="carousel-block">
-                                <p><%dados.getNomeEmpresa();%></p>
-                                <p><%dados.getContato();%></p>
-                                <p><%dados.getEmail();%></p>
+                                <p> <img src="https://upload.wikimedia.org/wikipedia/commons/3/35/Tux.svg" width="25%">
+                                <p/>
+                                <p><%=lister.getNomeEmpresa()%></p>
+                                <p><%=lister.getContato()%></p>
+                                <p><%=lister.getEmail()%></p>
                             </div>
                             <%};
                             %>

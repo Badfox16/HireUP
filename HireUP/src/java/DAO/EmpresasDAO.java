@@ -39,7 +39,7 @@ public class EmpresasDAO {
     }
 
     public List<EmpresasDTO> listar() {
-        String sql = "select Nome_Empresa, Contato, Email from tbEmpresas";
+        String sql = "select * from tbEmpresas;";
         ArrayList<EmpresasDTO> listar = new ArrayList<>();
         EmpresasDTO empDao = new EmpresasDTO();
 
@@ -56,6 +56,7 @@ public class EmpresasDAO {
             }
 
         } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Error " + e.getMessage());
         }
         return listar;
     }
