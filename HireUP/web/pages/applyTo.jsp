@@ -151,7 +151,7 @@
 							</div>
 						</div>
 						<div class="sProfile">
-							<h1>3. Submeter aplicaćão</h1>
+							<h1>3. Submeter aplicação</h1>
 							<p>
 								A fim de contatá-lo com trabalhos futuros que você pode
 								ser interessado, precisamos armazenar seus dados
