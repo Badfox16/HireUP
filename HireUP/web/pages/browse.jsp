@@ -44,7 +44,7 @@
 
                 <div>
                     <nav class="right-nav">
-                        <a href="submitJob.html" class="nav-link">Poste um Emprego</a>
+                        <a href="submitJob.jsp" class="nav-link">Poste um Emprego</a>
                         <form action="./login.html">
                             <button class="btn-primary">Log in</button>
                         </form>
