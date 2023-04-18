@@ -92,7 +92,7 @@
 							</ul>
 						</div>
 						<div class="about-job">
-							<h1>Descrićão do emprego</h1>
+							<h1>Descrição do emprego</h1>
 							<br />
 							<p>
 								<%= request.getParameter("descricao")%>
