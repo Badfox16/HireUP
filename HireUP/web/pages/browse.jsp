@@ -25,6 +25,14 @@
         ></script>
     </head>
     <body>
+        
+        <%
+            if(session.getAttribute("mail")==null){
+                response.sendRedirect("login.jsp");
+            }
+
+        %>
+        
         <section>
             <div class="navbar">
                 <div class="left-nav">

@@ -21,6 +21,13 @@
 		<title>Aplicar - para trabalhar</title>
     </head>
     <body>
+         
+        <%
+            if(session.getAttribute("mail")==null){
+                response.sendRedirect("login.jsp");
+            }
+
+        %>
         <header>
 			<div class="navbar">
 				<div class="left-nav">

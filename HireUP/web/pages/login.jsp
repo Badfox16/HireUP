@@ -19,12 +19,16 @@
             ResultSet rSetUSR = objUsuariosDAO.LoginUsr(objUsuariosDTO);
             
             if (rSetUSR.next()) {
-                    response.sendRedirect("browse.html");
+              
+                session = request.getSession();
+                session.setAttribute("mail", objUsuariosDTO.getEmail());
+                
+                response.sendRedirect("browse.jsp");
                    
                 } else {
-                 RequestDispatcher rd = request.getRequestDispatcher("login.html");
+                 response.sendRedirect("login.html");
                  out.println("<script> alert('Falha no Login, verifique o email ou senha') </sript>");
-                    rd.forward(request, response);
+                  
                 }
         
         %>
