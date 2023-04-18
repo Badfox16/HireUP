@@ -38,7 +38,9 @@
                             alt="Logo"
                             class="logo"
                             height="30"
-                            /></a>
+                            />
+                     <span class="nav-link">Ola, ${mail}</span>
+                    </a>
                 </div>
 
                 <div class="nav-middle">
