@@ -5,10 +5,13 @@
 --%>
 
 
+<%@page import="DTO.CategoriasDTO"%>
 <%@page import="java.util.*"%>
 <%@page import="DTO.EmpregosDTO"%>
 <%@page import="DAO.EmpregosDAO"%>
+<%@page import="DAO.CategoriasDAO"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+
 <!DOCTYPE html>
 <html lang="pt-br">
     <head>
@@ -25,14 +28,14 @@
         ></script>
     </head>
     <body>
-        
+
         <%
-            if(session.getAttribute("mail")==null){
+            if (session.getAttribute("mail") == null) {
                 response.sendRedirect("login.jsp");
             }
 
         %>
-        
+
         <section>
             <div class="navbar">
                 <div class="left-nav">
@@ -41,15 +44,15 @@
                           />
                         <span class="nav-link">Ola, ${mail}</span>
                     </a>
-                    
+
                 </div>
 
                 <div class="nav-middle">
                     <nav class="nav-menu">
-                    <a href="../index.html" class="nav-link">Home</a>
-        <a href="./empresa.jsp" class="nav-link">Empresas</a>
-        <a href="./browse.jsp" class="nav-link">Pesquise</a>
-        <a href="./subEmpresa.html" class="nav-link">Submeter Empresa</a>
+                        <a href="../index.html" class="nav-link">Home</a>
+                        <a href="./empresa.jsp" class="nav-link">Empresas</a>
+                        <a href="./browse.jsp" class="nav-link">Pesquise</a>
+                        <a href="./subEmpresa.html" class="nav-link">Submeter Empresa</a>
                     </nav>
                 </div>
 
@@ -98,33 +101,24 @@
 
                     <div class="div-filters">
                         <button onclick="mostrar()">
-                            Job Types <span><i class="fa-solid fa-angle-down"></i></span>
-                        </button>
-                        <div class="checkbox-wrapper">
-                            <div><input type="checkbox" disabled/> <label>teste</label></div>
-                        </div>
-                        <hr />
-                    </div>
-                    <div class="div-filters">
-                        <button onclick="mostrar()">
-                            Roles <span><i class="fa-solid fa-angle-down"></i></span>
-                        </button>
-                        <div class="checkbox-wrapper">
-                            <div><input type="checkbox" disabled/> <label>teste</label></div>
-                        </div>
-                        <hr />
-                    </div>
-
-                    <div class="div-filters">
-                        <button onclick="mostrar()">
                             Categories <span><i class="fa-solid fa-angle-down"></i></span>
                         </button>
 
                         <div class="checkbox-wrapper">
+
+                            <%
+                                CategoriasDAO categoriaDAO = new CategoriasDAO();
+                                List<CategoriasDTO> listaCat = (List<CategoriasDTO>) categoriaDAO.listarCategorias();
+                            
+                                for(CategoriasDTO newCat: listaCat){
+                            %>
                             <div>
-                                <input type="checkbox" id="Categories" disabled/>
-                                <label for="Categories">teste</label>
+                                <input type="checkbox" id="Categories"/>
+                                <label for="Categories"><%=newCat.getNome()%></label>
                             </div>
+                            <%
+                                }
+                            %>     
                         </div>
                         <hr />
                     </div>
@@ -187,7 +181,7 @@
                                     <input type="hidden" name="descricao" value="<%= novoDado.getDescricao()%>">
                                     <input type="hidden" name="localizacao" value="<%= novoDado.getLocalizacao()%>">
                                     <input type="hidden" name="requisitos" value="<%= novoDado.getRequisitos()%>">
-                                    
+
                                     <button>Ver mais</button>
                                 </form>
                             </div>
