@@ -30,7 +30,7 @@
     <%@include file="header-admin.jsp" %>
 
     <div class="container-fluid mt-lg-5 mb-lg-5 d-flex flex-wrap">
-        <a href="" class="m-5">
+        <a href="users.jsp" class="m-5">
             <div class="card btn" style="width: 18rem;">
                 <img src="https://www.freeiconspng.com/uploads/--tie-user-users-work-worker-working-icon--icon-search-engine-6.png"
                     class="card-img-top" alt="...">
@@ -43,7 +43,7 @@
         </a>
 
 
-        <a href="" class="m-5">
+        <a href="empresas.jsp" class="m-5">
             <div class="card btn" style="width: 18rem;">
                 <img src="https://www.freeiconspng.com/uploads/address-building-company-home-house-office-real-estate-icon--10.png"
                     class="card-img-top" alt="...">
@@ -55,7 +55,7 @@
             </div>
         </a>
 
-        <a href="" class="m-5">
+        <a href="empregos.jsp" class="m-5">
             <div class="card btn" style="width: 18rem;">
                 <img src="https://www.freeiconspng.com/uploads/contract-icon-12.png"
                     class="card-img-top" alt="...">
