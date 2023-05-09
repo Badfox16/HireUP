@@ -5,6 +5,9 @@ use bdHireUP;
 create table tbUsuarios(
 Email varchar(120) primary key,
 Nome varchar(120),
+Apelido varchar(120),
+Setor varchar(120),
+
 Senha varchar(50));
 
 insert into tbUsuarios() values();
