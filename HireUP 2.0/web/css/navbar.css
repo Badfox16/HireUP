@@ -1,4 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400&family=Open+Sans:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500;1,600&display=swap");
+
 .navbar {
 	position: -webkit-sticky;
 	position: sticky;
@@ -89,4 +90,9 @@ img {
 a {
 	background-color: transparent;
 	text-decoration: none;
+}
+
+
+.nav-menu a:hover {
+	color: #443fde;
 }

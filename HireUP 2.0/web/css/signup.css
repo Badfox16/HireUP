@@ -63,10 +63,6 @@ img {
 	grid-column-gap: 12px;
 }
 
-.nav-menu a:hover {
-	color: #443fde;
-}
-
 .right-nav {
 	display: flex;
 	align-items: center;
