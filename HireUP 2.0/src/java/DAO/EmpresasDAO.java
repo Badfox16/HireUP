@@ -39,7 +39,7 @@ public class EmpresasDAO {
     }
 
     public List<EmpresasDTO> listar() {
-        String sql = "select Nome_Empresa,Contato,Email from tbEmpresas;";
+        String sql = "select * from tbEmpresas;";
         ArrayList<EmpresasDTO> listar = new ArrayList<>();
         EmpresasDTO empDao = new EmpresasDTO();
 
@@ -52,6 +52,12 @@ public class EmpresasDAO {
                 empDao.setNomeEmpresa(rSet.getString("Nome_Empresa"));
                 empDao.setContato(rSet.getString("Contato"));
                 empDao.setEmail(rSet.getString("Email"));
+                empDao.setDescricao(rSet.getString("Descricao"));
+                empDao.setContato(rSet.getString("Contato"));
+                empDao.setSetor(rSet.getString("Setor"));
+                empDao.setIdEmpresa(rSet.getInt("Id_Empresa"));
+                empDao.setLocalizacao(rSet.getString("localizacao"));
+                empDao.setTipo_Empresa(rSet.getString("Tipo_Empresa"));
                 listar.add(empDao);
             }
 

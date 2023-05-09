@@ -1,16 +1,18 @@
 <%-- 
-    Document   : index
-    Created on : May 9, 2023, 11:24:23 PM
+    Document   : editar
+    Created on : May 10, 2023, 12:19:55 AM
     Author     : godal
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@page import="DTO.EmpresasDTO,DAO.EmpresasDAO,java.util.*" %>
-
-
 <!DOCTYPE html>
-<html lang="en">
-
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>Perfil da Empresa</title>
+    </head>
+   
     <head>
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -131,5 +133,4 @@
         </div>
     </div>
 </body>
-
 </html>
