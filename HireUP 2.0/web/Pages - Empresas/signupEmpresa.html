@@ -5,7 +5,7 @@
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link rel="stylesheet" href="../css/signup.css">
+	<link rel="stylesheet" href="./css/SignUp.css">
 	<link rel="shortcut icon" href="../img/logo.png" type="image/x-icon" class="hr1" />
 	<title>Sign Up</title>
 </head>
@@ -18,14 +18,14 @@
 		<div class="nav-middle">
 			<nav class="nav-menu">
 				<a href="../index.html" class="nav-link">Home</a>
-				<a href="./empresa.jsp" class="nav-link">Empresas</a>
-				<a href="./browse.jsp" class="nav-link">Empregos</a>
+				<a href="./empresa.jsp" class="nav-link">Candidaturas</a>
+				<a href="./browse.jsp" class="nav-link">Vagas</a>
 				<a href="./subEmpresa.html" class="nav-link">Submeter Empresa</a>
 			</nav>
 		</div>
 		<div>
 			<nav class="right-nav">
-				<a href="./submitJob.jsp" class="nav-link">Poste um Emprego</a>
+				<a href="../pages/browse.jsp" class="nav-link">Procure um Emprego</a>
 				<button class="btn-primary">Log in</button>
 			</nav>
 		</div>
@@ -39,19 +39,23 @@
 					<p>Registre a sua empresa e comece a postar a empregos </p>
 				</div>
 				<form action="signup.jsp" accept-charset="UTF-8" method="post">
-					<input type="text" name="nome" maxlength="120" placeholder="Nome *" required
+					<input type="text" name="nome" maxlength="120" placeholder="Nome da Empresa*" required
 						class="form-field w-input">
-					<input type="text" name="nome" maxlength="120" placeholder="Apelido *" required
+					<select name="tipo"
 						class="form-field w-input">
-					<input type="email" name="email" maxlength="120" placeholder="Email *" required
-						class="form-field w-input">
-					<input type="password" name="senha" id="senha" maxlength="20" class="form-field w-input"
-						placeholder="Senha *" required>
-					<input type="text" name="nome" maxlength="120" placeholder="Formação " class="form-field w-input">
-					<input type="text" name="nome" maxlength="120" placeholder="Localização *" required
-						class="form-field w-input">
-					<select name="" id="sectores">
-						<option value="" disabled selected>Selecione o seu sector de trabalho </option>
+						<option value="" disabled selected>Selecione o Tipo de Empresa</option>
+						<option value="">Empresa - Publica</option>
+						<option value="">Empresa - Privada</option>
+						<option value="">Sem Fins Lucrativos</option>
+						<option value="">Governo</option>
+						<option value="">Subsidiaria</option>
+						<option value="">Firma</option>
+						<option value="">Contratual</option>
+						<option value="">Outro</option>
+					</select>
+					<select name="setor"
+					class="form-field w-input">
+					<option value="" disabled selected>Selecione o Sector</option>
 						<option value="">Tecnologias de Informacao</option>
 						<option value="">Marketing</option>
 						<option value="">Telecomunicao</option>
@@ -63,6 +67,13 @@
 						<option value="">Seguranca</option>
 						<option value="">Outro</option>
 					</select>
+					<input type="email" name="email" maxlength="120" placeholder="E-mail *" required
+						class="form-field w-input">
+					<input type="password" name="senha" id="senha" maxlength="20" class="form-field w-input"
+						placeholder="Senha *" required>
+					<input type="text" name="nome" maxlength="120" placeholder="Formação " class="form-field w-input">
+					<input type="text" name="nome" maxlength="120" placeholder="Localização *" required
+						class="form-field w-input">
 					<br><br>
 					<input type="submit" value="Crie uma Conta" data-wait="Por favor aguarde..."
 						class="btn-primary w-button">
