@@ -96,7 +96,7 @@
                     <div class="container mt-3">
                         <h4><strong>Empresa overview</strong></h4>
 
-                        <table class="table table-borderless">
+                        <table class="table table-borderless tabela">
                             <tbody>
                                 <tr>
                                     <td>Sector: <%=lister.getSetor()%></td>

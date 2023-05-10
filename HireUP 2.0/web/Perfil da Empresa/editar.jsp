@@ -8,129 +8,108 @@
 <%@page import="DTO.EmpresasDTO,DAO.EmpresasDAO,java.util.*" %>
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Perfil da Empresa</title>
-    </head>
-   
-    <head>
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="style.css">
-        <link rel="stylesheet" href="../css/navbar.css">
-        <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-        <script src="https://kit.fontawesome.com/1f168297b1.js" crossorigin="anonymous"></script>
-        <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
-        <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-        <title>Perfil da Empresa</title>
-    </head>
+    <!DOCTYPE html>
+    <html lang="en">
 
-    <body>
-        <div class="navbar">
-            <div class="left-nav">
-                <a href="#" class="brand"><img src="../img/logo.png" alt="Logo" class="logo" height="30"></a>
+        <head>
+            <meta charset="UTF-8">
+            <meta http-equiv="X-UA-Compatible" content="IE=edge">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <link rel="stylesheet" href="style.css">
+            <link rel="stylesheet" href="../css/navbar.css">
+            <script src="stats.js"></script>
+            <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+            <script src="https://kit.fontawesome.com/1f168297b1.js" crossorigin="anonymous"></script>
+            <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+            <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+            <title>Perfil da Empresa</title>
+        </head>
 
+        <body>
+            <div class="navbar">
+                <div class="left-nav">
+                    <a href="#" class="brand"><img src="../img/logo.png" alt="Logo" class="logo" height="30"></a>
+
+                </div>
+
+                <div class="nav-middle">
+                    <nav class="nav-menu">
+                        <a href="../index.html" class="nav-link">Home</a>
+                        <a href="./empresa.jsp" class="nav-link">Empresas</a>
+                        <!-- <a href="./browse.jsp" class="nav-link" style="visibility: hidden;">Vagas</a> -->
+                    </nav>
+                </div>
+                <div>
+                    <nav class="right-nav">
+                        <a href="./submitJob.jsp" class="nav-link">Poste um Emprego</a>
+                        <a href="./submitJob.jsp" class="nav-link"><i class="fa-solid fa-inbox"></i></a>
+                        <!-- <button class="btn-primary">Log in</button> -->
+                    </nav>
+
+                </div>
             </div>
+            <!-- HEADER END  -->
 
-            <div class="nav-middle">
-                <nav class="nav-menu">
-                    <a href="../index.html" class="nav-link">Home</a>
-                    <a href="./empresa.jsp" class="nav-link">Empresas</a>
-                    <!-- <a href="./browse.jsp" class="nav-link" style="visibility: hidden;">Vagas</a> -->
-                </nav>
-            </div>
-            <div>
-                <nav class="right-nav">
-                    <a href="./submitJob.jsp" class="nav-link">Poste um Emprego</a>
-                    <a href="./submitJob.jsp" class="nav-link"><i class="fa-solid fa-inbox"></i></a>
-                    <!-- <button class="btn-primary">Log in</button> -->
-                </nav>
+            <form action="Controller/update.jsp" method="post">
+                <%
+                    EmpresasDAO dao = new EmpresasDAO();
+                    List<EmpresasDTO> listar = (List<EmpresasDTO>) dao.listar();
+                %>
+                <%
+                    for (EmpresasDTO lister : listar) {
+                %>
+                <div class="profile">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS52y5aInsxSm31CvHOFHWujqUx_wWTS9iM6s7BAm21oEN_RiGoog"
+                         alt="" style="width: 15%;" />
+                    <input type="text" name="inpName" placeholder="ID: <%=lister.getIdEmpresa()%>" style="border: none;background: white" disabled > 
+                </div>
 
-            </div>
-        </div>
-        <!-- HEADER END  -->
+                <div class="container mt-3">
+                    <h2>Atualizar os dados</h2>
+                    <table class="table table-borderless tabela">
 
-        <div class="container-fluid text-center emp-profile">
-            <div class="container">
-                <form action="editar.jsp" method="post">
-                    <div class="row">
-                        <div class="col-md-4">
-                            <div class="profile-img">
-                                <!--                            IMAGEM                           -->
-                                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS52y5aInsxSm31CvHOFHWujqUx_wWTS9iM6s7BAm21oEN_RiGoog"
-                                     alt="" />
+                        <tr>
+                            <td> Nome</td>
+                            <td>
+                                <input type="text" name="inpEmpresa" value="<%=lister.getNomeEmpresa()%>" id="inptEmpresa" class="inptEmpresa" disabled>
+                                <input type="checkbox" id="is_user" onclick="enableCreateUser()">
+                            </td>
+                        </tr>
 
-                            </div>
-                        </div>
-                        <div class="col-md-3">
-                            <div class="profile-head">
-                                <%
-                                    EmpresasDAO dao = new EmpresasDAO();
-                                    List<EmpresasDTO> listar = (List<EmpresasDTO>) dao.listar();
-                                %>
-                                <%
-                                    for (EmpresasDTO lister : listar) {
-                                %>
-                                <!--                            NOME                             -->
-                                <h2>
-                                    <strong><%=lister.getNomeEmpresa()%></strong>
-                                </h2>
-                                <h6>
-                                    <%=lister.getEmail()%>
-                                </h6>
+                        <tr>
+                            <td>Sector</td>
+                            <td> <input type="text" name="inpseto" value="<%=lister.getSetor()%>"> </td>
+                        </tr>
+                        <tr>
+                            <td>Contato</td>
+                            <td><input type="text" name="inpContato" value="<%=lister.getContato()%>"> </td>
+                        </tr>
+                        <tr>
+                            <td>Email</td>
+                            <td><input type="text" name="inpEmail" value=" <%=lister.getEmail()%>"> </td>
+                        </tr>
+                        <tr>
+                            <td>Foco da companhia</td>
+                            <td> <input type="text" name="inpTipoEmpresa" value="<%=lister.getTipo_Empresa()%>"> </td>
+                        </tr>
+                        <tr>
+                            <td>Localização</td>
+                            <td><input type="text" name="inpLocalizacao" value="<%=lister.getLocalizacao()%>"> </td>
+                        </tr>
 
-                                <!--            ID DA EMPRESA                   -->
-                                <p class="proile-rating"><%=lister.getIdEmpresa()%>: </p>
-                                <ul class="nav nav-tabs" id="myTab" role="tablist">
-                                    <li class="nav-item mx-auto">
-                                        <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab"
-                                           aria-controls="home"><%=lister.getDescricao()%></a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class=" col-md-2">
-                            <input type="submit" class="profile-edit-btn" name="btnAddMore" value="Edit Profile" />
-                        </div>
-                    </div>
+                        <tr>
+                            <td>Descrição</td>
+                            <td>
+                                <textarea name="inpDescricao" id="inpDescricao" cols="30" rows="10" >
+                                    <%=lister.getDescricao()%>
+                                </textarea>
+                            </td>
+                        </tr>
+                    </table>
+                    <input type="submit" class="btn-primary" id="btn-primary"  value="Atualizar" >
+                </div>
+                <%};%>
+            </form>
+        </body>
 
-                    <div class="container mt-3">
-                        <h4><strong>Empresa overview</strong></h4>
-
-                        <table class="table table-borderless">
-                            <tbody>
-                                <tr>
-                                    <td>Sector: <%=lister.getSetor()%></td>
-                                    <td>Contato: <%=lister.getContato()%></td>
-                                </tr>
-                                <tr></tr>
-                                <tr>
-                                    <td>Email: <%=lister.getEmail()%></td>
-
-
-                                </tr>
-                                <tr>
-                                    <td>Foco da companhia: <%=lister.getTipo_Empresa()%></td>
-                                    <td>Localização: <%=lister.getLocalizacao()%></td>
-                                </tr>
-
-                            </tbody>
-                        </table>
-                    </div>
-
-                    <div class="container d-flex">
-                        <h5><strong>Descrição da empresa</strong></h5>
-                        <h1>&nbsp;</h1>
-                        <div class="content-Empresa">
-                            <%=lister.getDescricao()%> 
-                        </div>
-                    </div>
-                    <%};
-                    %>
-                </form>
-            </div>
-        </div>
-    </div>
-</body>
-</html>
+    </html> 

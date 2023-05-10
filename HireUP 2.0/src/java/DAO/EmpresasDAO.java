@@ -66,4 +66,29 @@ public class EmpresasDAO {
         }
         return listar;
     }
+
+    public void update(EmpresasDTO parametro) {
+        String sql = "update tbEmpresas set Nome_Empresa = ?,Contato = ?,Email = ?,Descricao = ?,Setor = ?,Empregos = ?,Tipo_Empresa = ?,Localizacao = ? where Id_Empresa = ?;";
+
+        try {
+            conexao = new ConexaoDAO().conexaoBD();
+            PreparedStatement status = conexao.prepareStatement(sql);
+
+            status.setString(1, parametro.getNomeEmpresa());
+            status.setString(2, parametro.getContato());
+            status.setString(3, parametro.getEmail());
+            status.setString(4, parametro.getDescricao());
+            status.setString(5, parametro.getSetor());
+            status.setString(6, parametro.getEmpregos());
+            status.setString(7, parametro.getTipo_Empresa());
+            status.setString(8, parametro.getLocalizacao());
+            status.setInt(9, parametro.getIdEmpresa());
+
+            status.execute();
+            status.close();
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Error" + e.getMessage());
+        }
+
+    }
 }

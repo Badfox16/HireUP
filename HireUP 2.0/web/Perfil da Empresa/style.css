@@ -123,3 +123,28 @@ body {}
     width: 100%;
     border: 2px solid rgba(128, 128, 128, 0.205);
 }
+
+.profile {
+    margin-left: 21%;
+}
+
+#inpDescricao {
+    overflow: auto;
+    resize: none;
+    height:  200px;
+    width: 545px;
+}
+
+.tabela input:not(input[type="checkbox"]) {
+    height: 37px;
+    width: 86%;
+}
+form{
+    position: relative;
+}
+
+#btn-primary{
+     position: absolute;
+    right: 31%;
+    bottom: 3%;
+}
