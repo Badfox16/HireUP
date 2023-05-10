@@ -44,13 +44,13 @@ insert into tbCategorias
  create table tbEmpresas(
  Id_Empresa int primary key auto_increment,
  Nome_Empresa varchar(120) unique,
- Contato varchar(20),
- Email varchar(100),
- Descricao varchar(500),
- Setor varchar(100),
- Empregos varchar(100),
  Tipo_Empresa varchar(100),
- Localizacao varchar(100)
+ Setor varchar(100),
+ Email varchar(100),
+ Senha varchar(100),
+ Descricao varchar(500),
+ Localizacao varchar(100),
+ Empregos varchar(100)
  );
  
  create table tbAdmin(
