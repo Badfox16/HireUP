@@ -18,14 +18,14 @@ public class EmpresasDAO {
     ResultSet rSet;
 
     public void Cadastrar(EmpresasDTO objEmpresasDTO) throws ClassNotFoundException {
-        String sql = "insert into tbEmpresas(Nome_Empresa, Contato, Email, Descricao) values(?,?,?,?)";
+        String sql = "insert into tbEmpresas(Nome_Empresa, Senha, Email, Descricao) values(?,?,?,?)";
         conexao = new ConexaoDAO().conexaoBD();
 
         try {
             prepS = conexao.prepareStatement(sql);
 
             prepS.setString(1, objEmpresasDTO.getNomeEmpresa());
-            prepS.setString(2, objEmpresasDTO.getContato());
+            prepS.setString(2, objEmpresasDTO.getSenha());
             prepS.setString(3, objEmpresasDTO.getEmail());
             prepS.setString(4, objEmpresasDTO.getDescricao());
 
@@ -50,14 +50,13 @@ public class EmpresasDAO {
 
             while (rSet.next()) {
                 empDao.setNomeEmpresa(rSet.getString("Nome_Empresa"));
-                empDao.setContato(rSet.getString("Contato"));
                 empDao.setEmail(rSet.getString("Email"));
                 empDao.setDescricao(rSet.getString("Descricao"));
-                empDao.setContato(rSet.getString("Contato"));
+                empDao.setSenha(rSet.getString("Senha"));
                 empDao.setSetor(rSet.getString("Setor"));
                 empDao.setIdEmpresa(rSet.getInt("Id_Empresa"));
                 empDao.setLocalizacao(rSet.getString("localizacao"));
-                empDao.setTipo_Empresa(rSet.getString("Tipo_Empresa"));
+                empDao.setTipoEmpresa(rSet.getString("Tipo_Empresa"));
                 listar.add(empDao);
             }
 
@@ -68,19 +67,19 @@ public class EmpresasDAO {
     }
 
     public void update(EmpresasDTO parametro) {
-        String sql = "update tbEmpresas set Nome_Empresa = ?,Contato = ?,Email = ?,Descricao = ?,Setor = ?,Empregos = ?,Tipo_Empresa = ?,Localizacao = ? where Id_Empresa = ?;";
+        String sql = "update tbEmpresas set Nome_Empresa = ?,Senha = ?,Email = ?,Descricao = ?,Setor = ?,Empregos = ?,Tipo_Empresa = ?,Localizacao = ? where Id_Empresa = ?;";
 
         try {
             conexao = new ConexaoDAO().conexaoBD();
             PreparedStatement status = conexao.prepareStatement(sql);
 
             status.setString(1, parametro.getNomeEmpresa());
-            status.setString(2, parametro.getContato());
+            status.setString(2, parametro.getSenha());
             status.setString(3, parametro.getEmail());
             status.setString(4, parametro.getDescricao());
             status.setString(5, parametro.getSetor());
             status.setString(6, parametro.getEmpregos());
-            status.setString(7, parametro.getTipo_Empresa());
+            status.setString(7, parametro.getTipoEmpresa());
             status.setString(8, parametro.getLocalizacao());
             status.setInt(9, parametro.getIdEmpresa());
 

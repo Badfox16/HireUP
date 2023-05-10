@@ -3,39 +3,7 @@ package DTO;
 
 public class EmpresasDTO {
     private int IdEmpresa;
-    private String NomeEmpresa, Contato, Email, Descricao,Setor,Empregos,Tipo_Empresa,Localizacao;
-
-    public String getSetor() {
-        return Setor;
-    }
-
-    public void setSetor(String Setor) {
-        this.Setor = Setor;
-    }
-
-    public String getEmpregos() {
-        return Empregos;
-    }
-
-    public void setEmpregos(String Empregos) {
-        this.Empregos = Empregos;
-    }
-
-    public String getTipo_Empresa() {
-        return Tipo_Empresa;
-    }
-
-    public void setTipo_Empresa(String Tipo_Empresa) {
-        this.Tipo_Empresa = Tipo_Empresa;
-    }
-
-    public String getLocalizacao() {
-        return Localizacao;
-    }
-
-    public void setLocalizacao(String Localizacao) {
-        this.Localizacao = Localizacao;
-    }
+    private String NomeEmpresa, TipoEmpresa, Setor, Email, Senha, Descricao, Localizacao, Empregos;
     
     public int getIdEmpresa() {
         return IdEmpresa;
@@ -49,11 +17,17 @@ public class EmpresasDTO {
     public void setNomeEmpresa(String nomeEmpresa) {
         NomeEmpresa = nomeEmpresa;
     }
-    public String getContato() {
-        return Contato;
+    public String getTipoEmpresa() {
+        return TipoEmpresa;
     }
-    public void setContato(String contato) {
-        Contato = contato;
+    public void setTipoEmpresa(String tipoEmpresa) {
+        TipoEmpresa = tipoEmpresa;
+    }
+    public String getSetor() {
+        return Setor;
+    }
+    public void setSetor(String setor) {
+        Setor = setor;
     }
     public String getEmail() {
         return Email;
@@ -61,11 +35,30 @@ public class EmpresasDTO {
     public void setEmail(String email) {
         Email = email;
     }
+    public String getSenha() {
+        return Senha;
+    }
+    public void setSenha(String senha) {
+        Senha = senha;
+    }
     public String getDescricao() {
         return Descricao;
     }
     public void setDescricao(String descricao) {
         Descricao = descricao;
     }
+    public String getLocalizacao() {
+        return Localizacao;
+    }
+    public void setLocalizacao(String localizacao) {
+        Localizacao = localizacao;
+    }
+    public String getEmpregos() {
+        return Empregos;
+    }
+    public void setEmpregos(String empregos) {
+        Empregos = empregos;
+    }
 
+  
 }
