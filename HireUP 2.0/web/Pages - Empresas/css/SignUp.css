@@ -83,6 +83,11 @@ img {
 	letter-spacing: -0.02em;
 }
 
+a:hover {
+    /* color: #A4EBBC; */
+    color: #0AB248;
+}
+
 .btn-primary {
 	padding: 10px 20px;
 	-webkit-box-orient: horizontal;
@@ -145,7 +150,7 @@ a {
 }
 
 h1 {
-	margin-top: 65px;
+	margin-top: 50px;
     margin-bottom: 0;
     font-family: 'Archivo', sans-serif;
     font-size: 64px;
