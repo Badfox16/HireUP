@@ -19,12 +19,13 @@
         <link rel="stylesheet" href="../css/empresa.css" />
         <link rel="stylesheet" href="../css/navbar.css" />
         <link rel="shortcut icon" href="../img/logo.png" type="image/x-icon" />
+        <script src="https://kit.fontawesome.com/1f168297b1.js" crossorigin="anonymous"></script>
         <title>Empresas</title>
     </head>
     <body>
-         
+
         <%
-            if(session.getAttribute("mail")==null){
+            if (session.getAttribute("mail") == null) {
                 response.sendRedirect("login.jsp");
             }
 
@@ -39,7 +40,7 @@
                             class="logo"
                             height="30"
                             />
-                     <span class="nav-link">Ola, ${mail}</span>
+                        <span class="nav-link">Ola, ${mail}</span>
                     </a>
                 </div>
 
@@ -55,8 +56,8 @@
                 <div>
                     <nav class="right-nav">
                         <a href="./submitJob.jsp" class="nav-link">Poste um Emprego</a>
-                        <form action="./login.html">
-                            <button class="btn-primary">Log in</button>
+                        <form action="">
+                            <button style="border:none"><i class="fa-solid fa-user"></i></button>
                         </form>
                     </nav>
                 </div>
@@ -72,8 +73,7 @@
                     <div id="carousel" class="carousel-wrapper">
                         <div class="carousel-items">
 
-                            <%
-                                EmpresasDAO dao = new EmpresasDAO();
+                            <% EmpresasDAO dao = new EmpresasDAO();
                                 List<EmpresasDTO> listar = (List<EmpresasDTO>) dao.listar();
                             %>
                             <%
