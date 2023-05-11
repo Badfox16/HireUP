@@ -56,7 +56,7 @@
                 <div>
                     <nav class="right-nav">
                         <a href="./submitJob.jsp" class="nav-link">Poste um Emprego</a>
-                        <form action="">
+                        <form action="../Perfil da Empresa/index.jsp">
                             <button style="border:none"><i class="fa-solid fa-user"></i></button>
                         </form>
                     </nav>

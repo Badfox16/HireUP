@@ -88,11 +88,6 @@
                                 </ul>
                             </div>
                         </div>
-                        <div class=" col-sm-2 ">
-                            <input type="submit" class="btn-primary" name="btnAtualizar" value="Atualizar" />
-                            <br/>
-                            <input type="submit" class="btn-primary" onclick="formUserChange()" value="Deletar" />
-                        </div>
                     </div>
                     <div class="col-md-8">
                         <div class="tab-content profile-tab" id="myTabContent">
@@ -149,6 +144,15 @@
                             </div>
                         </div>
                         <%};%>
+
+                        <div class="mt-lg-5">
+                            <input type="submit" class="btn-primary" onclick="formUserChange()"  value="Deletar" />
+                            <input type="submit" class="btn-primary" style="visibility: hidden" />
+                            <input type="submit" class="btn-primary" style="visibility: hidden" />
+                            <input type="submit" class="btn-primary" style="visibility: hidden" />
+                            <input type="submit" class="btn-primary" style="visibility: hidden" />
+                            <input type="submit" class="btn-primary" name="btnAtualizar" value="Atualizar" />
+                        </div>
                 </form>
             </div>
         </div>
