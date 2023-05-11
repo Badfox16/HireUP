@@ -4,7 +4,6 @@
     box-sizing: border-box;
 }
 
-body {}
 
 .emp-profile {
     height: 100vh;
@@ -118,21 +117,14 @@ body {}
     color: #0062cc;
 }
 
-/* Desccricao da empresa */
-.content-Empresa {
-    width: 100%;
-    border: 2px solid rgba(128, 128, 128, 0.205);
-}
-
 .profile {
     margin-left: 21%;
 }
-
-#inpDescricao {
+textarea {
     overflow: auto;
     resize: none;
     height:  200px;
-    width: 545px;
+    width: 772.1px;
 }
 
 .tabela input:not(input[type="checkbox"]) {
@@ -144,7 +136,13 @@ form{
 }
 
 #btn-primary{
-     position: absolute;
-    right: 31%;
+    position: absolute;
+    right: 21%;
     bottom: 3%;
+}
+#textDescricao{
+    width: 685.1px;
+    resize: vertical;
+    background-color: transparent;
+    border: 1px solid whitesmoke;
 }

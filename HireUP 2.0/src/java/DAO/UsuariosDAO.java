@@ -100,28 +100,42 @@ public class UsuariosDAO {
         }
         return listaUsuarios;
     }
-    
+
     public void editarUsuario(UsuariosDTO usuario) throws ClassNotFoundException, SQLException {
 
-    String sql = "UPDATE tbUsuarios SET Nome = ?, Apelido = ?, Setor = ?, Localizacao = ?, Formacao = ? WHERE Email = ?";
-    conexao = new ConexaoDAO().conexaoBD();
+        String sql = "UPDATE tbUsuarios SET Nome = ?, Apelido = ?, Setor = ?, Localizacao = ?, Formacao = ? WHERE Email = ?";
+        conexao = new ConexaoDAO().conexaoBD();
 
-    try {
-        prepS = conexao.prepareStatement(sql);
+        try {
+            prepS = conexao.prepareStatement(sql);
 
-        prepS.setString(1, usuario.getNome());
-        prepS.setString(2, usuario.getApelido());        
-        prepS.setString(3, usuario.getSetor());
-        prepS.setString(4, usuario.getLocalizacao());
-        prepS.setString(5, usuario.getFormacao());
-        prepS.setString(6, usuario.getEmail());
+            prepS.setString(1, usuario.getNome());
+            prepS.setString(2, usuario.getApelido());
+            prepS.setString(3, usuario.getSetor());
+            prepS.setString(4, usuario.getLocalizacao());
+            prepS.setString(5, usuario.getFormacao());
+            prepS.setString(6, usuario.getEmail());
 
-        prepS.executeUpdate();
-        prepS.close();
-        conexao.close();
-    } catch (SQLException e) {
-        JOptionPane.showMessageDialog(null, "ConexaoSQL: " + e.getMessage());
+            prepS.executeUpdate();
+            prepS.close();
+            conexao.close();
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, "ConexaoSQL: " + e.getMessage());
+        }
     }
-}
 
+    public void deletarUsuario(UsuariosDTO delete) throws ClassNotFoundException {
+        String sql = "delete from tbUsuarios where Email =?";
+        conexao = new ConexaoDAO().conexaoBD();
+        try {
+            prepS = conexao.prepareStatement(sql);
+            prepS.setString(1, delete.getEmail());
+
+            prepS.execute();
+            prepS.close();
+            conexao.close();
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, e.getMessage());
+        }
+    }
 }

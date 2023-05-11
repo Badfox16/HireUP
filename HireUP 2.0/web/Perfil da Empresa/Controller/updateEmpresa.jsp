@@ -22,12 +22,12 @@
                 EmpresasDTO dto = new EmpresasDTO();
                 dto.setNomeEmpresa(request.getParameter("inpEmpresa"));
                 dto.setSetor(request.getParameter("inpseto"));
-                dto.setContato(request.getParameter("inpContato"));
+                dto.setSenha(request.getParameter("inpSenha"));
                 dto.setEmail(request.getParameter("inpEmail"));
-                dto.setTipo_Empresa(request.getParameter("inpTipoEmpresa"));
+                dto.setTipoEmpresa(request.getParameter("inpTipoEmpresa"));
                 dto.setLocalizacao(request.getParameter("inpLocalizacao"));
                 dto.setDescricao(request.getParameter("inpDescricao"));
-                dto.setIdEmpresa(Integer.parseInt(request.getParameter("idEmpresa")));
+                dto.setIdEmpresa(Integer.parseInt(request.getParameter("inpIdEmpresa")));
     
 //                out.print(k);
                 EmpresasDAO dao = new EmpresasDAO();

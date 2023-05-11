@@ -84,7 +84,6 @@
                                 <p> <img src="https://upload.wikimedia.org/wikipedia/commons/3/35/Tux.svg" width="25%">
                                 <p/>
                                 <p><%=lister.getNomeEmpresa()%></p>
-                                <p><%=lister.getContato()%></p>
                                 <p><%=lister.getEmail()%></p>
                             </div>
                             <%};

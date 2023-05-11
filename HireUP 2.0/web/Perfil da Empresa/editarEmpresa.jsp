@@ -17,11 +17,11 @@
             <meta name="viewport" content="width=device-width, initial-scale=1.0">
             <link rel="stylesheet" href="style.css">
             <link rel="stylesheet" href="../css/navbar.css">
-            <script src="stats.js"></script>
             <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
             <script src="https://kit.fontawesome.com/1f168297b1.js" crossorigin="anonymous"></script>
             <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
             <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+            <script src="../js/form.js" defer></script>
             <title>Perfil da Empresa</title>
         </head>
 
@@ -50,7 +50,7 @@
             </div>
             <!-- HEADER END  -->
 
-            <form action="Controller/update.jsp" method="post">
+            <form action="Controller/updateEmpresa.jsp" method="post" id="myForm">
                 <%
                     EmpresasDAO dao = new EmpresasDAO();
                     List<EmpresasDTO> listar = (List<EmpresasDTO>) dao.listar();
@@ -61,7 +61,7 @@
                 <div class="profile">
                     <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS52y5aInsxSm31CvHOFHWujqUx_wWTS9iM6s7BAm21oEN_RiGoog"
                          alt="" style="width: 15%;" />
-                    <input type="text" name="inpName" placeholder="ID: <%=lister.getIdEmpresa()%>" style="border: none;background: white" disabled > 
+                    <input type="hidden" name="inpIdEmpresa" value="<%=lister.getIdEmpresa()%>">
                 </div>
 
                 <div class="container mt-3">
@@ -71,26 +71,24 @@
                         <tr>
                             <td> Nome</td>
                             <td>
-                                <input type="text" name="inpEmpresa" value="<%=lister.getNomeEmpresa()%>" id="inptEmpresa" class="inptEmpresa" disabled>
-                                <input type="checkbox" id="is_user" onclick="enableCreateUser()">
+                                <input type="text" name="inpEmpresa" value="<%=lister.getNomeEmpresa()%>" class="inptEmpresa">
                             </td>
                         </tr>
-
                         <tr>
                             <td>Sector</td>
                             <td> <input type="text" name="inpseto" value="<%=lister.getSetor()%>"> </td>
-                        </tr>
-                        <tr>
-                            <td>Contato</td>
-                            <td><input type="text" name="inpContato" value="<%=lister.getContato()%>"> </td>
                         </tr>
                         <tr>
                             <td>Email</td>
                             <td><input type="text" name="inpEmail" value=" <%=lister.getEmail()%>"> </td>
                         </tr>
                         <tr>
+                            <td>Senha</td>
+                            <td><input type="text" name="inpSenha" value="<%=lister.getSenha()%>"> </td>
+                        </tr>
+                        <tr>
                             <td>Foco da companhia</td>
-                            <td> <input type="text" name="inpTipoEmpresa" value="<%=lister.getTipo_Empresa()%>"> </td>
+                            <td> <input type="text" name="inpTipoEmpresa" value="<%=lister.getTipoEmpresa()%>"> </td>
                         </tr>
                         <tr>
                             <td>Localização</td>
@@ -107,6 +105,7 @@
                         </tr>
                     </table>
                     <input type="submit" class="btn-primary" id="btn-primary"  value="Atualizar" >
+                    <input type="submit" class="btn-primary" onclick="formEmpChange()" value="Deletar" />
                 </div>
                 <%};%>
             </form>

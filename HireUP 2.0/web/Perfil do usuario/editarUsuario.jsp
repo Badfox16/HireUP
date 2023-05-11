@@ -19,16 +19,11 @@
         <script src="https://kit.fontawesome.com/1f168297b1.js" crossorigin="anonymous"></script>
         <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
         <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-        <title>Perfil do usuário</title>
+        <script src="../js/form.js" defer></script>
+        <title>Perfil do usuário - Editar</title>
     </head>
 
     <body>
-        <!-- Login obrigatorio -->
-        <%
-            if (session.getAttribute("mail") == null) {
-                response.sendRedirect("../pages/login.jsp");
-            }
-        %>
         <div class="navbar">
             <div class="left-nav">
                 <a href="#" class="brand"><img src="../img/logo.png" alt="Logo" class="logo" height="30"></a>
@@ -58,7 +53,7 @@
 
         <div class="container-fluid text-center emp-profile">
             <div class="container">
-                <form action="editarUsuario.jsp" method="post">
+                <form action="Controller/updateUsuario.jsp" method="post" id="myForm">
                     <div class="row">
                         <div class="col-md-4">
                             <div class="profile-img">
@@ -93,19 +88,22 @@
                                 </ul>
                             </div>
                         </div>
-                        <div class=" col-md-2">
-                            <input type="submit" class="profile-edit-btn" name="btnAddMore" value="Editar perfil" />
+                        <div class=" col-sm-2 ">
+                            <input type="submit" class="btn-primary" name="btnAtualizar" value="Atualizar" />
+                            <br/>
+                            <input type="submit" class="btn-primary" onclick="formUserChange()" value="Deletar" />
                         </div>
                     </div>
                     <div class="col-md-8">
                         <div class="tab-content profile-tab" id="myTabContent">
                             <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
                                 <div class="row">
+                                    <input type="hidden" name="inpSenha" value="<%=lister.getSenha()%>">
                                     <div class="col-md-6">
                                         <label>Apelido </label>
                                     </div>
                                     <div class="col-md-6">
-                                        <p><%=lister.getApelido()%></p>
+                                        <p><input type="text" name="inpApelido" value="<%=lister.getApelido()%>"></p>
                                     </div>
                                 </div>
                                 <div class="row">
@@ -113,7 +111,7 @@
                                         <label>Nome</label>
                                     </div>
                                     <div class="col-md-6">
-                                        <p><%=lister.getNome()%></p>
+                                        <p><input type="text" name="inpNome"  value="<%=lister.getNome()%>"></p>
                                     </div>
                                 </div>
                                 <div class="row">
@@ -121,7 +119,7 @@
                                         <label>Email</label>
                                     </div>
                                     <div class="col-md-6">
-                                        <p><%=lister.getEmail()%></p>
+                                        <p><input type="text" name="inpEmail"  value="<%=lister.getEmail()%>"></p>
                                     </div>
                                 </div>
                                 <div class="row">
@@ -129,7 +127,7 @@
                                         <label>Formacao</label>
                                     </div>
                                     <div class="col-md-6">
-                                        <p><%=lister.getFormacao()%></p>
+                                        <p><input type="text" name="inpFormacao"  value="<%=lister.getFormacao()%>"></p>
                                     </div>
                                 </div>
                                 <div class="row">
@@ -137,7 +135,7 @@
                                         <label>Sector</label>
                                     </div>
                                     <div class="col-md-6">
-                                        <p><%=lister.getSetor()%></p>
+                                        <p><input type="text" name="inpSetor"  value="<%=lister.getSetor()%>"></p>
                                     </div>
                                 </div>
                                 <div class="row">
@@ -145,7 +143,7 @@
                                         <label>Localizacao</label>
                                     </div>
                                     <div class="col-md-6">
-                                        <p><%=lister.getLocalizacao()%></p>
+                                        <p><input type="text" name="inpLocalizacao"  value="<%=lister.getLocalizacao()%>"></p>
                                     </div>
                                 </div>
                             </div>

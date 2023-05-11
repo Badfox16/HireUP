@@ -4,8 +4,6 @@
     box-sizing: border-box;
 }
 
-body {}
-
 .emp-profile {
     height: 100vh;
     padding: 3%;
@@ -116,4 +114,7 @@ body {}
 .profile-tab p {
     font-weight: 600;
     color: #0062cc;
+}
+.butaoEditavel{
+    background-color: red;
 }

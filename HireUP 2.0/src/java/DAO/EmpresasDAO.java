@@ -38,56 +38,73 @@ public class EmpresasDAO {
 
     }
 
-    public List<EmpresasDTO> listar() {
+    public List<EmpresasDTO> listar() throws ClassNotFoundException {
         String sql = "select * from tbEmpresas;";
         ArrayList<EmpresasDTO> listar = new ArrayList<>();
-        EmpresasDTO empDao = new EmpresasDTO();
+        EmpresasDTO dto = new EmpresasDTO();
+        conexao = new ConexaoDAO().conexaoBD();
 
         try {
-            conexao = new ConexaoDAO().conexaoBD();
             prepS = conexao.prepareStatement(sql);
             rSet = prepS.executeQuery();
 
             while (rSet.next()) {
-                empDao.setNomeEmpresa(rSet.getString("Nome_Empresa"));
-                empDao.setEmail(rSet.getString("Email"));
-                empDao.setDescricao(rSet.getString("Descricao"));
-                empDao.setSenha(rSet.getString("Senha"));
-                empDao.setSetor(rSet.getString("Setor"));
-                empDao.setIdEmpresa(rSet.getInt("Id_Empresa"));
-                empDao.setLocalizacao(rSet.getString("localizacao"));
-                empDao.setTipoEmpresa(rSet.getString("Tipo_Empresa"));
-                listar.add(empDao);
+                dto.setNomeEmpresa(rSet.getString("Nome_Empresa"));
+                dto.setEmail(rSet.getString("Email"));
+                dto.setDescricao(rSet.getString("Descricao"));
+                dto.setSenha(rSet.getString("Senha"));
+                dto.setSetor(rSet.getString("Setor"));
+                dto.setIdEmpresa(rSet.getInt("Id_Empresa"));
+                dto.setLocalizacao(rSet.getString("localizacao"));
+                dto.setTipoEmpresa(rSet.getString("Tipo_Empresa"));
+                listar.add(dto);
             }
-
-        } catch (Exception e) {
+            prepS.close();
+            conexao.close();
+        } catch (SQLException e) {
             JOptionPane.showMessageDialog(null, "Error " + e.getMessage());
         }
         return listar;
     }
 
-    public void update(EmpresasDTO parametro) {
+    public void update(EmpresasDTO update) throws ClassNotFoundException {
         String sql = "update tbEmpresas set Nome_Empresa = ?,Senha = ?,Email = ?,Descricao = ?,Setor = ?,Empregos = ?,Tipo_Empresa = ?,Localizacao = ? where Id_Empresa = ?;";
+        conexao = new ConexaoDAO().conexaoBD();
 
         try {
-            conexao = new ConexaoDAO().conexaoBD();
-            PreparedStatement status = conexao.prepareStatement(sql);
+            prepS = conexao.prepareStatement(sql);
 
-            status.setString(1, parametro.getNomeEmpresa());
-            status.setString(2, parametro.getSenha());
-            status.setString(3, parametro.getEmail());
-            status.setString(4, parametro.getDescricao());
-            status.setString(5, parametro.getSetor());
-            status.setString(6, parametro.getEmpregos());
-            status.setString(7, parametro.getTipoEmpresa());
-            status.setString(8, parametro.getLocalizacao());
-            status.setInt(9, parametro.getIdEmpresa());
+            prepS.setString(1, update.getNomeEmpresa());
+            prepS.setString(2, update.getSenha());
+            prepS.setString(3, update.getEmail());
+            prepS.setString(4, update.getDescricao());
+            prepS.setString(5, update.getSetor());
+            prepS.setString(6, update.getEmpregos());
+            prepS.setString(7, update.getTipoEmpresa());
+            prepS.setString(8, update.getLocalizacao());
+            prepS.setInt(9, update.getIdEmpresa());
 
-            status.execute();
-            status.close();
-        } catch (Exception e) {
+            prepS.execute();
+            prepS.close();
+            conexao.close();
+        } catch (SQLException e) {
             JOptionPane.showMessageDialog(null, "Error" + e.getMessage());
         }
+    }
 
+    public void deletEmpresa(EmpresasDTO delete) throws ClassNotFoundException {
+        String sql = "delete from tbEmpresas where Id_Empresa=?";
+        conexao = new ConexaoDAO().conexaoBD();
+
+        try {
+            prepS = conexao.prepareStatement(sql);
+            prepS.setInt(1, delete.getIdEmpresa());
+
+            prepS.execute();
+            prepS.close();
+            conexao.close();
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, e.getMessage());
+        }
     }
 }

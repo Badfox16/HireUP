@@ -25,6 +25,12 @@
     </head>
 
     <body>
+        <!-- Login obrigatorio -->
+        <%
+            if (session.getAttribute("mail") == null) {
+                response.sendRedirect("../pages/login.jsp");
+            }
+        %>
         <div class="navbar">
             <div class="left-nav">
                 <a href="#" class="brand"><img src="../img/logo.png" alt="Logo" class="logo" height="30"></a>
@@ -51,7 +57,7 @@
 
         <div class="container-fluid text-center emp-profile">
             <div class="container">
-                <form action="editar.jsp" method="post">
+                <form action="editarEmpresa.jsp" method="post">
                     <div class="row">
                         <div class="col-md-4">
                             <div class="profile-img">
@@ -79,13 +85,8 @@
                                 </h6>
 
                                 <!--            ID DA EMPRESA                   -->
-                                <p class="proile-rating"><%=lister.getIdEmpresa()%>: </p>
-                                <ul class="nav nav-tabs" id="myTab" role="tablist">
-                                    <li class="nav-item mx-auto">
-                                        <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab"
-                                           aria-controls="home"><%=lister.getDescricao()%></a>
-                                    </li>
-                                </ul>
+                                <p class="proile-rating"> Número de identificacao: <%=lister.getIdEmpresa()%> </p>
+
                             </div>
                         </div>
                         <div class=" col-md-2">
@@ -100,28 +101,25 @@
                             <tbody>
                                 <tr>
                                     <td>Sector: <%=lister.getSetor()%></td>
-                                    <td>Contato: <%=lister.getContato()%></td>
+                                    <td>Empresa: <%=lister.getTipoEmpresa()%></td>
                                 </tr>
                                 <tr></tr>
                                 <tr>
                                     <td>Email: <%=lister.getEmail()%></td>
-
-
-                                </tr>
-                                <tr>
-                                    <td>Foco da companhia: <%=lister.getTipo_Empresa()%></td>
                                     <td>Localização: <%=lister.getLocalizacao()%></td>
                                 </tr>
-
                             </tbody>
                         </table>
                     </div>
 
                     <div class="container d-flex">
+
                         <h5><strong>Descrição da empresa</strong></h5>
-                        <h1>&nbsp;</h1>
+                        <h1>&nbsp;&nbsp;&nbsp;</h1>
                         <div class="content-Empresa">
-                            <%=lister.getDescricao()%> 
+                            <textarea disabled id="textDescricao">
+                                <%=lister.getDescricao()%> 
+                            </textarea>
                         </div>
                     </div>
                     <%};
