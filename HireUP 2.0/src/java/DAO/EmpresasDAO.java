@@ -18,16 +18,19 @@ public class EmpresasDAO {
     ResultSet rSet;
 
     public void Cadastrar(EmpresasDTO objEmpresasDTO) throws ClassNotFoundException {
-        String sql = "insert into tbEmpresas(Nome_Empresa, Senha, Email, Descricao) values(?,?,?,?)";
+        String sql = "insert into tbEmpresas(Nome_Empresa, Tipo_Empresa, Setor, Email, Senha, Descricao, Localizacao) values(?,?,?,?,?,?,?)";
         conexao = new ConexaoDAO().conexaoBD();
 
         try {
             prepS = conexao.prepareStatement(sql);
 
             prepS.setString(1, objEmpresasDTO.getNomeEmpresa());
-            prepS.setString(2, objEmpresasDTO.getSenha());
-            prepS.setString(3, objEmpresasDTO.getEmail());
-            prepS.setString(4, objEmpresasDTO.getDescricao());
+            prepS.setString(2, objEmpresasDTO.getTipoEmpresa());
+            prepS.setString(3, objEmpresasDTO.getSetor());
+            prepS.setString(4, objEmpresasDTO.getEmail());
+            prepS.setString(5, objEmpresasDTO.getSenha());
+            prepS.setString(6, objEmpresasDTO.getDescricao());
+            prepS.setString(7, objEmpresasDTO.getLocalizacao());
 
             prepS.execute();
             prepS.close();
