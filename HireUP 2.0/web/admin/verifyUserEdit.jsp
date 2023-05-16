@@ -4,6 +4,8 @@
     Author     : Pedro Nhamirre
 --%>
 
+<%@page import="java.sql.SQLException;" %>
+<%@page import="javax.swing.JOptionPane;" %>
 <%@page import="DTO.UsuariosDTO"%>
 <%@page import="DAO.UsuariosDAO"%>
 
@@ -23,19 +25,17 @@
                 usersDTO.setNome(request.getParameter("Nome"));
                 usersDTO.setApelido(request.getParameter("Apelido"));
                 usersDTO.setSetor(request.getParameter("Setor"));
+                usersDTO.setLocalizacao(request.getParameter("Localizacao"));
+                usersDTO.setFormacao(request.getParameter("Formacao"));
                 
                 UsuariosDAO usersDAO = new UsuariosDAO();
                 usersDAO.editarUsuario(usersDTO);
 
                 response.sendRedirect("users.jsp");
-            } catch (Exception e) {
+            } catch (SQLException e) {
+                JOptionPane.showMessageDialog(null, "Erro ao atualizar: " + e.getMessage());
             }
-            UsuariosDTO usersDTO = new UsuariosDTO();
-
-            UsuariosDAO usersDAO = new UsuariosDAO();
-            usersDAO.editarUsuario(usersDTO);
-
-            response.sendRedirect("users.jsp");
+           
         %>
     </body>
 </html>
