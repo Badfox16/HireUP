@@ -147,7 +147,7 @@
                             </form>
                         </td>
                         <td>
-                            <form action="verifyDeleteUser.jsp" method="POST">
+                            <form action="deleteUser.jsp" method="POST">
                                 <input type="hidden" value="<%=newCat.getEmail()%> " name="Email">
                                 <input type="hidden" value="<%=newCat.getNome()%>" name="Nome">
                                 <input type="hidden" value="<%=newCat.getApelido()%>" name="Apelido">
