@@ -55,7 +55,7 @@
                     <div class="form-group row">
                         <label class="col-lg-3 col-form-label form-control-label">Email</label>
                         <div class="col-lg-9">
-                            <input class="form-control" type="email" value="<%= request.getParameter("Email")%>" disabled name="Email"/>
+                            <input class="form-control" type="email" value="<%= request.getParameter("Email")%>" name="Email" readonly/>
                         </div>
                     </div>
 

@@ -16,21 +16,21 @@
     </head>
     <body>
         <%
+            try {
+                UsuariosDTO usersDTO = new UsuariosDTO();
+                
+                usersDTO.setEmail(request.getParameter("Email"));
+                usersDTO.setNome(request.getParameter("Nome"));
+                usersDTO.setApelido(request.getParameter("Apelido"));
+                usersDTO.setSetor(request.getParameter("Setor"));
+                
+                UsuariosDAO usersDAO = new UsuariosDAO();
+                usersDAO.editarUsuario(usersDTO);
 
-            String email = (String) request.getParameter("Email");
-            String nome = (String) request.getParameter("Nome");
-            String apelido = (String) request.getParameter("Apelido");
-            String setor = (String) request.getParameter("Setor");
-            String localizacao = (String) request.getParameter("Localizacao");
-            String formacao = (String) request.getParameter("Formacao");
-
+                response.sendRedirect("users.jsp");
+            } catch (Exception e) {
+            }
             UsuariosDTO usersDTO = new UsuariosDTO();
-            usersDTO.setEmail(email);
-            usersDTO.setNome(nome);
-            usersDTO.setApelido(apelido);
-            usersDTO.setSetor(setor);
-            usersDTO.setLocalizacao(localizacao);
-            usersDTO.setFormacao(formacao);
 
             UsuariosDAO usersDAO = new UsuariosDAO();
             usersDAO.editarUsuario(usersDTO);
