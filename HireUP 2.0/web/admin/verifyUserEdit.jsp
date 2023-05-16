@@ -4,8 +4,8 @@
     Author     : Pedro Nhamirre
 --%>
 
-<%@page import="java.sql.SQLException;" %>
-<%@page import="javax.swing.JOptionPane;" %>
+<%@page import="java.sql.SQLException" %>
+<%@page import="javax.swing.JOptionPane" %>
 <%@page import="DTO.UsuariosDTO"%>
 <%@page import="DAO.UsuariosDAO"%>
 
