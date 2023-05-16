@@ -18,7 +18,7 @@
             try {
                 UsuariosDAO dao = new UsuariosDAO();
                 UsuariosDTO dto = new UsuariosDTO();
-                
+
                 dto.setNome(request.getParameter("inpNome"));
                 dto.setApelido(request.getParameter("inpApelido"));
                 dto.setEmail(request.getParameter("inpEmail"));
@@ -26,14 +26,14 @@
                 dto.setSetor(request.getParameter("inpSetor"));
                 dto.setSenha(request.getParameter("inpSenha"));
                 dto.setFormacao(request.getParameter("inpFormacao"));
-                
+                dto.setDescricao(request.getParameter("inpDescricao"));
                 dao.editarUsuario(dto);
-                
+
                 response.sendRedirect("../index.jsp");
             } catch (Exception e) {
                 out.print(e.getMessage());
             }
-            
+
         %>
     </body>
 </html>

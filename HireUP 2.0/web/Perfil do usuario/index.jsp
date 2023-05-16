@@ -23,6 +23,8 @@
     </head>
 
     <body>
+
+    <body>
         <!-- Login obrigatorio -->
         <%
             if (session.getAttribute("mail") == null) {
@@ -55,108 +57,84 @@
         </div>
 
         <!-- HEADER END  -->
-
-        <div class="container-fluid text-center emp-profile">
-            <div class="container">
+        <section class="section about-section gray-bg" id="about">
+            <div class="container my-50">
                 <form action="editarUsuario.jsp" method="post">
-                    <div class="row">
-                        <div class="col-md-4">
-                            <div class="profile-img">
-                                <!--                            IMAGEM                           -->
-                                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS52y5aInsxSm31CvHOFHWujqUx_wWTS9iM6s7BAm21oEN_RiGoog"
-                                     alt="" style="margin-bottom: 12px"/>
+                    <div class="row align-items-center flex-row-reverse">
+                        <div class="col-lg-6">
+                            <div class="about-text go-to">
+                                <%
+                                    UsuariosDAO dao = new UsuariosDAO();
+                                    UsuariosDTO dto = new UsuariosDTO();
+                                    String email = (String) session.getAttribute("mail");
+                                    dto.setEmail(email);
 
-                            </div>
-                        </div>
-                        <%
-                            UsuariosDAO dao = new UsuariosDAO();
-                            UsuariosDTO dto = new UsuariosDTO();
-                            String email = (String) session.getAttribute("mail");
-                            dto.setEmail(email);
-                            List<UsuariosDTO> listar = (List<UsuariosDTO>) dao.listSelect(dto);
-                            for (UsuariosDTO lister : listar) {
-                        %>
+                                    List<UsuariosDTO> listar = (List<UsuariosDTO>) dao.listSelect(dto);
+                                    for (UsuariosDTO lister : listar) {
+                                %>
 
-                        <div class="col-md-6">
-                            <div class="profile-head">
-                                <!--                            NOME                             -->
-                                <h5>
-                                    <%=lister.getNome()%> <%=lister.getApelido()%>
-                                </h5>
-                                <h6><%=lister.getSetor()%>
-
+                                <h3 class="dark-color">Olá <%=lister.getNome()%></h3>
+                                <h6 class="theme-color lead">
+                                    A Lead UX & UI designer based in Canada
                                 </h6>
-
-                                <!--            RANKING DO PERFIL DO USER                       -->
-                                <ul class="nav nav-tabs" id="myTab" role="tablist">
-                                    <li class="nav-item mx-auto">
-                                        <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab"
-                                           aria-controls="home" disabled>Sobre</a>
-                                    </li>
-                                </ul>
+                                <p>
+                                    <textarea readonly="true" style="width: 100%;height: 8rem;overflow: auto;resize: none;border: none;outline: none">
+                                        <%=lister.getDescricao()%>
+                                    </textarea>
+                                </p>
+                                <div class="row about-list">
+                                    <div class="col-md-6">
+                                        <div class="media">
+                                            <label>Nome:</label>
+                                            <p><%=lister.getNome()%></p>
+                                        </div>
+                                        <div class="media">
+                                            <label>Apelido:</label>
+                                            <p><%=lister.getApelido()%></p>
+                                        </div>
+                                        <div class="media">
+                                            <label>E-mail:</label>
+                                            <p><%=lister.getEmail()%></p>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="media">
+                                            <label>Setor:</label>
+                                            <p><%=lister.getSetor()%></p>
+                                        </div>
+                                        <div class="media">
+                                            <label>Localizacao:</label>
+                                            <p><%=lister.getLocalizacao()%></p>
+                                        </div>
+                                        <div class="media">
+                                            <label>Formacao:</label>
+                                            <p><%=lister.getFormacao()%></p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <%};%>
                             </div>
                         </div>
-                        <div class=" col-md-2">
-                            <input type="submit" class="profile-edit-btn" name="btnAddMore" value="Editar perfil" />
+                        <div class="col-lg-6">
+                            <div class="about-avatar">
+                                <img
+                                    src="https://bootdey.com/img/Content/avatar/avatar7.png"
+                                    title=""
+                                    alt=""
+                                    />
+                            </div>
                         </div>
                     </div>
-                    <div class="col-md-8">
-                        <div class="tab-content profile-tab" id="myTabContent">
-                            <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
-                                <div class="row">
-                                    <div class="col-md-6">
-                                        <label>Apelido </label>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <p><%=lister.getApelido()%></p>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-md-6">
-                                        <label>Nome</label>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <p><%=lister.getNome()%></p>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-md-6">
-                                        <label>Email</label>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <p><%=lister.getEmail()%></p>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-md-6">
-                                        <label>Formacao</label>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <p><%=lister.getFormacao()%></p>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-md-6">
-                                        <label>Sector</label>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <p><%=lister.getSetor()%></p>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-md-6">
-                                        <label>Localizacao</label>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <p><%=lister.getLocalizacao()%></p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <%};%>
+                    <div class="counter w-25">
+                        <input
+                            style="border: none; background-color: transparent;margin: 0 30%;"
+                            type="submit"
+                            value="Editar o Perfil"
+                            />
+                    </div>
                 </form>
             </div>
-        </div>
+        </section>
     </body>
 
 </html>

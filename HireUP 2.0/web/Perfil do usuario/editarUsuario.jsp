@@ -144,6 +144,12 @@
                                     <div class="col-md-6">
                                         <p><input type="text" name="inpLocalizacao"  value="<%=lister.getLocalizacao()%>"></p>
                                     </div>
+                                     <div class="col-md-6">
+                                        <label>Descricao</label>
+                                    </div>
+                                      <div class="col-md-6">
+                                        <p><input type="text" name="inpDescricao"  value="<%=lister.getDescricao()%>"></p>
+                                    </div>
                                 </div>
                             </div>
                         </div>

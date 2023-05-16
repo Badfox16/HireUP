@@ -53,7 +53,6 @@ public class UsuariosDAO {
             prepS.setString(6, objUsuariosDTO.getFormacao());
             prepS.setString(7, objUsuariosDTO.getSenha());
 
-
             prepS.execute();
             prepS.close();
             conexao.close();
@@ -106,7 +105,7 @@ public class UsuariosDAO {
         return listaUsuarios;
     }
 
-    public void editarUsuario(UsuariosDTO usuario) throws ClassNotFoundException, SQLException {
+    public void editarUsuario(UsuariosDTO usuario) throws ClassNotFoundException {
 
         String sql = "UPDATE tbUsuarios SET Nome = ?, Apelido = ?, Setor = ?, Localizacao = ?, Formacao = ? WHERE Email = ?";
         conexao = new ConexaoDAO().conexaoBD();
@@ -119,7 +118,8 @@ public class UsuariosDAO {
             prepS.setString(3, usuario.getSetor());
             prepS.setString(4, usuario.getLocalizacao());
             prepS.setString(5, usuario.getFormacao());
-            prepS.setString(6, usuario.getEmail());
+            prepS.setString(6, usuario.getDescricao());
+            prepS.setString(7, usuario.getEmail());
 
             prepS.executeUpdate();
             prepS.close();
