@@ -71,7 +71,10 @@
                             <div class="profile-head">
                                 <%
                                     EmpresasDAO dao = new EmpresasDAO();
-                                    List<EmpresasDTO> listar = (List<EmpresasDTO>) dao.listar();
+                                    EmpresasDTO dto = new EmpresasDTO();
+                                    String email = (String) session.getAttribute("mail");
+                                    dto.setEmail(email);
+                                    List<EmpresasDTO> listar = (List<EmpresasDTO>) dao.listarEmpresas(dto);
                                 %>
                                 <%
                                     for (EmpresasDTO lister : listar) {

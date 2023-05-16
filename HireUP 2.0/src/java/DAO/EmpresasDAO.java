@@ -96,7 +96,7 @@ public class EmpresasDAO {
     }
 
     public void deletEmpresa(EmpresasDTO delete) throws ClassNotFoundException {
-        String sql = "delete from tbEmpresas where Id_Empresa=?";
+        String sql = "delete from tbEmpresas where Id_Empresa=?;";
         conexao = new ConexaoDAO().conexaoBD();
 
         try {
@@ -109,5 +109,32 @@ public class EmpresasDAO {
         } catch (SQLException e) {
             JOptionPane.showMessageDialog(null, e.getMessage());
         }
+    }
+
+    public List<EmpresasDTO> listarEmpresas(EmpresasDTO listarDTO) throws SQLException, ClassNotFoundException {
+        List<EmpresasDTO> listar = new ArrayList<>();
+        conexao = new ConexaoDAO().conexaoBD();
+        EmpresasDTO dto = new EmpresasDTO();
+        String sql = "select * from tbEmpresas where Email=?;";
+
+        prepS = conexao.prepareStatement(sql);
+        prepS.setString(1, listarDTO.getEmail());
+
+        rSet = prepS.executeQuery();
+        if (rSet.next()) {
+            dto.setNomeEmpresa(rSet.getString("Nome_Empresa"));
+            dto.setEmail(rSet.getString("Email"));
+            dto.setDescricao(rSet.getString("Descricao"));
+            dto.setSenha(rSet.getString("Senha"));
+            dto.setSetor(rSet.getString("Setor"));
+            dto.setIdEmpresa(rSet.getInt("Id_Empresa"));
+            dto.setLocalizacao(rSet.getString("localizacao"));
+            dto.setTipoEmpresa(rSet.getString("Tipo_Empresa"));
+            listar.add(dto);
+
+            prepS.close();
+            conexao.close();
+        }
+        return listar;
     }
 }
