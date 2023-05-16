@@ -41,7 +41,7 @@
                     <div class="form-group row">
                         <label class="col-lg-3 col-form-label form-control-label">Nome</label>
                         <div class="col-lg-9">
-                            <input class="form-control" type="text" value="<%= request.getParameter("Nome")%>" name="Nome"/>
+                            <input class="form-control" name="Nome" type="text" value="<%= request.getParameter("Nome")%>" name="Nome"/>
                         </div>
                     </div>
 
