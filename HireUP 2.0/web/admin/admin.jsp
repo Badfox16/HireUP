@@ -29,6 +29,13 @@
     
     <%@include file="header-admin.jsp" %>
 
+    <%
+            if(session.getAttribute("user")==null){
+                response.sendRedirect("loginA.jsp");
+            }
+
+        %>
+    
     <div class="container-fluid mt-lg-5 mb-lg-5 d-flex flex-wrap">
         <a href="users.jsp" class="m-5">
             <div class="card btn" style="width: 18rem;">
