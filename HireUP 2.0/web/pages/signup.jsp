@@ -15,6 +15,10 @@
                   
                     objUsuariosDTO.setEmail(request.getParameter("email"));
                     objUsuariosDTO.setNome(request.getParameter("nome"));
+                    objUsuariosDTO.setApelido(request.getParameter("apelido"));
+                    objUsuariosDTO.setSetor(request.getParameter("setor"));
+                    objUsuariosDTO.setLocalizacao(request.getParameter("localizacao"));
+                    objUsuariosDTO.setFormacao(request.getParameter("formacao"));
                     objUsuariosDTO.setSenha(request.getParameter("senha"));
                     
                     UsuariosDAO objUsuariosDAO = new UsuariosDAO();
@@ -22,7 +26,7 @@
                    
                     
             } catch (Exception e) {
-                out.print("<script> alert('O login falhou')</script>");
+              
             }
 
              response.sendRedirect("login.html");
