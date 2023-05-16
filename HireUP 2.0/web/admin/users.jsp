@@ -65,10 +65,17 @@
                     </li>
 
 
-                    <li class="nav-link" onclick="changePanel('dashboard')">
-                        <a href="#">
+                    <li class="nav-link" data-bs-toggle="panel"  data-bs-target="#dashboard" onclick="changePanel('dashboard')">
+                        <a href="#"  >
                             <i class='bx bxs-user-circle icon'></i>
-                            <span class="text nav-text">Users</span>
+                            <span class="text nav-text">Usuários</span>
+                        </a>
+                    </li>
+
+                    <li class="nav-link" data-bs-toggle="panel"  data-bs-target="#analytics" onclick="changePanel('analytics')">
+                        <a href="#" >
+                            <i class='bx bxs-user-circle icon'></i>
+                            <span class="text nav-text">Teste</span>
                         </a>
                     </li>
 
@@ -104,7 +111,7 @@
 
 
         <!-- Painel Dashboard -->
-        <div class="home panel" id="dashboard-panel" style="display: block;">
+        <div class="home panel" id="dashboard"  style="display: block;" >
             <h2 class="text">Usuários</h2>
             <p class="">Lista de Usuários</p>
             <table class="table ">
@@ -169,36 +176,10 @@
         </div>
 
         <!-- Painel Analytics -->
-        <div class="home panel" id="analytics-panel" style="display: none;">
+        <div class="home panel" id="analytics" style="display: none;">
             <h2 class="text">Analytics</h2>
             <p>Conteúdo do painel Analytics.</p>
         </div>
-
-        <!-- Painel Notifications -->
-        <div class="home panel" id="notifications-panel" style="display: none;">
-            <h2 class="text">Notifications</h2>
-            <p>Conteúdo do painel Notifications.</p>
-        </div>
-
-        <!-- Painel Stats -->
-        <div class="home panel" id="stats-panel" style="display: none;">
-            <h2>Stats</h2>
-            <p>Conteúdo do painel Stats.</p>
-        </div>
-
-        <!-- Painel Favourites -->
-        <div class="home panel" id="favourites-panel" style="display: none;">
-            <h2>Favourites</h2>
-            <p>Conteúdo do painel Favourites.</p>
-        </div>
-
-        <!-- Painel Money -->
-        <div class="home panel" id="money-panel" style="display: none;">
-            <h2>Money</h2>
-            <p>Conteúdo do painel Money.</p>
-        </div>
-
-
 
 
         <script>
@@ -212,8 +193,6 @@
                 sidebar.classList.toggle("close");
             })
 
-
-
             modeSwitch.addEventListener("click", () => {
                 body.classList.toggle("dark");
                 if (body.classList.contains("dark")) {
@@ -222,13 +201,17 @@
                     modeText.innerText = "Dark mode";
                 }
             });
+
+
             function changePanel(panelId) {
-                // Obtenha o painel com o ID correspondente
-                const panel = document.querySelector(`#${panelId}-panel`);
-                // Oculte todos os painéis
+                // Ocultar todos os painéis
                 const panels = document.querySelectorAll('.panel');
-                panels.forEach(panel => panel.style.display = 'none');
-                // Exiba o painel selecionado
+                panels.forEach(panel => {
+                    panel.style.display = 'none';
+                });
+
+                // Exibir o painel selecionado
+                const panel = document.getElementById(panelId);
                 panel.style.display = 'block';
             }
 

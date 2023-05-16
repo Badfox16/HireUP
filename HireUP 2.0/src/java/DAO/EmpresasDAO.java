@@ -3,7 +3,7 @@ package DAO;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
 
 import javax.swing.JOptionPane;
 
@@ -41,33 +41,51 @@ public class EmpresasDAO {
 
     }
 
-    public List<EmpresasDTO> listar() throws ClassNotFoundException {
-        String sql = "select * from tbEmpresas;";
-        ArrayList<EmpresasDTO> listar = new ArrayList<>();
-        EmpresasDTO dto = new EmpresasDTO();
+        public List<EmpresasDTO> listar() throws SQLException, ClassNotFoundException {
+
+        List<EmpresasDTO> listaUsuarios = new ArrayList<>();
+
+        String sql = "SELECT * FROM tbEmpresas";
         conexao = new ConexaoDAO().conexaoBD();
-
+        Statement stmt = null;
+        ResultSet rs = null;
         try {
-            prepS = conexao.prepareStatement(sql);
-            rSet = prepS.executeQuery();
 
-            while (rSet.next()) {
-                dto.setNomeEmpresa(rSet.getString("Nome_Empresa"));
-                dto.setEmail(rSet.getString("Email"));
-                dto.setDescricao(rSet.getString("Descricao"));
-                dto.setSenha(rSet.getString("Senha"));
-                dto.setSetor(rSet.getString("Setor"));
-                dto.setIdEmpresa(rSet.getInt("Id_Empresa"));
-                dto.setLocalizacao(rSet.getString("localizacao"));
-                dto.setTipoEmpresa(rSet.getString("Tipo_Empresa"));
-                listar.add(dto);
+            stmt = conexao.createStatement();
+            rs = stmt.executeQuery(sql);
+
+            while (rs.next()) {
+                int id = rs.getInt("Id_Empresa");
+                String nome = rs.getString("Nome_Empresa");
+                String tipo = rs.getString("Tipo_Empresa");
+                String setor = rs.getString("Setor");
+                String email = rs.getString("Email");
+                String senha = rs.getString("Senha");
+                String descricao = rs.getString("Descricao");
+                String localizacao = rs.getString("Localizacao");
+                String empregos = rs.getString("Empregos");
+
+                EmpresasDTO empresa = new EmpresasDTO();
+                empresa.setIdEmpresa(id);
+                empresa.setNomeEmpresa(nome);
+                empresa.setTipoEmpresa(tipo);
+                empresa.setSetor(setor);
+                empresa.setEmail(email);
+                empresa.setSenha(senha);
+                empresa.setDescricao(descricao);
+                empresa.setLocalizacao(localizacao);
+                empresa.setEmpregos(empregos);
+            
+                listaUsuarios.add(empresa);
             }
-            prepS.close();
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "ConexaoSQL: " + e.getMessage());
+        } finally {
+            stmt.close();
+            rs.close();
             conexao.close();
-        } catch (SQLException e) {
-            JOptionPane.showMessageDialog(null, "Error " + e.getMessage());
         }
-        return listar;
+        return listaUsuarios;
     }
 
     public void update(EmpresasDTO update) throws ClassNotFoundException {
