@@ -39,7 +39,7 @@ public class UsuariosDAO {
     }
 
     public void Cadastrar(UsuariosDTO objUsuariosDTO) throws ClassNotFoundException {
-        String sql = "insert into tbUsuarios(Email, Nome, Senha) values(?,?,?)";
+        String sql = "insert into tbUsuarios(Email, Nome, Apelido, Setor, Localizacao, Formacao, Senha) values(?,?,?,?,?,?,?)";
         conexao = new ConexaoDAO().conexaoBD();
 
         try {
@@ -47,13 +47,18 @@ public class UsuariosDAO {
 
             prepS.setString(1, objUsuariosDTO.getEmail());
             prepS.setString(2, objUsuariosDTO.getNome());
-            prepS.setString(3, objUsuariosDTO.getSenha());
+            prepS.setString(3, objUsuariosDTO.getApelido());
+            prepS.setString(4, objUsuariosDTO.getSetor());
+            prepS.setString(5, objUsuariosDTO.getLocalizacao());
+            prepS.setString(6, objUsuariosDTO.getFormacao());
+            prepS.setString(7, objUsuariosDTO.getSenha());
+
 
             prepS.execute();
             prepS.close();
             conexao.close();
         } catch (SQLException e) {
-            JOptionPane.showMessageDialog(null, "ConexaoSQL: " + e.getMessage());
+            JOptionPane.showMessageDialog(null, "Falha no cadastro: " + e.getMessage());
         }
 
     }

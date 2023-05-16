@@ -103,50 +103,6 @@
         </nav>
 
 
-
-        <!-- The Modal -->
-        <div class="modal" id="myModal">
-            <div class="modal-dialog">
-                <div class="modal-content">
-
-                    <!-- Modal Header -->
-                    <div class="modal-header">
-                        <h4 class="modal-title">Editar Usuário</h4>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-                    </div>
-
-                    <!-- Modal body -->
-                    <div class="modal-body">
-                        <form action="/action_page.php">
-                            <div class="mb-3 mt-3">
-                                <label for="username" class="form-label">Username:</label>
-                                <input type="text" class="form-control" id="username" value=" <%= request.getParameter("Email") %> " name="username" disabled>
-                            </div>
-
-                            <div class="mb-3 mt-3">
-                                <label for="email" class="form-label">Email:</label>
-                                <input type="email" class="form-control" id="email" name="email">
-                            </div>
-                            <div class="mb-3">
-                                <label for="pwd" class="form-label">Password:</label>
-                                <input type="password" class="form-control" id="pwd"
-                                       name="pswd">
-                            </div>
-
-                            <button type="submit" class="btn btn-success">Atualizar</button>
-                        </form>
-                    </div>
-
-                    <!-- Modal footer -->
-                    <a href="users.jsp" class="modal-footer btn">
-                        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Voltar</button>
-                    </a>
-
-                </div>
-            </div>
-        </div>
-
-
         <!-- Painel Dashboard -->
         <div class="home panel" id="dashboard-panel" style="display: block;">
             <h2 class="text">Usuários</h2>
@@ -166,10 +122,10 @@
                 </thead>
                 <tbody>
                     <%
-                           UsuariosDAO categoriaDAO = new UsuariosDAO();
-                           List<UsuariosDTO> listaCat = (List<UsuariosDTO>) categoriaDAO.listarUsuarios();
+                        UsuariosDAO usersDAO = new UsuariosDAO();
+                        List<UsuariosDTO> listaCat = (List<UsuariosDTO>) usersDAO.listarUsuarios();
 
-                            for(UsuariosDTO newCat: listaCat){
+                        for (UsuariosDTO newCat : listaCat) {
                     %>
                     <tr>
                         <td> <%=newCat.getEmail()%> </td>
@@ -179,24 +135,34 @@
                         <td> <%=newCat.getLocalizacao()%> </td>
                         <td> <%=newCat.getFormacao()%> </td>
                         <td>
-                            <form action="processaDados.jsp" method="POST" >
+                            <form action="editUser.jsp" method="POST">
                                 <input type="hidden" value="<%=newCat.getEmail()%> " name="Email">
                                 <input type="hidden" value="<%=newCat.getNome()%>" name="Nome">
                                 <input type="hidden" value="<%=newCat.getApelido()%>" name="Apelido">
                                 <input type="hidden" value="<%=newCat.getSetor()%> " name="Setor">
                                 <input type="hidden" value="<%=newCat.getLocalizacao()%>" name="Localizacao">
                                 <input type="hidden" value="<%=newCat.getFormacao()%>" name="Formacao">
-                             
-                                <button class="btn btn-warning text-bg-warning" data-bs-toggle="modal"
-                                  data-bs-target="#myModal">EDITAR</button>
+
+                                <button type="submit" class="btn btn-warning text-bg-warning" >EDITAR</button>
                             </form>
                         </td>
-                        <td><a href="" class="btn btn-danger ">EXCLUIR</a></td>
+                        <td>
+                            <form action="verifyDeleteUser.jsp" method="POST">
+                                <input type="hidden" value="<%=newCat.getEmail()%> " name="Email">
+                                <input type="hidden" value="<%=newCat.getNome()%>" name="Nome">
+                                <input type="hidden" value="<%=newCat.getApelido()%>" name="Apelido">
+                                <input type="hidden" value="<%=newCat.getSetor()%> " name="Setor">
+                                <input type="hidden" value="<%=newCat.getLocalizacao()%>" name="Localizacao">
+                                <input type="hidden" value="<%=newCat.getFormacao()%>" name="Formacao">
+
+                                <button type="submit" class="btn btn-danger">EXCLUIR</button>
+                            </form>
+                        </td>
                     </tr>
 
                     <%
-                            }
-    
+                        }
+
                     %>
                 </tbody>
             </table>
@@ -242,8 +208,6 @@
                     searchBtn = body.querySelector(".search-box"),
                     modeSwitch = body.querySelector(".toggle-switch"),
                     modeText = body.querySelector(".mode-text");
-
-
             toggle.addEventListener("click", () => {
                 sidebar.classList.toggle("close");
             })
@@ -252,25 +216,18 @@
 
             modeSwitch.addEventListener("click", () => {
                 body.classList.toggle("dark");
-
                 if (body.classList.contains("dark")) {
                     modeText.innerText = "Light mode";
                 } else {
                     modeText.innerText = "Dark mode";
-
                 }
             });
-
-
-
             function changePanel(panelId) {
                 // Obtenha o painel com o ID correspondente
                 const panel = document.querySelector(`#${panelId}-panel`);
-
                 // Oculte todos os painéis
                 const panels = document.querySelectorAll('.panel');
                 panels.forEach(panel => panel.style.display = 'none');
-
                 // Exiba o painel selecionado
                 panel.style.display = 'block';
             }
