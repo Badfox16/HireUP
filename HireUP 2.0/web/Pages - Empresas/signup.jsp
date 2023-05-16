@@ -11,8 +11,7 @@
     <body>
         <%
             try {
-                UsuariosDTO objUsuariosDTO = new UsuariosDTO();
-                  
+                UsuariosDTO objUsuariosDTO = new UsuariosDTO();  
                     objUsuariosDTO.setEmail(request.getParameter("email"));
                     objUsuariosDTO.setNome(request.getParameter("nome"));
                     objUsuariosDTO.setSenha(request.getParameter("senha"));

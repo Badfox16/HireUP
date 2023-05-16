@@ -22,7 +22,6 @@
                 dto.setEmail(request.getParameter("inpEmail"));
                 dao.deletarUsuario(dto);
 
-                session.isNew();
                 response.sendRedirect("../../index.html");
             } catch (Exception e) {
                 out.print(e.getMessage());
@@ -30,3 +29,4 @@
         %>
     </body>
 </html>
+

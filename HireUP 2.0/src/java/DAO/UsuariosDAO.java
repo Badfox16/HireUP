@@ -138,4 +138,30 @@ public class UsuariosDAO {
             JOptionPane.showMessageDialog(null, e.getMessage());
         }
     }
+
+    public List<UsuariosDTO> listSelect(UsuariosDTO listDTO) throws SQLException, ClassNotFoundException {
+        List<UsuariosDTO> listar = new ArrayList<>();
+        String sql = "SELECT * FROM tbUsuarios where Email = ?";
+        UsuariosDTO dto = new UsuariosDTO();
+        conexao = new ConexaoDAO().conexaoBD();
+        prepS = conexao.prepareStatement(sql);
+
+        prepS.setString(1, listDTO.getEmail());
+        rSet = prepS.executeQuery();
+
+        if (rSet.next()) {
+            dto.setNome(rSet.getString("Nome"));
+            dto.setEmail(rSet.getString("Email"));
+            dto.setApelido(rSet.getString("Apelido"));
+            dto.setFormacao(rSet.getString("Formacao"));
+            dto.setSenha(rSet.getString("Senha"));
+            dto.setLocalizacao(rSet.getString("Localizacao"));
+            dto.setSetor(rSet.getString("Setor"));
+
+            listar.add(dto);
+            prepS.close();
+            conexao.close();
+        }
+        return listar;
+    }
 }

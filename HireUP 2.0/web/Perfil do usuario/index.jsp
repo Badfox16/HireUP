@@ -70,7 +70,11 @@
                         </div>
                         <%
                             UsuariosDAO dao = new UsuariosDAO();
-                            List<UsuariosDTO> listar = (List<UsuariosDTO>) dao.listarUsuarios();
+                            UsuariosDTO dto = new UsuariosDTO();
+                            String email = (String) session.getAttribute("mail");
+                            dto.setEmail(email);
+
+                            List<UsuariosDTO> listar = (List<UsuariosDTO>) dao.listSelect(dto);
                             for (UsuariosDTO lister : listar) {
                         %>
 
