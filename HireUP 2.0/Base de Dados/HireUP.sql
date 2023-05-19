@@ -1,6 +1,8 @@
 create database bdHireUP;
 
-use bdHireUP;
+ALTER DATABASE bdHireUP CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+
+se bdHireUP;
 
 create table tbUsuarios(
 Email varchar(120) primary key,
