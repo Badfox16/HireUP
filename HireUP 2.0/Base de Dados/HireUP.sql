@@ -58,14 +58,14 @@ Nome varchar(150)
  )default charset = utf8;
 
 insert into tbCategorias
- values ("Tecnologias de Informacao"),
+ values ("Tecnologias de Informação"),
  ("Marketing"),
- ("Telecomunicao"),
- ("Administracao"),
- ("Construcao"),
+ ("Telecomunição"),
+ ("Administração"),
+ ("Construção"),
   ("Saude"),
   ("Industrial"),
   ("Multimedia"),
-  ("Seguranca"),
+  ("Segurança"),
   ("Outro");
 
