@@ -2,7 +2,7 @@ create database bdHireUP;
 
 ALTER DATABASE bdHireUP CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 
-se bdHireUP;
+use bdHireUP;
 
 create table tbUsuarios(
 Email varchar(120) primary key,
@@ -12,8 +12,8 @@ Setor varchar(120),
 Localizacao varchar(120),
 Formacao varchar(120),
 Senha varchar(50),
-Descricao varchar(500) default 'Edita o seu perfil e permita com que as empresas conheçam-te melhor.'
-)default charset = utf8;
+Descricao varchar(500)
+);
 
 create table tbEmpregos(
 Id_Emprego int auto_increment primary key,
@@ -31,7 +31,7 @@ Requisitos varchar(500)
 
 create table tbCategorias(
 Nome varchar(150)
-)default charset = utf8;
+);
 
  create table tbEmpresas(
  Id_Empresa int primary key auto_increment,
@@ -43,19 +43,25 @@ Nome varchar(150)
  Descricao varchar(500),
  Localizacao varchar(100),
  Empregos varchar(100)
- )default charset = utf8;
+ );
 
  create table tbAdmin(
     Username VARCHAR(50) primary key,
     Senha varchar(50)
- )default charset = utf8;
+ );
 
  create table tbCandidatura(
     Id_Candidatura int primary key auto_increment,
     Estado VARCHAR(50) not null,
     EmpregoId int not null,
     EmpresaId int not null
- )default charset = utf8;
+ );
+
+ create table tbComentarios(
+ Comentario varchar(1000),
+ UsuarioId varchar(100),
+ PerfilId varchar(100)
+ );
 
 insert into tbCategorias
  values ("Tecnologias de Informação"),
