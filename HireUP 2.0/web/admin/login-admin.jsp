@@ -23,7 +23,6 @@
 </head>
 
 <body class="container-fluid d-flex align-items-center justify-content-center pt-7 flex-column">
-    <h2 class="pt-5">LOGIN</h2>
     
     <form class="container" action="loginA.jsp">
       <div class="row">
