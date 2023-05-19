@@ -49,7 +49,6 @@
                 </div>
             </div>
             <!-- HEADER END  -->
-
             <form action="Controller/updateEmpresa.jsp" method="post" id="myForm">
                 <%
                     EmpresasDAO dao = new EmpresasDAO();
