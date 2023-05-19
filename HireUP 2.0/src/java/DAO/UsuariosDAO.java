@@ -107,7 +107,7 @@ public class UsuariosDAO {
 
     public void editarUsuario(UsuariosDTO usuario) throws ClassNotFoundException {
 
-        String sql = "UPDATE tbUsuarios SET Nome = ?, Apelido = ?, Setor = ?, Localizacao = ?, Formacao = ? WHERE Email = ?";
+        String sql = "UPDATE tbUsuarios SET Nome = ?, Apelido = ?, Setor = ?, Localizacao = ?, Formacao = ?, Descricao = ? WHERE Email = ?;";
         conexao = new ConexaoDAO().conexaoBD();
 
         try {
@@ -125,7 +125,7 @@ public class UsuariosDAO {
             prepS.close();
             conexao.close();
         } catch (SQLException e) {
-            JOptionPane.showMessageDialog(null, "ConexaoSQL: " + e.getMessage());
+            JOptionPane.showMessageDialog(null, "Falha ao alterar: " + e.getMessage());
         }
     }
 
@@ -162,7 +162,7 @@ public class UsuariosDAO {
             dto.setSenha(rSet.getString("Senha"));
             dto.setLocalizacao(rSet.getString("Localizacao"));
             dto.setSetor(rSet.getString("Setor"));
-
+            dto.setDescricao(rSet.getString("Descricao"));
             listar.add(dto);
             prepS.close();
             conexao.close();

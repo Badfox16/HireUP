@@ -4,6 +4,7 @@
  */
 package DAO;
 
+import DTO.ComentarioDTO;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -14,13 +15,20 @@ import java.util.List;
  */
 public class ComentariosDAO {
 
-    private final  Connection CONEXAO = new ConexaoDAO().conexaoBD();
+    private final Connection CONEXAO;
     private final static List<ComentariosDAO> LISTCOMENTARIO = new ArrayList<>();
-    private final ComentariosDAO OBJCOMENTDAO = new ComentariosDAO();
+    private final ComentarioDTO OBJCOMENTDTO = new ComentarioDTO();
     private PreparedStatement prSet = null;
     private ResultSet rstSet = null;
 
-    public void create(ComentariosDAO createDAO) throws ClassNotFoundException, SQLException {
-        
+    public ComentariosDAO() throws ClassNotFoundException {
+        this.CONEXAO = new ConexaoDAO().conexaoBD();
+    }
+
+    public void create(ComentarioDTO createDTO) throws ClassNotFoundException, SQLException {
+        String sql = "insert into tbComentarios (Comentario,UsuarioId,PerfilId) values(?,?,?);";
+        prSet = CONEXAO.prepareStatement(sql);
+
+        prSet.setString(1, createDTO.);
     }
 }

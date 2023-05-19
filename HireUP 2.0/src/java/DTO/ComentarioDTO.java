@@ -10,7 +10,7 @@ package DTO;
  */
 public class ComentarioDTO {
 
-    private String Comentario;
+    private String Comentario, Perfil, Usuario;
 
     public ComentarioDTO() {
         super();
@@ -23,6 +23,21 @@ public class ComentarioDTO {
     public void setComentario(String Comentario) {
         this.Comentario = Comentario;
     }
-    
 
+    public String getPerfil() {
+        return Perfil;
+    }
+
+    public void setPerfil(String Perfil) {
+        this.Perfil = Perfil;
+    }
+
+    public String getUsuario() {
+        return Usuario;
+    }
+
+    public void setUsuario(String Usuario) {
+        this.Usuario = Usuario;
+    }
+    
 }
