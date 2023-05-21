@@ -1,11 +1,10 @@
-create database bdHireUP;
-
-ALTER DATABASE bdHireUP CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+create database bdHireUP CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 
 use bdHireUP;
 
 create table tbUsuarios(
-Email varchar(120) primary key,
+Id_Usuario int auto_increment primary key,
+Email varchar(120) unique,
 Nome varchar(120),
 Apelido varchar(120),
 Setor varchar(120),
@@ -58,9 +57,12 @@ Nome varchar(150)
  );
 
  create table tbComentarios(
+ Id_Comentario int primary key auto_increment,
+ Id_UsuarioFK int,
+ Id_EmpresaFK int,
  Comentario varchar(1000),
- UsuarioId varchar(100),
- PerfilId varchar(100)
+ foreign key(Id_UsuarioFK) references tbUsuarios(Id_Usuario),
+ foreign key(Id_EmpresaFK) references tbEmpresas(Id_Empresa)
  );
 
 insert into tbCategorias
@@ -75,3 +77,4 @@ insert into tbCategorias
   ("Segurança"),
   ("Outro");
 
+select Nome as Usuario, Comentario from tbComentarios as Coments join tbUsuarios as Users on Coments.Id_UsuarioFK = Users.Id_Usuario;
