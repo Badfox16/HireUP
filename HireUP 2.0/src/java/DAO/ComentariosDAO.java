@@ -4,10 +4,9 @@
  */
 package DAO;
 
-import DTO.ComentarioDTO;
+import DTO.ComentariosDTO;
 import java.sql.*;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 /**
  *
@@ -16,28 +15,61 @@ import java.util.List;
 public class ComentariosDAO {
 
     private final Connection CONEXAO;
-    private final static List<ComentariosDAO> LISTCOMENTARIO = new ArrayList<>();
-    private final ComentarioDTO OBJCOMENTDTO;
+    private final ComentariosDTO OBJCOMENTDTO;
+    private final List LISTCOMENTARIO;
     private PreparedStatement prSet;
     private ResultSet rstSet;
 
     public ComentariosDAO() throws ClassNotFoundException {
         this.CONEXAO = new ConexaoDAO().conexaoBD();
-        this.OBJCOMENTDTO = new ComentarioDTO();
+        this.OBJCOMENTDTO = new ComentariosDTO();
+        this.LISTCOMENTARIO = new ArrayList<>();
         this.prSet = null;
         this.rstSet = null;
     }
 
-    public void create(ComentarioDTO createDTO) throws ClassNotFoundException, SQLException {
-        String sql = "insert into tbComentarios (Comentario,UsuarioId,PerfilId) values(?,?,?);";
+//    Comentario dos usuarios apenas (chat global)
+    public void comentarioUsuario(ComentariosDTO createDTO) throws ClassNotFoundException, SQLException {
+        String sql = "insert into tbComentarios (Id_UsuarioFK,Comentario) values(?,?);";
         prSet = CONEXAO.prepareStatement(sql);
 
-        prSet.setString(1, createDTO.getComentario());
-        prSet.setString(2, createDTO.getPerfil());
-        prSet.setString(3, createDTO.getUsuario());
+        prSet.setInt(1, createDTO.getIdUsuarioFK());
+        prSet.setString(2, createDTO.getComentario());
 
         prSet.execute();
         prSet.close();
         CONEXAO.close();
     }
+
+//    Comentario da empresa (no perfil da empresa e no global)
+    public void comentarioEmpresa(ComentariosDTO createDTO) throws ClassNotFoundException, SQLException {
+        String sql = "insert into tbComentarios (Id_UsuarioFK,Id_EmpresaFK,Comentario) values(?,?,?);";
+        prSet = CONEXAO.prepareStatement(sql);
+
+        prSet.setInt(1, createDTO.getIdUsuarioFK());
+        prSet.setInt(2, createDTO.getIdEmpresaFK());
+        prSet.setString(3, createDTO.getComentario());
+
+        prSet.execute();
+        prSet.close();
+        CONEXAO.close();
+    }
+
+//    Listar os comentarios (chat global)
+    public List<ComentariosDTO> userComentario() throws ClassNotFoundException, SQLException {
+        String sql = "select Nome as Usuario, Comentario from tbComentarios as Coments join tbUsuarios as Users on Coments.Id_UsuarioFK = Users.Id_Usuario;";
+        prSet = CONEXAO.prepareStatement(sql);
+
+        rstSet = prSet.executeQuery();
+        while (rstSet.next()) {
+            OBJCOMENTDTO.setComentario(rstSet.getString("Comentario"));
+            OBJCOMENTDTO.setNome(rstSet.getString("Usuario"));
+
+            LISTCOMENTARIO.add(OBJCOMENTDTO);
+        }
+        return LISTCOMENTARIO;
+    }
+    
+//    Listar da empresa (no perfil da empresa)
+
 }

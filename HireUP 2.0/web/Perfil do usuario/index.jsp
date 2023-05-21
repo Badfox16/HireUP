@@ -70,7 +70,7 @@
                                     String email = (String) session.getAttribute("mail");
                                     dto.setEmail(email);
 
-                                    List<UsuariosDTO> listar = (List<UsuariosDTO>) dao.listSelect(dto);
+                                    List<UsuariosDTO> listar = (List<UsuariosDTO>) dao.perfilUsuario(dto);
                                     for (UsuariosDTO lister : listar) {
                                 %>
 

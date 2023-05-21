@@ -144,7 +144,7 @@ public class UsuariosDAO {
         }
     }
 
-    public List<UsuariosDTO> listSelect(UsuariosDTO listDTO) throws SQLException, ClassNotFoundException {
+    public List<UsuariosDTO> perfilUsuario(UsuariosDTO listDTO) throws SQLException, ClassNotFoundException {
         List<UsuariosDTO> listar = new ArrayList<>();
         String sql = "SELECT * FROM tbUsuarios where Email = ?";
         UsuariosDTO dto = new UsuariosDTO();
@@ -155,6 +155,7 @@ public class UsuariosDAO {
         rSet = prepS.executeQuery();
 
         if (rSet.next()) {
+            dto.setIdUsuario(rSet.getInt("Id_Usuario"));
             dto.setNome(rSet.getString("Nome"));
             dto.setEmail(rSet.getString("Email"));
             dto.setApelido(rSet.getString("Apelido"));

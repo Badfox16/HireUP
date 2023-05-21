@@ -129,7 +129,7 @@ public class EmpresasDAO {
         }
     }
 
-    public List<EmpresasDTO> listarEmpresas(EmpresasDTO listarDTO) throws SQLException, ClassNotFoundException {
+    public List<EmpresasDTO> perfilEmpresa(EmpresasDTO listarDTO) throws SQLException, ClassNotFoundException {
         List<EmpresasDTO> listar = new ArrayList<>();
         conexao = new ConexaoDAO().conexaoBD();
         EmpresasDTO dto = new EmpresasDTO();

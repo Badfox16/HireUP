@@ -75,7 +75,7 @@
                                     EmpresasDTO dto = new EmpresasDTO();
                                     String email = (String) session.getAttribute("mail");
                                     dto.setEmail(email);
-                                    List<EmpresasDTO> listar = (List<EmpresasDTO>) dao.listarEmpresas(dto);
+                                    List<EmpresasDTO> listar = (List<EmpresasDTO>) dao.perfilEmpresa(dto);
                                 %>
                                 <%
                                     for (EmpresasDTO lister : listar) {
