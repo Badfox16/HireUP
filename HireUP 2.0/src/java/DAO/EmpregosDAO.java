@@ -139,13 +139,13 @@ public class EmpregosDAO {
 
     public List<EmpregosDTO> pesquisarEmpregos(String valor) throws SQLException, ClassNotFoundException {
         List<EmpregosDTO> listaEmpregos = new ArrayList<>();
-        String sql = "SELECT * FROM tbEmpregos WHERE titulo LIKE ?";
+        String sql = "SELECT * FROM tbEmpregos WHERE LOWER(Posicao) LIKE ?";
         conexao = new ConexaoDAO().conexaoBD();
         PreparedStatement stmt = null;
         ResultSet rs = null;
         try {
             stmt = conexao.prepareStatement(sql);
-            stmt.setString(1, "%" + valor + "%");
+            stmt.setString(1, "%" + valor.toLowerCase() + "%");
             rs = stmt.executeQuery();
 
             while (rs.next()) {
@@ -189,6 +189,5 @@ public class EmpregosDAO {
         }
         return listaEmpregos;
     }
-    
 
 }

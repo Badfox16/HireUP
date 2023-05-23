@@ -176,19 +176,19 @@
                                         width="100%"
                                         />
                                 </div>
-                                <span> <%= novoDado.getTitulo()%> </span>
+                                <span> <%= novoDado.getEmpresa()%> </span>
                             </div>
                             <div class="card-middle">
-                                <span><%= novoDado.getPosicao()%> </span>
+                                <span><%= novoDado.getPosicao()%></span>
                             </div>
                             <div class="card-category-and-type">
                                 <div><%= novoDado.getSetor()%> </div>
                                 <div><%= novoDado.getTipo()%> </div>
                             </div>
                             <div class="card-botttom">
-                                <span><i class="fa-solid fa-location-dot"></i> <%= novoDado.getLocalizacao()%></span>
+                                <span><i class="fa-sharp fa-solid fa-map-location"></i> <%= novoDado.getLocalizacao()%></span>
                                 <div> 
-                                    <span class="dollar-sign"><i class="fa-solid fa-coins"></i></span>
+                                    <span class="dollar-sign"><i class="fa-solid fa-money-bill"></i></span>
                                     <%= novoDado.getSalarioMin()%> <span>-</span> <%= novoDado.getSalarioMax()%> Mzn 
                                 </div>
                             </div>
