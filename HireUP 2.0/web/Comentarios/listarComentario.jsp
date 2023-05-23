@@ -17,19 +17,14 @@
     </head>
     <body>
 
-        <%
-            List<ComentariosDTO> objComentario = (List<ComentariosDTO>) new ComentariosDAO().userComentario();
-        %>
+       
 
-        <%
-            for (ComentariosDTO listar : objComentario) {
-        %>
         <div class="Exbir">
-            <h1>Nome <%=listar.getNome()%></h1>
+            <h1>Nome </h1>
             <textarea cols="55" rows="25" readonly="true">
-                <%=listar.getComentario()%>
+               
             </textarea>
         </div>
-        <%}%>
+    
     </body>
 </html>

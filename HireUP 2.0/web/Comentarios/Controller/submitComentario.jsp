@@ -27,11 +27,12 @@
 
                 objComentarioDAO.comentarioUsuario(objComentarioDTO);
 
-                response.sendRedirect("../listarComentario.jsp");
+                response.sendRedirect("../index.jsp");
             } catch (Exception e){
             JOptionPane.showMessageDialog(null, "SQL ERRO EM" + e.getMessage());
             }
         %>
 
+        
     </body>
 </html>
