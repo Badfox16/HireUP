@@ -2,69 +2,97 @@ package DTO;
 
 public class EmpregosDTO {
     private int IdEmprego, SalarioMin, SalarioMax;
-    private String Posicao, Categoria, Descricao, Requisitos;
+    private String Posicao, Setor, Descricao, Requisitos, Empresa;
     private String Localizacao, Tipo, Titulo;
-    
- 
-    public String getTitulo() {
-        return Titulo;
-    }
-    public void setTitulo(String titulo) {
-        Titulo = titulo;
-    }
-    public String getLocalizacao() {
-        return Localizacao;
-    }
-    public void setLocalizacao(String localizacao) {
-        Localizacao = localizacao;
-    }
-    public String getTipo() {
-        return Tipo;
-    }
-    public void setTipo(String tipo) {
-        Tipo = tipo;
-    }
+
     public int getIdEmprego() {
         return IdEmprego;
     }
-    public void setIdEmprego(int idEmprego) {
-        IdEmprego = idEmprego;
+
+    public void setIdEmprego(int IdEmprego) {
+        this.IdEmprego = IdEmprego;
     }
+
     public int getSalarioMin() {
         return SalarioMin;
     }
-    public void setSalarioMin(int salarioMin) {
-        SalarioMin = salarioMin;
+
+    public void setSalarioMin(int SalarioMin) {
+        this.SalarioMin = SalarioMin;
     }
+
     public int getSalarioMax() {
         return SalarioMax;
     }
-    public void setSalarioMax(int salarioMax) {
-        SalarioMax = salarioMax;
+
+    public void setSalarioMax(int SalarioMax) {
+        this.SalarioMax = SalarioMax;
     }
+
     public String getPosicao() {
         return Posicao;
     }
-    public void setPosicao(String posicao) {
-        Posicao = posicao;
+
+    public void setPosicao(String Posicao) {
+        this.Posicao = Posicao;
     }
-    public String getCategoria() {
-        return Categoria;
+
+    public String getSetor() {
+        return Setor;
     }
-    public void setCategoria(String categoria) {
-        Categoria = categoria;
+
+    public void setSetor(String Setor) {
+        this.Setor = Setor;
     }
+
     public String getDescricao() {
         return Descricao;
     }
-    public void setDescricao(String descricao) {
-        Descricao = descricao;
+
+    public void setDescricao(String Descricao) {
+        this.Descricao = Descricao;
     }
+
     public String getRequisitos() {
         return Requisitos;
     }
-    public void setRequisitos(String requisitos) {
-        Requisitos = requisitos;
+
+    public void setRequisitos(String Requisitos) {
+        this.Requisitos = Requisitos;
     }
 
+    public String getEmpresa() {
+        return Empresa;
+    }
+
+    public void setEmpresa(String Empresa) {
+        this.Empresa = Empresa;
+    }
+
+    public String getLocalizacao() {
+        return Localizacao;
+    }
+
+    public void setLocalizacao(String Localizacao) {
+        this.Localizacao = Localizacao;
+    }
+
+    public String getTipo() {
+        return Tipo;
+    }
+
+    public void setTipo(String Tipo) {
+        this.Tipo = Tipo;
+    }
+
+    public String getTitulo() {
+        return Titulo;
+    }
+
+    public void setTitulo(String Titulo) {
+        this.Titulo = Titulo;
+    }
+
+   
+ 
 }
