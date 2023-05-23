@@ -29,20 +29,13 @@
     </head>
     <body>
 
-        <%
-            if (session.getAttribute("mail") == null) {
-                response.sendRedirect("login.jsp");
-            }
-
-        %>
-
         <section>
             <div class="navbar">
                 <div class="left-nav">
                     <a href="../index.html" class="brand"
                        ><img src="../img/logo.png" alt="Logo" class="logo" height="30"
                           />
-                        <span class="nav-link">Ola, ${mail}</span>
+
                     </a>
 
                 </div>
@@ -100,28 +93,49 @@
                     </div>
 
                     <div class="div-filters">
-                        <button onclick="mostrar()">
-                            Categories <span><i class="fa-solid fa-angle-down"></i></span>
-                        </button>
+
+                        <h2>Categorias</h2>
 
                         <div class="checkbox-wrapper">
+
+                            <div>
+                                <label for="Categories1">
+                                    <input type="radio" checked class="filter-radio" name="category" id="Categories1" value="Todos"/>
+                                    Todos
+                                </label>
+                            </div>
 
                             <%
                                 CategoriasDAO categoriaDAO = new CategoriasDAO();
                                 List<CategoriasDTO> listaCat = (List<CategoriasDTO>) categoriaDAO.listarCategorias();
-                            
-                                for(CategoriasDTO newCat: listaCat){
+
+                                int contador = 1;
+
+                                String setor = ""; // Mova a declaração e a inicialização para fora do loop
+
+                                for (CategoriasDTO newCategoria : listaCat) {
+                                    contador++;
+
+                                    if (newCategoria.getNome().equals("Tecnologias de Informação")) {
+                                        setor = "tech";
+                                    } else {
+                                        setor = newCategoria.getNome();
+                                    }
                             %>
                             <div>
-                                <input type="checkbox" id="Categories"/>
-                                <label for="Categories"><%=newCat.getNome()%></label>
+                                <label for="Categories<%= contador%>">
+                                    <input type="radio" class="filter-radio" name="category" id="Categories<%= contador%>" value="<%= setor%>"/>
+                                    <%= newCategoria.getNome()%>
+                                </label>
                             </div>
                             <%
                                 }
-                            %>     
+                            %>
+
                         </div>
                         <hr />
                     </div>
+
                 </div>
 
                 <div class="right-filter">
@@ -136,17 +150,25 @@
                             EmpregosDAO dao = new EmpregosDAO();
                             List<EmpregosDTO> lista = (List<EmpregosDTO>) dao.listarEmpregos();
 
+                            String setorCard = "";
+
                             if (lista.isEmpty() == true) {
                                 out.print("<div class=\"card-jobs\"><h3>nenhum dado existente encontrado</h3></div>");
 
                             } else {
                                 for (EmpregosDTO novoDado : lista) {
+
+                                    if (novoDado.getSetor().equals("Tecnologias de Informação")) {
+                                        setorCard = "tech";
+                                    } else {
+                                        setorCard = novoDado.getSetor();
+                                    }
                         %>
 
 
 
 
-                        <div class="card-jobs">
+                        <div class="card-jobs Todos project <%= setorCard%>">
                             <div class="card-top">
                                 <div>
                                     <img
@@ -160,11 +182,11 @@
                                 <span><%= novoDado.getPosicao()%> </span>
                             </div>
                             <div class="card-category-and-type">
-                                <div><%= novoDado.getCategoria()%> </div>
+                                <div><%= novoDado.getSetor()%> </div>
                                 <div><%= novoDado.getTipo()%> </div>
                             </div>
                             <div class="card-botttom">
-                                <span><i class="fa-solid fa-location-dot"></i> <%= novoDado.getLocalizacao() %></span>
+                                <span><i class="fa-solid fa-location-dot"></i> <%= novoDado.getLocalizacao()%></span>
                                 <div> 
                                     <span class="dollar-sign"><i class="fa-solid fa-coins"></i></span>
                                     <%= novoDado.getSalarioMin()%> <span>-</span> <%= novoDado.getSalarioMax()%> Mzn 
@@ -174,7 +196,7 @@
                                 <form action="vermais.jsp" method="post">
                                     <input type="hidden" name="titulo" value="<%= novoDado.getTitulo()%> ">
                                     <input type="hidden" name="posicao" value="<%= novoDado.getPosicao()%>">
-                                    <input type="hidden" name="categoria" value="<%= novoDado.getCategoria()%>">
+                                    <input type="hidden" name="categoria" value="<%= novoDado.getSetor()%>">
                                     <input type="hidden" name="tipo" value="<%= novoDado.getTipo()%>">
                                     <input type="hidden" name="salarioMin" value="<%= novoDado.getSalarioMin()%>">
                                     <input type="hidden" name="salarioMax" value="<%= novoDado.getSalarioMax()%>">
@@ -198,13 +220,31 @@
         </section>
 
         <script>
-            function mostrar() {
-                let elemento =
-                        event.currentTarget.parentElement.querySelector(".checkbox-wrapper");
-                elemento.style.display === "block"
-                        ? (elemento.style.display = "none")
-                        : (elemento.style.display = "block");
-            }
+            // Selecionar os elementos relevantes
+            const radios = document.querySelectorAll('.filter-radio');
+            const projects = document.querySelectorAll('.project');
+
+            // Adicionar o evento de alteração aos radio buttons
+            radios.forEach(radio => {
+                radio.addEventListener('change', () => {
+                    // Obter o valor do filtro selecionado
+                    const selectedFilter = document.querySelector('input[name="category"]:checked').value;
+
+                    // Mostrar ou ocultar os projetos com base no filtro selecionado
+                    projects.forEach(project => {
+                        const projectFilters = Array.from(project.classList)
+                                .filter(className => className !== 'project');
+
+                        if (projectFilters.includes(selectedFilter)) {
+                            project.style.display = 'block';
+                        } else {
+                            project.style.display = 'none';
+                        }
+                    });
+                });
+            });
+
+
         </script>
     </body>
 </html>
