@@ -15,14 +15,12 @@ import java.util.*;
 public class ComentariosDAO {
 
     private final Connection CONEXAO;
-    private final ComentariosDTO OBJCOMENTDTO;
     private final List LISTCOMENTARIO;
     private PreparedStatement prSet;
     private ResultSet rstSet;
 
     public ComentariosDAO() throws ClassNotFoundException {
         this.CONEXAO = new ConexaoDAO().conexaoBD();
-        this.OBJCOMENTDTO = new ComentariosDTO();
         this.LISTCOMENTARIO = new ArrayList<>();
         this.prSet = null;
         this.rstSet = null;
@@ -57,19 +55,22 @@ public class ComentariosDAO {
 
 //    Listar os comentarios (chat global)
     public List<ComentariosDTO> userComentario() throws ClassNotFoundException, SQLException {
-        String sql = "select Nome as Usuario, Comentario from tbComentarios as Coments join tbUsuarios as Users on Coments.Id_UsuarioFK = Users.Id_Usuario;";
+        String sql = "select Nome as Usuario, Comentario from tbComentarios as Coments join tbUsuarios as Users on Coments.Id_UsuarioFK = Users.Id_Usuario  order by Id_Comentario;";
         prSet = CONEXAO.prepareStatement(sql);
 
         rstSet = prSet.executeQuery();
         while (rstSet.next()) {
-            OBJCOMENTDTO.setComentario(rstSet.getString("Comentario"));
-            OBJCOMENTDTO.setNome(rstSet.getString("Usuario"));
+            ComentariosDTO objComentDTO = new ComentariosDTO();
 
-            LISTCOMENTARIO.add(OBJCOMENTDTO);
+            objComentDTO.setComentario(rstSet.getString("Comentario"));
+            objComentDTO.setNome(rstSet.getString("Usuario"));
+
+            LISTCOMENTARIO.add(objComentDTO);
         }
+        prSet.close();
+        CONEXAO.close();
         return LISTCOMENTARIO;
     }
-    
-//    Listar da empresa (no perfil da empresa)
 
+//    Listar da empresa (no perfil da empresa)
 }

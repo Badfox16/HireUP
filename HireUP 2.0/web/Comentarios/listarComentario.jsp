@@ -18,8 +18,7 @@
     <body>
 
         <%
-            ComentariosDAO dao = new ComentariosDAO();
-            List<ComentariosDTO> objComentario = (List<ComentariosDTO>) dao.userComentario();
+            List<ComentariosDTO> objComentario = (List<ComentariosDTO>) new ComentariosDAO().userComentario();
         %>
 
         <%
