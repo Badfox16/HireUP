@@ -1,0 +1,113 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400&family=Open+Sans:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500;1,600&display=swap");
+
+
+* {
+	box-sizing: border-box;
+	margin: 0;
+	-webkit-font-smoothing: antialiased;
+	-webkit-text-size-adjust: 100%;
+}
+
+body {
+	font-family: 'Inter', sans-serif;
+	font-size: 14px;
+	line-height: 1.2;
+	color: #030407;
+}
+
+.navbar>div>a {
+    text-decoration: none;
+}
+
+.navbar {
+	position: -webkit-sticky;
+	position: sticky;
+	display: flex;
+	justify-content: space-around;
+	z-index: 999;
+	top: 0px;
+	background-color: #fff;
+	border-bottom: 1px solid #ebebef;
+	padding: 10px 58px;
+	background-attachment: scroll !important;
+}
+
+.left-nav {
+	display: flex;
+	align-items: center;
+	-webkit-box-align: center;
+}
+
+.brand {
+	position: relative;
+	float: left;
+	text-decoration: none;
+	color: #333333;
+}
+
+img {
+	display: inline-block;
+	vertical-align: middle;
+	max-width: 100%;
+	border: 0;
+	overflow: clip;
+}
+
+.nav-menu {
+	position: relative;
+	display: flex;
+    flex-direction: row;
+	width: 100%;
+	-webkit-box-pack: center;
+	justify-content: center;
+	-webkit-box-align: center;
+	align-items: flex-end;
+	grid-column-gap: 12px;
+}
+
+.right-nav {
+	display: flex;
+	align-items: center;
+	justify-content: flex-end;
+	gap: 12px;
+	-webkit-box-pack: end;
+	-webkit-box-align: center;
+}
+
+.nav-link {
+	padding: 5px 16px;
+	-webkit-box-align: center;
+	color: #3e404c;
+	font-size: 14px;
+	line-height: 24px;
+	font-weight: 500;
+	white-space: nowrap;
+	letter-spacing: -0.02em;
+    text-decoration: none;
+    background-color: transparent;
+}
+
+a:hover {
+    /* color: #A4EBBC; */
+    color: #0AB248;
+}
+
+.btn-primary {
+	padding: 10px 20px;
+	-webkit-box-orient: horizontal;
+	-webkit-box-direction: normal;
+	-webkit-box-pack: center;
+	background-color: #0AB248;
+	transition: all 500ms cubic-bezier(0.6, 0.6, 0, 1);
+	color: #fff;
+	font-size: 16.5px;
+	line-height: 24px;
+	font-weight: 500;
+	text-align: center;
+	letter-spacing: -0.02em;
+	border: 0;
+	margin: 0;
+	text-decoration: none;
+	cursor: pointer;
+	border-radius: 0;
+}
