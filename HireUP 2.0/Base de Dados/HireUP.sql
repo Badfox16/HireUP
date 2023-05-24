@@ -77,4 +77,6 @@ insert into tbCategorias
   ("Segurança"),
   ("Outro");
 
-select Nome as Usuario, Comentario from tbComentarios as Coments join tbUsuarios as Users on Coments.Id_UsuarioFK = Users.Id_Usuario;
+alter table tbComentarios add Data varchar(8);
+-- select * from tbComentarios as Coments join tbUsuarios as Users on Coments.Id_UsuarioFK = Users.Id_Usuario order by  Id_Comentario;
+-- select * from tbComentarios;
