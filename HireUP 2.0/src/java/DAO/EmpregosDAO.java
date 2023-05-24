@@ -19,7 +19,7 @@ public class EmpregosDAO {
     ResultSet rSet;
 
     public void Cadastrar(EmpregosDTO objEmpregosDTO) throws ClassNotFoundException {
-        String sql = "insert into tbEmpregos(Titulo, Posicao, SalarioMin, SalarioMax, Categoria, Localizacao, Tipo, Descricao, Requisitos) values(?,?,?,?,?,?,?,?,?)";
+        String sql = "insert into tbEmpregos(Titulo, Posicao, SalarioMin, SalarioMax, Setor, Localizacao, Tipo, Descricao, Requisitos, Empresa) values(?,?,?,?,?,?,?,?,?,?)";
         conexao = new ConexaoDAO().conexaoBD();
 
         try {
@@ -29,11 +29,12 @@ public class EmpregosDAO {
             prepS.setString(2, objEmpregosDTO.getPosicao());
             prepS.setInt(3, objEmpregosDTO.getSalarioMin());
             prepS.setInt(4, objEmpregosDTO.getSalarioMax());
-            prepS.setString(5, objEmpregosDTO.getCategoria());
+            prepS.setString(5, objEmpregosDTO.getSetor());
             prepS.setString(6, objEmpregosDTO.getLocalizacao());
             prepS.setString(7, objEmpregosDTO.getTipo());
             prepS.setString(8, objEmpregosDTO.getDescricao());
             prepS.setString(9, objEmpregosDTO.getRequisitos());
+            prepS.setString(10, objEmpregosDTO.getEmpresa());
 
             prepS.execute();
             prepS.close();
@@ -58,22 +59,24 @@ public class EmpregosDAO {
             rs = stmt.executeQuery(sql);
 
             while (rs.next()) {
+                String empresa = rs.getString("Empresa");
                 String titulo = rs.getString("titulo");
                 String posicao = rs.getString("Posicao");
                 int SalarioMin = rs.getInt("SalarioMin");
                 int SalarioMax = rs.getInt("SalarioMax");
-                String Categoria = rs.getString("Categoria");
+                String Setor = rs.getString("Setor");
                 String Localizacao = rs.getString("Localizacao");
                 String Tipo = rs.getString("Tipo");
                 String Descricao = rs.getString("Descricao");
                 String Requisitos = rs.getString("Requisitos");
 
                 EmpregosDTO Emprego = new EmpregosDTO();
+                Emprego.setEmpresa(empresa);
                 Emprego.setTitulo(titulo);
                 Emprego.setPosicao(posicao);
                 Emprego.setSalarioMin(SalarioMin);
                 Emprego.setSalarioMax(SalarioMax);
-                Emprego.setCategoria(Categoria);
+                Emprego.setSetor(Setor);
                 Emprego.setLocalizacao(Localizacao);
                 Emprego.setTipo(Tipo);
                 Emprego.setDescricao(Descricao);
@@ -110,7 +113,7 @@ public class EmpregosDAO {
     }
 
     public void editarEmpregos(EmpregosDTO objEmpregosDTO) throws ClassNotFoundException {
-        String sql = "update tbEmpreg Posicao=?, SalarioMin=?, SalarioMax=?, Categoria=?, Localizacao=?, Tipo=?, Descricao=?, Requisitos=? where Id_Emprego=?";
+        String sql = "update tbEmpreg Posicao=?, SalarioMin=?, SalarioMax=?, Setor=?, Localizacao=?, Tipo=?, Descricao=?, Requisitos=? where Id_Emprego=?";
         conexao = new ConexaoDAO().conexaoBD();
 
         try {
@@ -119,7 +122,7 @@ public class EmpregosDAO {
             prepS.setString(1, objEmpregosDTO.getPosicao());
             prepS.setInt(2, objEmpregosDTO.getSalarioMin());
             prepS.setInt(3, objEmpregosDTO.getSalarioMin());
-            prepS.setString(4, objEmpregosDTO.getCategoria());
+            prepS.setString(4, objEmpregosDTO.getSetor());
             prepS.setString(5, objEmpregosDTO.getLocalizacao());
             prepS.setString(6, objEmpregosDTO.getTipo());
             prepS.setString(7, objEmpregosDTO.getDescricao());
@@ -136,22 +139,23 @@ public class EmpregosDAO {
 
     public List<EmpregosDTO> pesquisarEmpregos(String valor) throws SQLException, ClassNotFoundException {
         List<EmpregosDTO> listaEmpregos = new ArrayList<>();
-        String sql = "SELECT * FROM tbEmpregos WHERE titulo LIKE ?";
+        String sql = "SELECT * FROM tbEmpregos WHERE LOWER(Posicao) LIKE ?";
         conexao = new ConexaoDAO().conexaoBD();
         PreparedStatement stmt = null;
         ResultSet rs = null;
         try {
             stmt = conexao.prepareStatement(sql);
-            stmt.setString(1, "%" + valor + "%");
+            stmt.setString(1, "%" + valor.toLowerCase() + "%");
             rs = stmt.executeQuery();
 
             while (rs.next()) {
                 int id = rs.getInt("Id_Emprego");
+                String empresa = rs.getString("Empresa");
                 String titulo = rs.getString("Titulo");
                 String posicao = rs.getString("Posicao");
                 int salarioMin = rs.getInt("SalarioMin");
                 int salarioMax = rs.getInt("SalarioMax");
-                String categoria = rs.getString("Categoria");
+                String setor = rs.getString("Setor");
                 String localizacao = rs.getString("Localizacao");
                 String tipo = rs.getString("Tipo");
                 String descricao = rs.getString("Descricao");
@@ -159,11 +163,12 @@ public class EmpregosDAO {
 
                 EmpregosDTO emprego = new EmpregosDTO();
                 emprego.setIdEmprego(id);
+                emprego.setEmpresa(empresa);
                 emprego.setTitulo(titulo);
                 emprego.setPosicao(posicao);
                 emprego.setSalarioMin(salarioMin);
                 emprego.setSalarioMax(salarioMax);
-                emprego.setCategoria(categoria);
+                emprego.setSetor(setor);
                 emprego.setLocalizacao(localizacao);
                 emprego.setTipo(tipo);
                 emprego.setDescricao(descricao);
@@ -184,6 +189,5 @@ public class EmpregosDAO {
         }
         return listaEmpregos;
     }
-    
 
 }

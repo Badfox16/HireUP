@@ -8,6 +8,11 @@ import java.sql.*;
 import javax.swing.JOptionPane;
 
 import DTO.EmpresasDTO;
+import java.io.ByteArrayOutputStream;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -41,50 +46,31 @@ public class EmpresasDAO {
 
     }
 
-        public List<EmpresasDTO> listar() throws SQLException, ClassNotFoundException {
-
+    public List<EmpresasDTO> listar() throws SQLException, ClassNotFoundException {
         List<EmpresasDTO> listaUsuarios = new ArrayList<>();
-
         String sql = "SELECT * FROM tbEmpresas";
         conexao = new ConexaoDAO().conexaoBD();
-        Statement stmt = null;
-        ResultSet rs = null;
-        try {
 
-            stmt = conexao.createStatement();
-            rs = stmt.executeQuery(sql);
+        prepS = conexao.prepareStatement(sql);
+        rSet = prepS.executeQuery();
 
-            while (rs.next()) {
-                int id = rs.getInt("Id_Empresa");
-                String nome = rs.getString("Nome_Empresa");
-                String tipo = rs.getString("Tipo_Empresa");
-                String setor = rs.getString("Setor");
-                String email = rs.getString("Email");
-                String senha = rs.getString("Senha");
-                String descricao = rs.getString("Descricao");
-                String localizacao = rs.getString("Localizacao");
-                String empregos = rs.getString("Empregos");
+        while (rSet.next()) {
+            EmpresasDTO objEmpresa = new EmpresasDTO();
 
-                EmpresasDTO empresa = new EmpresasDTO();
-                empresa.setIdEmpresa(id);
-                empresa.setNomeEmpresa(nome);
-                empresa.setTipoEmpresa(tipo);
-                empresa.setSetor(setor);
-                empresa.setEmail(email);
-                empresa.setSenha(senha);
-                empresa.setDescricao(descricao);
-                empresa.setLocalizacao(localizacao);
-                empresa.setEmpregos(empregos);
-            
-                listaUsuarios.add(empresa);
-            }
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "ConexaoSQL: " + e.getMessage());
-        } finally {
-            stmt.close();
-            rs.close();
-            conexao.close();
+            objEmpresa.setIdEmpresa(rSet.getInt("Id_Empresa"));
+            objEmpresa.setNomeEmpresa(rSet.getString("Nome_Empresa"));
+            objEmpresa.setTipoEmpresa(rSet.getString("Tipo_Empresa"));
+            objEmpresa.setSetor(rSet.getString("Setor"));
+            objEmpresa.setEmail(rSet.getString("Email"));
+            objEmpresa.setSenha(rSet.getString("Senha"));
+            objEmpresa.setDescricao(rSet.getString("Descricao"));
+            objEmpresa.setLocalizacao(rSet.getString("Localizacao"));
+            objEmpresa.setEmpregos(rSet.getString("Empregos"));
+
+            listaUsuarios.add(objEmpresa);
         }
+        prepS.close();
+        conexao.close();
         return listaUsuarios;
     }
 
@@ -129,7 +115,7 @@ public class EmpresasDAO {
         }
     }
 
-    public List<EmpresasDTO> listarEmpresas(EmpresasDTO listarDTO) throws SQLException, ClassNotFoundException {
+    public List<EmpresasDTO> perfilEmpresa(EmpresasDTO listarDTO) throws SQLException, ClassNotFoundException {
         List<EmpresasDTO> listar = new ArrayList<>();
         conexao = new ConexaoDAO().conexaoBD();
         EmpresasDTO dto = new EmpresasDTO();

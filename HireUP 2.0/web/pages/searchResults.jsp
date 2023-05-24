@@ -26,29 +26,29 @@
         ></script>
     </head>
     <body>
-         
-        <%
-            if(session.getAttribute("mail")==null){
+
+        <%--
+            if (session.getAttribute("mail") == null) {
                 response.sendRedirect("login.jsp");
             }
 
-        %>
+        --%>
         <section>
             <div class="navbar">
                 <div class="left-nav">
                     <a href="../index.html" class="brand"><img src="../img/logo.png" alt="Logo" class="logo"  height="30">
-                     <span class="nav-link">Ola, ${mail}</span>
+                        <span class="nav-link">Ola, ${mail}</span>
                     </a>
 
                 </div>
 
                 <div class="nav-middle">
                     <nav class="nav-menu">
-        <a href="../index.html" class="nav-link">Home</a>
-        <a href="./empresa.jsp" class="nav-link">Empresas</a>
-        <a href="./browse.jsp" class="nav-link">Pesquise</a>
-        <a href="./subEmpresa.html" class="nav-link">Submeter Empresa</a>
-      </nav>
+                        <a href="../index.html" class="nav-link">Home</a>
+                        <a href="./empresa.jsp" class="nav-link">Empresas</a>
+                        <a href="./browse.jsp" class="nav-link">Pesquise</a>
+                        <a href="./subEmpresa.html" class="nav-link">Submeter Empresa</a>
+                    </nav>
                 </div>
 
 
@@ -87,45 +87,42 @@
                 <div class="mostrar-jobs">
                     <!-- listar jobs com jsp-->
 
-                    <%
+                    <%                        
                         EmpregosDAO dao = new EmpregosDAO();
+                        String pesquisa = request.getParameter("pesquisa");
+                        List<EmpregosDTO> teste = dao.pesquisarEmpregos(pesquisa);
 
-                        List<EmpregosDTO> teste = (List<EmpregosDTO>) dao.pesquisarEmpregos(request.getParameter("pesquisa"));
-
-                        if (teste.isEmpty() == true) {
+                        if (teste.isEmpty()) {
                             out.print("<div class=\"card-jobs\"><h3>nenhum dado existente encontrado</h3></div>");
-
                         } else {
-
                             for (EmpregosDTO novoDado : teste) {
                     %>
-
                     <div class="card-jobs">
                         <div class="card-top">
                             <div>
                                 <img src="https://upload.wikimedia.org/wikipedia/commons/3/35/Tux.svg" width="100%">
                             </div>
-                            <span> <%= novoDado.getTitulo()%> </span>
+                            <span> <%= novoDado.getEmpresa()%> </span>
                         </div>
                         <div class="card-middle">
                             <span><%= novoDado.getPosicao()%> </span>
                         </div>
                         <div class="card-category-and-type">
-                            <div><%= novoDado.getCategoria()%></div>
+                            <div><%= novoDado.getSetor()%></div>
                             <div><%= novoDado.getTipo()%> </div>
                         </div>
                         <div class="card-botttom">
-                                <span><i class="fa-solid fa-location-dot"></i> <%= novoDado.getLocalizacao() %></span>
-                                <div> 
-                                    <span class="dollar-sign"><i class="fa-solid fa-coins"></i></span>
-                                    <%= novoDado.getSalarioMin()%> <span>-</span> <%= novoDado.getSalarioMax()%> Mzn 
-                                </div>
+                            <span><i class="fa-solid fa-location-dot"></i> <%= novoDado.getLocalizacao()%></span>
+                            <div> 
+                                <span class="dollar-sign"><i class="fa-solid fa-coins"></i></span>
+                                <%= novoDado.getSalarioMin()%> <span>-</span> <%= novoDado.getSalarioMax()%> Mzn 
                             </div>
+                        </div>
                         <div class="card-ver-mais">
                             <form action="vermais.jsp" method="post">
-                                <input type="hidden" name="titulo" value="<%= novoDado.getTitulo()%> ">
+                                <input type="hidden" name="titulo" value="<%= novoDado.getEmpresa()%> ">
                                 <input type="hidden" name="posicao" value="<%= novoDado.getPosicao()%>">
-                                <input type="hidden" name="categoria" value="<%= novoDado.getCategoria()%>">
+                                <input type="hidden" name="categoria" value="<%= novoDado.getSetor()%>">
                                 <input type="hidden" name="tipo" value="<%= novoDado.getTipo()%>">
                                 <input type="hidden" name="salarioMin" value="<%= novoDado.getSalarioMin()%>">
                                 <input type="hidden" name="salarioMax" value="<%= novoDado.getSalarioMax()%>">
@@ -138,7 +135,8 @@
                         </div>
                     </div>
 
-                    <% }}%>
+                    <% }
+                        }%>
 
                 </div>
         </section>
