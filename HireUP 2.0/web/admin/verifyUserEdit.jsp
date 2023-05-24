@@ -32,7 +32,7 @@
                 usersDAO.editarUsuario(usersDTO);
 
                 response.sendRedirect("users.jsp");
-            } catch (SQLException e) {
+            } catch (Exception e) {
                 JOptionPane.showMessageDialog(null, "Erro ao atualizar: " + e.getMessage());
             }
            

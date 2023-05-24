@@ -33,12 +33,12 @@
     </head>
 
     <body>
-    <%
+    <%--
             if(session.getAttribute("user")==null){
                 response.sendRedirect("loginA.jsp");
             }
 
-        %>
+        --%>
         <nav class="sidebar close">
             <header>
                 <div class="image-text">

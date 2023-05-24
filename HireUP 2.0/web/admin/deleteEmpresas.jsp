@@ -37,7 +37,7 @@
             </div>
             <div class="col-lg-8 push-lg-4 personal-info">
                 
-                <form action="verifyDeleteUser.jsp" method="POST">
+                <form action="verifyDeleteEmpresa.jsp" method="POST">
                     
                     <div class="form-group row">
                         <label class="col-lg-3 col-form-label form-control-label">ID</label>
@@ -92,7 +92,7 @@
                     <div class="form-group row">
                         <label class="col-lg-3 col-form-label form-control-label"></label>
                         <div class="col-lg-9">
-                            <a href="users.jsp" class="btn btn-secondary">Cancelar</a>
+                            <a href="empresas.jsp" class="btn btn-secondary">Cancelar</a>
                             
                             <input type="submit" class="btn btn-danger" value="Confirmar" />
                         </div>

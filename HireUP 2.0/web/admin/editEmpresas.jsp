@@ -36,7 +36,7 @@
             </div>
             <div class="col-lg-8 push-lg-4 personal-info">
 
-                <form action="verifyUserEdit.jsp" method="POST">
+                <form action="verifyEmpresaEdit.jsp" method="POST">
 
                     <div class="form-group row">
                         <label class="col-lg-3 col-form-label form-control-label">ID</label>
@@ -59,15 +59,25 @@
 
                             <select class="form-select p-2 w-100" aria-label="Default select example"  name="Tipo">
 
-                                <option selected value="<%= request.getParameter("Tipo")%>"><%= request.getParameter("Tipo")%></option>
-                                <option value="Empresa - Publica">Empresa - Publica</option>
-                                <option value="Empresa - Privada">Empresa - Privada</option>
-                                <option value="Sem Fins Lucrativos">Sem Fins Lucrativos</option>
-                                <option value="Governo">Governo</option>
-                                <option value="Subsidiaria">Subsidiaria</option>
-                                <option value="Firma">Firma</option>
-                                <option value="Contratual">Contratual</option>
-                                <option value="Outro">Outro</option>
+
+                                <%
+                                    String[] tipos = {"Empresa - Publica", "Empresa - Privada", "Sem Fins Lucrativos", "Governo", "Subsidiaria", "Firma", "Contratual", "Outro"};
+
+                                    String selectedOne = request.getParameter("Tipo");
+
+                                    for (int i = 0; i < tipos.length; i++) {
+                                        if (tipos[i].equals(selectedOne)) {
+                                %>
+                                <option selected value="<%= selectedOne%>"><%= selectedOne%></option> 
+                                <%
+                                } else {
+                                %>
+                                <option value="<%= tipos[i]%>"><%= tipos[i]%></option> 
+                                <%
+                                        }
+                                    }
+                                %>
+
 
                             </select>
 
@@ -81,23 +91,24 @@
                             <select class="form-select p-2 w-100" aria-label="Default select example"  name="Setor">
 
                                 <%
-                                    String[] setores = {"Tecnologias de Informacao", "Marketing", "Telecomunicao",
-                                        "Administracao", "Construcao", "Saude", "Industrial", "Multimedia", "Seguranca",
-                                        "Outro"};
+                                    String[] setores = {"Tecnologias de Informacao", "Marketing", "Telecomunicao", "Administracao", "Construcao", "Saude", "Industrial", "Multimedia", "Seguranca", "Outro"};
 
-                                    for (String lista : setores) {
-
-                                        if (request.getParameter("Setor") == lista) {
+                                    String selectedSetor = request.getParameter("Setor");
+                                    
+                                    
+                                    for (int i = 0; i < setores.length; i++) {
+                                        if (setores[i].equals(selectedSetor)) {
                                 %>
-                                        <option selected value='lista'> <%=lista%> </option>
-                                        <%
-                                        } else {
-                                        %>
-                                        <option value='lista'> <%=lista%> </option>
+                                <option selected value="<%= selectedSetor%>"><%= selectedSetor%></option> 
+                                <%
+                                } else {
+                                %>
+                                <option value="<%= setores[i]%>"><%= setores[i]%></option> 
                                 <%
                                         }
                                     }
                                 %>
+
                             </select>
 
                         </div>
