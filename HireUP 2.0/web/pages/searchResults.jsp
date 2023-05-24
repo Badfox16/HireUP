@@ -27,12 +27,6 @@
     </head>
     <body>
 
-        <%--
-            if (session.getAttribute("mail") == null) {
-                response.sendRedirect("login.jsp");
-            }
-
-        --%>
         <section>
             <div class="navbar">
                 <div class="left-nav">
@@ -70,7 +64,7 @@
         </section>
 
         <section class="search">
-            <form action="./RedirecionarPesquisa.jsp" class="search1">
+            <form action="RedirecionarPesquisa.jsp" class="search1">
                 <div class="input-wrapper">
                     <span><i class="fa-solid fa-magnifying-glass"></i></span>
                     <input type="search" name="pesquisa" placeholder="Pesquisar..." />
@@ -87,7 +81,7 @@
                 <div class="mostrar-jobs">
                     <!-- listar jobs com jsp-->
 
-                    <%                        
+                    <%
                         EmpregosDAO dao = new EmpregosDAO();
                         String pesquisa = request.getParameter("pesquisa");
                         List<EmpregosDTO> teste = dao.pesquisarEmpregos(pesquisa);

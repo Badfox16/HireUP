@@ -48,12 +48,12 @@
     </head>
 
     <body>
-        <%
+        <%--
             if(session.getAttribute("user")==null){
                 response.sendRedirect("loginA.jsp");
             }
 
-        %>
+        --%>
 
         <%@include file="header.jsp" %>
 
@@ -80,9 +80,15 @@
                         UsuariosDAO usersDAO = new UsuariosDAO();
                         List<UsuariosDTO> listaCat = (List<UsuariosDTO>) usersDAO.listarUsuarios();
 
+                        String texto = "";
+
                         for (UsuariosDTO newCat : listaCat) {
+
+                            texto = newCat.getSetor();
                     %>
                     <tr>
+
+
                         <td> <%=newCat.getEmail()%> </td>
                         <td> <%=newCat.getNome()%> </td>
                         <td> <%=newCat.getApelido()%> </td>
@@ -90,7 +96,7 @@
                         <td> <%=newCat.getLocalizacao()%> </td>
                         <td> <%=newCat.getFormacao()%> </td>
                         <td>
-                            <form action="editUser.jsp" method="POST">
+                            <form action="editUser.jsp" method="get" accept-charset="UTF-8">
                                 <input type="hidden" value="<%=newCat.getEmail()%> " name="Email">
                                 <input type="hidden" value="<%=newCat.getNome()%>" name="Nome">
                                 <input type="hidden" value="<%=newCat.getApelido()%>" name="Apelido">
@@ -102,7 +108,7 @@
                             </form>
                         </td>
                         <td>
-                            <form action="deleteUser.jsp" method="POST">
+                            <form action="deleteUser.jsp" method="POST" accept-charset="UTF-8">
                                 <input type="hidden" value="<%=newCat.getEmail()%> " name="Email">
                                 <input type="hidden" value="<%=newCat.getNome()%>" name="Nome">
                                 <input type="hidden" value="<%=newCat.getApelido()%>" name="Apelido">
@@ -122,8 +128,9 @@
                 </tbody>
             </table>
         </div>
+      
 
-                
+
     </body>
 
 </html>
