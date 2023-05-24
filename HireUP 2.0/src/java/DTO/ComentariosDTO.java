@@ -10,7 +10,7 @@ package DTO;
  */
 public class ComentariosDTO {
 
-    private String Comentario, Nome;
+    private String Comentario, Nome, Data;
     private int IdUsuarioFK, IdEmpresaFK;
 
     public ComentariosDTO() {
@@ -47,5 +47,13 @@ public class ComentariosDTO {
 
     public void setIdEmpresaFK(int IdEmpresaFK) {
         this.IdEmpresaFK = IdEmpresaFK;
+    }
+
+    public String getData() {
+        return Data;
+    }
+
+    public void setData(String Data) {
+        this.Data = Data;
     }
 }

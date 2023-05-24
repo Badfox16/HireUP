@@ -28,11 +28,12 @@ public class ComentariosDAO {
 
 //    Comentario dos usuarios apenas (chat global)
     public void comentarioUsuario(ComentariosDTO createDTO) throws ClassNotFoundException, SQLException {
-        String sql = "insert into tbComentarios (Id_UsuarioFK,Comentario) values(?,?);";
+        String sql = "insert into tbComentarios (Id_UsuarioFK,Comentario,Data) values(?,?,?);";
         prSet = CONEXAO.prepareStatement(sql);
 
         prSet.setInt(1, createDTO.getIdUsuarioFK());
         prSet.setString(2, createDTO.getComentario());
+        prSet.setString(3, createDTO.getData());
 
         prSet.execute();
         prSet.close();
@@ -55,7 +56,7 @@ public class ComentariosDAO {
 
 //    Listar os comentarios (chat global)
     public List<ComentariosDTO> userComentario() throws ClassNotFoundException, SQLException {
-        String sql = "select Nome as Usuario, Comentario from tbComentarios as Coments join tbUsuarios as Users on Coments.Id_UsuarioFK = Users.Id_Usuario  order by Id_Comentario;";
+        String sql = "select * from tbComentarios as Coments join tbUsuarios as Users on Coments.Id_UsuarioFK = Users.Id_Usuario  order by Id_Comentario;";
         prSet = CONEXAO.prepareStatement(sql);
 
         rstSet = prSet.executeQuery();
@@ -63,7 +64,8 @@ public class ComentariosDAO {
             ComentariosDTO objComentDTO = new ComentariosDTO();
 
             objComentDTO.setComentario(rstSet.getString("Comentario"));
-            objComentDTO.setNome(rstSet.getString("Usuario"));
+            objComentDTO.setNome(rstSet.getString("Nome"));
+            objComentDTO.setData(rstSet.getString("Data"));
 
             LISTCOMENTARIO.add(objComentDTO);
         }

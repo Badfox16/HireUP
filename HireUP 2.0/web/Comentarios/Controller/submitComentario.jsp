@@ -23,16 +23,17 @@
                 ComentariosDTO objComentarioDTO = new ComentariosDTO();
 
                 objComentarioDTO.setComentario(request.getParameter("inpComentario"));
+                objComentarioDTO.setData(request.getParameter("inpData"));
                 objComentarioDTO.setIdUsuarioFK(Integer.parseInt(request.getParameter("inpIdUsuario")));
 
                 objComentarioDAO.comentarioUsuario(objComentarioDTO);
 
                 response.sendRedirect("../index.jsp");
-            } catch (Exception e){
-            JOptionPane.showMessageDialog(null, "SQL ERRO EM" + e.getMessage());
+            } catch (Exception e) {
+                JOptionPane.showMessageDialog(null, "SQL ERRO EM" + e.getMessage());
             }
         %>
 
-        
+
     </body>
 </html>
