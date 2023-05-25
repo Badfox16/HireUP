@@ -27,6 +27,7 @@
                 dto.setSenha(request.getParameter("inpSenha"));
                 dto.setFormacao(request.getParameter("inpFormacao"));
                 dto.setDescricao(request.getParameter("inpDescricao"));
+                dto.setContato(request.getParameter(""));
                 dao.editarUsuario(dto);
 
                 response.sendRedirect("../perfil-do-usuario.jsp");
