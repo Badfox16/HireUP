@@ -45,7 +45,24 @@
             #carouselExampleControls{
                 margin-top: 8rem;
             }
-            
+
+     
+            .card-title{
+                font-size: 1.2rem;
+                text-align: center;
+
+            }
+
+            .vermais{
+                margin-top: 5rem !important;
+                text-decoration: none;
+                border: 1px solid #443fde;
+                padding: 0.5rem;
+                background-color: #443fde;
+                color: white;
+                margin: 0 3.8rem;
+                border-radius: 1rem;
+            }
         </style>
     </head>
     <body>
@@ -81,10 +98,13 @@
                                 EmpresasDTO empresa = lista.get(j);
                         %>
                         <div class="card" style="width: 18rem;">
-                            <img src="https://upload.wikimedia.org/wikipedia/commons/3/35/Tux.svg" class="card-img-top" alt="..." style="padding: 1rem;">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/3/35/Tux.svg" class="card-img-top" alt="..." style="padding: 1.5rem;">
                             <div class="card-body">
                                 <h5 class="card-title"><%= empresa.getNomeEmpresa()%></h5>
+                                <p class="card-title"><%= empresa.getEmail()%></p>
+                                <a href="#" class="vermais">Go somewhere</a>
                             </div>
+
                         </div>
                         <% } %>
                         <% }%>
