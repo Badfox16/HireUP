@@ -11,6 +11,7 @@
     <body>
         <%
             try {
+                request.setCharacterEncoding("UTF-8");
                 UsuariosDTO objUsuariosDTO = new UsuariosDTO();
                   
                     objUsuariosDTO.setEmail(request.getParameter("email"));
