@@ -4,6 +4,9 @@
     Author     : Pedro Nhamirre
 --%>
 
+<%@page import="DTO.CategoriasDTO"%>
+<%@page import="java.util.List"%>
+<%@page import="DAO.CategoriasDAO"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 
 <!DOCTYPE html>
@@ -13,8 +16,8 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Edit Company's Data</title>
-        
-         <link rel="shortcut icon" href="../img/logo.png" type="image/x-icon" />
+
+        <link rel="shortcut icon" href="../img/logo.png" type="image/x-icon" />
 
         <!-- Latest compiled and minified CSS -->
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
@@ -27,18 +30,30 @@
 
         <!-- Latest compiled JavaScript -->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+
+
+        <style>
+            .rdOnly{
+                border: none !important;
+                background-color: transparent !important;
+                font-weight: bold;
+                width: fit-content !important;
+                user-select:none !important;
+                outline:none;
+            }
+        </style>
     </head>
     <body>
-        
+
         <%
-            if(session.getAttribute("user")==null){
+            if (session.getAttribute("user") == null) {
                 response.sendRedirect("loginA.jsp");
             }
-            
+
             request.setCharacterEncoding("UTF-8");
 
         %>
-        
+
         <div class="container mt-5">
             <!-- edit form column -->
             <div class="col-lg-12 text-lg-center">
@@ -48,12 +63,12 @@
             </div>
             <div class="col-lg-8 push-lg-4 personal-info">
 
-                <form action="verifyEmpresaEdit.jsp" method="get">
+                <form action="verifyEmpresaEdit.jsp" method="POST">
 
                     <div class="form-group row">
                         <label class="col-lg-3 col-form-label form-control-label">ID</label>
                         <div class="col-lg-9">
-                            <input class="form-control" name="Id" type="text" value="<%= request.getParameter("Id")%>" name="Id" readonly/>
+                            <input class="form-control rdOnly" name="Id" type="text" value="<%= request.getParameter("Id")%>" name="Id" readonly/>
                         </div>
                     </div>
 
@@ -103,19 +118,19 @@
                             <select class="form-control  w-100" aria-label="Default select example"  name="Setor">
 
                                 <%
-                                    String[] setores = {"Tecnologias de Informacao", "Marketing", "Telecomunicao", "Administracao", "Construcao", "Saude", "Industrial", "Multimedia", "Seguranca", "Outro"};
+                                    CategoriasDAO categorias = new CategoriasDAO();
+                                    List<CategoriasDTO> listaCategoria = (List<CategoriasDTO>) categorias.listarCategorias();
 
-                                    String selectedSetor = request.getParameter("Setor").trim();
-                                    
-                                    
-                                    for (int i = 0; i < setores.length; i++) {
-                                        if (setores[i].equals(selectedSetor)) {
+                                    String selected = request.getParameter("Setor").trim();
+
+                                    for (CategoriasDTO novaCategoria : listaCategoria) {
+                                        if (novaCategoria.getNome().equals(selected)) {
                                 %>
-                                <option selected value="<%= selectedSetor%>"><%= selectedSetor%></option> 
+                                <option selected value="<%=novaCategoria.getNome()%>"><%=novaCategoria.getNome()%></option>
                                 <%
                                 } else {
                                 %>
-                                <option value="<%= setores[i]%>"><%= setores[i]%></option> 
+                                <option value="<%=novaCategoria.getNome()%>"><%=novaCategoria.getNome()%></option>
                                 <%
                                         }
                                     }
@@ -143,7 +158,7 @@
                     <div class="form-group row">
                         <label class="col-lg-3 col-form-label form-control-label">Empregos</label>
                         <div class="col-lg-9">
-                            <input class="form-control" type="text" value="<%= request.getParameter("Empregos")%>" name="Empregos"/>
+                            <input class="form-control rdOnly" type="text" value="<%= request.getParameter("Empregos")%>" name="Empregos" readonly/>
                         </div>
                     </div>
 

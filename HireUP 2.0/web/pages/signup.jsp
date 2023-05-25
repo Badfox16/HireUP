@@ -10,6 +10,9 @@
     </head>
     <body>
         <%
+            
+            request.setCharacterEncoding("UTF-8");
+            
             try {
                 UsuariosDTO objUsuariosDTO = new UsuariosDTO();
                   

@@ -12,7 +12,7 @@
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Edit User Data</title>
+        <title>Edit Company Data</title>
 
         <!-- Latest compiled and minified CSS -->
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
@@ -32,16 +32,17 @@
             if(session.getAttribute("user")==null){
                 response.sendRedirect("loginA.jsp");
             }
-
+            
+            request.setCharacterEncoding("UTF-8");
         %>
         
         <div class="container mt-5">
             <!-- edit form column -->
             <div class="col-lg-12 text-lg-center">
-                <h2>Excluir Usuário</h2>
+                <h2>Excluir Conta Empresarial</h2>
                 <br>
                 <br>
-                <p>Tem certeza que deseja <span class="text-danger text-lg-start">excluir</span> o usuário abaixo ?</p>
+                <p>Tem certeza que deseja <span class="text-danger text-lg-start">excluir</span> a conta ?</p>
             </div>
             <div class="col-lg-8 push-lg-4 personal-info">
                 

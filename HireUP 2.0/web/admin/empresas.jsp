@@ -17,7 +17,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
         <link rel="shortcut icon" href="../img/logo.png" type="image/x-icon" />
-        
+
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
 
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
@@ -47,9 +47,9 @@
 
     <body>
         <%
-                if(session.getAttribute("user")==null){
-                    response.sendRedirect("loginA.jsp");
-                }
+            if (session.getAttribute("user") == null) {
+                response.sendRedirect("loginA.jsp");
+            }
 
         %>
 
@@ -74,8 +74,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <%
-                        EmpresasDAO empresaDAO = new EmpresasDAO();
+                    <%                        EmpresasDAO empresaDAO = new EmpresasDAO();
                         List<EmpresasDTO> listaEmpresa = (List<EmpresasDTO>) empresaDAO.listar();
 
                         for (EmpresasDTO empresa : listaEmpresa) {

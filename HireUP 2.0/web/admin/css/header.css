@@ -285,11 +285,13 @@ body.dark .switch::before {
   position: absolute;
   top: 0;
   left: 250px;
-  height: 100vh;
+  min-height: 100vh;
+  height: auto; /* Alterado para "auto" */
   width: calc(100% - 250px);
   background-color: var(--body-color);
   transition: var(--tran-05);
 }
+
 
 .home > * {
   color: var(--text-color);

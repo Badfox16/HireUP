@@ -13,6 +13,7 @@
     </head>
     <body>
        <%
+           request.setCharacterEncoding("UTF-8");
     
        request.getRequestDispatcher("applyTo.jsp").forward(request, response);
        

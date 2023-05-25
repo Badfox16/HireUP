@@ -16,7 +16,9 @@
     </head>
     <body>
         <%
-        request.getRequestDispatcher("searchResults.jsp").forward(request, response);
+            request.setCharacterEncoding("UTF-8");
+            
+            request.getRequestDispatcher("searchResults.jsp").forward(request, response);
         %>
     </body>
 </html>
