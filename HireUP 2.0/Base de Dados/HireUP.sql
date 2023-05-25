@@ -27,6 +27,7 @@ Localizacao varchar(45),
 Tipo varchar (45),
 Descricao varchar(500),
 Requisitos varchar(500)
+-- foreign key (Empresa) references tbEmpresas (Nome_Empresa)
 );
 
 
