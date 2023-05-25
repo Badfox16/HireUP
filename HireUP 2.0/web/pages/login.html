@@ -1,72 +1,127 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="../css/login.css">
-  <link rel="shortcut icon" href="../img/logo.png" type="image/x-icon" />
-  <title>Login</title>
-</head>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="../css/login.css">
+        <link rel="shortcut icon" href="../img/logo.png" type="image/x-icon" />
+        
+        
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap" rel="stylesheet">
 
-<body>
-  <div class="navbar">
-    <div class="left-nav">
-      <a href="#" class="brand"><img src="../img/logo.png" alt="Logo" class="logo"  height="30"></a>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
 
-    </div>
+        <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
 
-    <div class="nav-middle">
-      <nav class="nav-menu">
-        <a href="../index.html" class="nav-link">Home</a>
-        <a href="./empresa.jsp" class="nav-link">Empresas</a>
-        <a href="./browse.jsp" class="nav-link">Pesquise</a>
-        <a href="#" class="nav-link">Vagas</a>
-      </nav>
-    </div>
+        <script
+            src="https://kit.fontawesome.com/7a342b9685.js"
+            crossorigin="anonymous"
+        ></script>
+        
+        <title>Login</title>
+        
+        <style>
+            .btn-middle-link{
+                background: transparent !important;
+                color: black !important;
+                transition: all .3s ease;
+            }
+
+            .btn-middle-link:hover{
+                background-color: #443fde !important;
+                color: white !important;
+            }
+            .btn-login{
+                background: #443fde !important;
+                color: white;
+                border: none transparent !important;
+                border-radius: 0 !important;
+                font-size: 1rem;
+                font-family: 'Lato', sans-serif;
+                font-weight: bold;
+            }
+
+            .dropdown-item{
+                font-weight: bold;
+            }
+        </style>
+    </head>
+
+    <body>
+        <nav class="navbar navbar-expand-lg bg-body-tertiary d-flex align-items-center justify-content-between ps-2 pe-2 pt-3 pb-3">
+            <div class="container-fluid">
+                <a href="../index.html" class="navbar-brand">
+                    <img src="../img/logo.png" alt="Logo" class="logo" height="30" />
+                 
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarText">
+                    <ul class="navbar-nav  m-auto mb-lg-0">
+                        <li class="nav-item">
+                            <a class="btn btn-middle-link m-2" href="../index.html">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="btn btn-middle-link m-2" href="./empresa.jsp">Empresas</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="btn btn-middle-link m-2" href="./browse.jsp">Empregos</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="btn btn-middle-link m-2" href="">Candidaturas</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="btn btn-middle-link m-2" href="../Pages - Empresas/signupEmpresa.html">Para Empregadores</a>
+
+                        </li>
+
+                    </ul>
+                    
+                    <span class="navbar-text">
 
 
-    <div>
-      <nav class="right-nav">
-        <a href="./submitJob.jsp" class="nav-link">Para empregadores</a>
-        <form action="./signup.html">
-          <button class="btn-primary">Signup</button>
-        </form>
-      </nav>
-      
-    </div>
-  </div>
+                    </span>
 
-  <div class="content">
-    <div class="left">
-      <div class="form-block">
-        <div class="form-title">
-          <h3>Login</h3>
-          <p>Faça login para criar e se candidatar a empregos</p>
+                    
+                </div>
+            </div>
+        </nav>
+
+        <div class="content">
+            <div class="left">
+                <div class="form-block">
+                    <div class="form-title">
+                        <h3>Login</h3>
+                        <p>Faça login para criar e se candidatar a empregos</p>
+                    </div>
+                    <form action="login.jsp" method="post">
+                        <label for="email">Email</label>
+                        <input type="email" name="email" maxlength="120" required="" placeholder="" id="email" class="form-field w-input">
+                        <label for="password">Senha</label>
+                        <input type="password" name="senha" id="password"  required="" maxlength="80" class="form-field w-input" placeholder="">
+                        <input type="submit" value="Login" data-wait="Por favor aguarde..." class="btn-primary w-button">
+                    </form>
+                    <div class="form-footer">
+                        <span class="text">Não tem uma conta?</span>
+                        <a href="./signup.html">Faça o Sign Up</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="right">
+                <div class="content-block">
+                    <h1>Bem-vindo ao HireUP.</h1>
+                </div>
+            </div>
         </div>
-        <form action="login.jsp" method="post">
-          <label for="email">Email</label>
-          <input type="email" name="email" maxlength="120" required="" placeholder="" id="email" class="form-field w-input">
-          <label for="password">Senha</label>
-          <input type="password" name="senha" id="password"  required="" maxlength="80" class="form-field w-input" placeholder="">
-          <input type="submit" value="Login" data-wait="Por favor aguarde..." class="btn-primary w-button">
-        </form>
-        <div class="form-footer">
-          <span class="text">Não tem uma conta?</span>
-          <a href="./signup.html">Faça o Sign Up</a>
-        </div>
-      </div>
-    </div>
-    
-    <div class="right">
-      <div class="content-block">
-        <h1>Bem-vindo ao HireUP.</h1>
-      </div>
-    </div>
-  </div>
 
-  <script src="../js/navbar.js"></script>
-</body>
+        <script src="../js/navbar.js"></script>
+    </body>
 
 </html>

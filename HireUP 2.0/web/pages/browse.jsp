@@ -29,36 +29,7 @@
     </head>
     <body>
 
-        <section>
-            <div class="navbar">
-                <div class="left-nav">
-                    <a href="../index.html" class="brand"
-                       ><img src="../img/logo.png" alt="Logo" class="logo" height="30"
-                          />
-
-                    </a>
-
-                </div>
-
-                <div class="nav-middle">
-                    <nav class="nav-menu">
-                        <a href="../index.html" class="nav-link">Home</a>
-                        <a href="./empresa.jsp" class="nav-link">Empresas</a>
-                        <a href="./browse.jsp" class="nav-link">Pesquise</a>
-                        <a href="./subEmpresa.html" class="nav-link">Submeter Empresa</a>
-                    </nav>
-                </div>
-
-                <div>
-                    <nav class="right-nav">
-                        <a href="submitJob.jsp" class="nav-link">Poste um Emprego</a>
-                        <form action="./login.html">
-                            <button class="btn-primary">Log in</button>
-                        </form>
-                    </nav>
-                </div>
-            </div>
-        </section>
+        <%@include file="header.jsp" %>
 
         <section>
             <div class="top-info">
@@ -194,6 +165,7 @@
                             </div>
                             <div class="card-ver-mais">
                                 <form action="vermais.jsp" method="post">
+                                    <input type="hidden" name="empresa" value="<%= novoDado.getEmpresa()%> ">
                                     <input type="hidden" name="titulo" value="<%= novoDado.getTitulo()%> ">
                                     <input type="hidden" name="posicao" value="<%= novoDado.getPosicao()%>">
                                     <input type="hidden" name="categoria" value="<%= novoDado.getSetor()%>">

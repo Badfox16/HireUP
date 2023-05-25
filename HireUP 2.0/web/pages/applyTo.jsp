@@ -26,41 +26,12 @@
             if (session.getAttribute("mail") == null) {
                 response.sendRedirect("login.jsp");
             }
-
+            
+            request.setCharacterEncoding("UTF-8");
         %>
-        <header>
-            <div class="navbar">
-                <div class="left-nav">
-                    <a href="../index.html" class="brand"
-                       ><img
-                            src="../img/logo.png"
-                            alt="Logo"
-                            class="logo"
-                            height="30"
-                            />
-                        <span class="nav-link">Ola, ${mail}</span>
-                    </a>
-                </div>
-
-                <div class="nav-middle">
-                    <nav class="nav-menu">
-                        <a href="../index.html" class="nav-link">Home</a>
-                        <a href="./empresa.jsp" class="nav-link">Empresas</a>
-                        <a href="./browse.jsp" class="nav-link">Pesquise</a>
-                        <a href="./subEmpresa.html" class="nav-link">Blog</a>
-                    </nav>
-                </div>
-
-                <div>
-                    <nav class="right-nav">
-                        <a href="submitJob.jsp" class="nav-link">Poste um Emprego</a>
-                        <form action="./login.jsp">
-                            <button class="btn-primary">Log in</button>
-                        </form>
-                    </nav>
-                </div>
-            </div>
-        </header>
+        
+        <%@include file="header.jsp" %>
+        
         <main>
             <form action="">
                 <section class="left-side">
@@ -69,7 +40,7 @@
                             <img src="../img/logo.png" alt="" style="height: 48px" />
                         </div>
                         <div class="image-title">
-                            <p> <%= request.getParameter("titulo")%></p>
+                            <p> <%= request.getParameter("empresa")%></p>
 
                         </div>
                     </div>

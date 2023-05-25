@@ -24,45 +24,32 @@
     </head>
     <body>
 
-        <%
-            if (session.getAttribute("mail") == null) {
-                response.sendRedirect("login.jsp");
-            }
 
-        %>
-        <header>
-            <div class="navbar">
-                <div class="left-nav">
-                    <a href="../index.html" class="brand"
-                       ><img
-                            src="../img/logo.png"
-                            alt="Logo"
-                            class="logo"
-                            height="30"
-                            />
-                        <span class="nav-link">Ola, ${mail}</span>
-                    </a>
-                </div>
-
-                <div class="nav-middle">
-                    <nav class="nav-menu">
-                        <a href="../index.html" class="nav-link">Home</a>
-                        <a href="./empresa.jsp" class="nav-link">Empresas</a>
-                        <a href="./browse.jsp" class="nav-link">Pesquise</a>
-                        <a href="./subEmpresa.html" class="nav-link">Submeter Empresa</a>
-                    </nav>
-                </div>
-
-                <div>
-                    <nav class="right-nav">
-                        <a href="./submitJob.jsp" class="nav-link">Poste um Emprego</a>
-                        <form action="../Perfil do usuario/index.jsp">
-                            <button style="border:none"><i class="fa-solid fa-user"></i></button>
-                        </form>
-                    </nav>
-                </div>
+        <div class="navbar">
+            <div class="left-nav">
+                <a href="../index.html" class="brand"><img src="../img/logo.png" alt="Logo" class="logo" height="30" /></a>
             </div>
-        </header>
+
+            <div class="nav-middle">
+                <nav class="nav-menu">
+                    <a href="../index.html" class="nav-link">Home</a>
+                    <a href="./empresa.jsp" class="nav-link">Empresas</a>
+                    <a href="./browse.jsp" class="nav-link">Empregos</a>
+                    <a href="./subEmpresa.html" class="nav-link">Candidaturas</a>
+                </nav>
+            </div>
+
+            <div>
+                <nav class="right-nav">
+                    <a href="./submitJob.jsp" class="nav-link">Poste um Emprego</a>
+                    <form action="">
+                        <button style="border:none"><i class="fa-solid fa-user"></i></button>
+                    </form>
+                    <!--<script src="https://kit.fontawesome.com/1f168297b1.js" crossorigin="anonymous"></script>--> 
+                </nav>
+            </div>
+        </div>
+
         <main>
             <div class="nav">
                 <button id="prev" class="carousel-button-left btn"><</button>

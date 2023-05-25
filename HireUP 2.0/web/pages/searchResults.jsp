@@ -27,37 +27,7 @@
     </head>
     <body>
 
-        <section>
-            <div class="navbar">
-                <div class="left-nav">
-                    <a href="../index.html" class="brand"><img src="../img/logo.png" alt="Logo" class="logo"  height="30">
-                        <span class="nav-link">Ola, ${mail}</span>
-                    </a>
-
-                </div>
-
-                <div class="nav-middle">
-                    <nav class="nav-menu">
-                        <a href="../index.html" class="nav-link">Home</a>
-                        <a href="./empresa.jsp" class="nav-link">Empresas</a>
-                        <a href="./browse.jsp" class="nav-link">Pesquise</a>
-                        <a href="./subEmpresa.html" class="nav-link">Submeter Empresa</a>
-                    </nav>
-                </div>
-
-
-                <div>
-                    <nav class="right-nav">
-                        <a href="./submitJob.jsp" class="nav-link">Poste um Emprego</a>
-                        <form action="./login.html">
-                            <button class="btn-primary">Log in</button>
-                        </form>
-                    </nav>
-
-                </div>
-            </div>
-
-        </section>
+        <%@include file="header.jsp" %>
 
         <section class="search-title">
             <h2>Resultados da pesquisa</h2>
@@ -91,30 +61,35 @@
                         } else {
                             for (EmpregosDTO novoDado : teste) {
                     %>
+
                     <div class="card-jobs">
                         <div class="card-top">
                             <div>
-                                <img src="https://upload.wikimedia.org/wikipedia/commons/3/35/Tux.svg" width="100%">
+                                <img
+                                    src="https://upload.wikimedia.org/wikipedia/commons/3/35/Tux.svg"
+                                    width="100%"
+                                    />
                             </div>
                             <span> <%= novoDado.getEmpresa()%> </span>
                         </div>
                         <div class="card-middle">
-                            <span><%= novoDado.getPosicao()%> </span>
+                            <span><%= novoDado.getPosicao()%></span>
                         </div>
                         <div class="card-category-and-type">
-                            <div><%= novoDado.getSetor()%></div>
+                            <div><%= novoDado.getSetor()%> </div>
                             <div><%= novoDado.getTipo()%> </div>
                         </div>
                         <div class="card-botttom">
-                            <span><i class="fa-solid fa-location-dot"></i> <%= novoDado.getLocalizacao()%></span>
+                            <span><i class="fa-sharp fa-solid fa-map-location"></i> <%= novoDado.getLocalizacao()%></span>
                             <div> 
-                                <span class="dollar-sign"><i class="fa-solid fa-coins"></i></span>
+                                <span class="dollar-sign"><i class="fa-solid fa-money-bill"></i></span>
                                 <%= novoDado.getSalarioMin()%> <span>-</span> <%= novoDado.getSalarioMax()%> Mzn 
                             </div>
                         </div>
                         <div class="card-ver-mais">
                             <form action="vermais.jsp" method="post">
-                                <input type="hidden" name="titulo" value="<%= novoDado.getEmpresa()%> ">
+                                <input type="hidden" name="empresa" value="<%= novoDado.getEmpresa()%> ">
+                                <input type="hidden" name="titulo" value="<%= novoDado.getTitulo()%> ">
                                 <input type="hidden" name="posicao" value="<%= novoDado.getPosicao()%>">
                                 <input type="hidden" name="categoria" value="<%= novoDado.getSetor()%>">
                                 <input type="hidden" name="tipo" value="<%= novoDado.getTipo()%>">
