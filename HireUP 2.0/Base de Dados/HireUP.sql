@@ -11,7 +11,8 @@ Setor varchar(120),
 Localizacao varchar(120),
 Formacao varchar(120),
 Senha varchar(50),
-Descricao varchar(500)
+Descricao varchar(500),
+Contato varchar(16)
 );
 
 create table tbEmpregos(

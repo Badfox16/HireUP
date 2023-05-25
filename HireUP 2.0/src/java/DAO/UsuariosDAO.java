@@ -164,6 +164,7 @@ public class UsuariosDAO {
             dto.setLocalizacao(rSet.getString("Localizacao"));
             dto.setSetor(rSet.getString("Setor"));
             dto.setDescricao(rSet.getString("Descricao"));
+            dto.setContato(rSet.getString("Contato"));
             listar.add(dto);
             prepS.close();
             conexao.close();
