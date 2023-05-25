@@ -18,32 +18,36 @@ public class EmpregosDAO {
     PreparedStatement prepS;
     ResultSet rSet;
 
-    public void Cadastrar(EmpregosDTO objEmpregosDTO) throws ClassNotFoundException {
-        String sql = "insert into tbEmpregos(Titulo, Posicao, SalarioMin, SalarioMax, Setor, Localizacao, Tipo, Descricao, Requisitos, Empresa) values(?,?,?,?,?,?,?,?,?,?)";
+    public void cadastrarEmprego(EmpregosDTO emprego) throws SQLException, ClassNotFoundException {
+        String sql = "INSERT INTO tbEmpregos (Empresa, Titulo, Posicao, SalarioMin, SalarioMax, Setor, Localizacao, Tipo, Descricao, Requisitos) " +
+                     "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
         conexao = new ConexaoDAO().conexaoBD();
-
+        PreparedStatement stmt = null;
+        
         try {
-            prepS = conexao.prepareStatement(sql);
-
-            prepS.setString(1, objEmpregosDTO.getTitulo());
-            prepS.setString(2, objEmpregosDTO.getPosicao());
-            prepS.setInt(3, objEmpregosDTO.getSalarioMin());
-            prepS.setInt(4, objEmpregosDTO.getSalarioMax());
-            prepS.setString(5, objEmpregosDTO.getSetor());
-            prepS.setString(6, objEmpregosDTO.getLocalizacao());
-            prepS.setString(7, objEmpregosDTO.getTipo());
-            prepS.setString(8, objEmpregosDTO.getDescricao());
-            prepS.setString(9, objEmpregosDTO.getRequisitos());
-            prepS.setString(10, objEmpregosDTO.getEmpresa());
-
-            prepS.execute();
-            prepS.close();
+            stmt = conexao.prepareStatement(sql);
+            stmt.setString(1, emprego.getEmpresa());
+            stmt.setString(2, emprego.getTitulo());
+            stmt.setString(3, emprego.getPosicao());
+            stmt.setInt(4, emprego.getSalarioMin());
+            stmt.setInt(5, emprego.getSalarioMax());
+            stmt.setString(6, emprego.getSetor());
+            stmt.setString(7, emprego.getLocalizacao());
+            stmt.setString(8, emprego.getTipo());
+            stmt.setString(9, emprego.getDescricao());
+            stmt.setString(10, emprego.getRequisitos());
+            
+            stmt.executeUpdate();
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            if (stmt != null) {
+                stmt.close();
+            }
             conexao.close();
-        } catch (SQLException e) {
-            JOptionPane.showMessageDialog(null, "Broooooooo" + e.getMessage());
         }
-
     }
+    
 
     public List<EmpregosDTO> listarEmpregos() throws SQLException, ClassNotFoundException {
 
@@ -177,6 +181,7 @@ public class EmpregosDAO {
                 listaEmpregos.add(emprego);
             }
         } catch (Exception e) {
+        
             e.printStackTrace();
         } finally {
             if (stmt != null) {
@@ -189,5 +194,61 @@ public class EmpregosDAO {
         }
         return listaEmpregos;
     }
+
+    public List<EmpregosDTO> ListarEmpregosEmpresas(String nomeEmpresa) throws SQLException, ClassNotFoundException {
+        List<EmpregosDTO> listaEmpregos = new ArrayList<>();
+        String sql = "SELECT * FROM tbEmpregos WHERE LOWER(Empresa) = ?";
+        conexao = new ConexaoDAO().conexaoBD();
+        PreparedStatement stmt = null;
+        ResultSet rs = null;
+        
+        try {
+            stmt = conexao.prepareStatement(sql);
+            stmt.setString(1, nomeEmpresa.toLowerCase());
+            rs = stmt.executeQuery();
+    
+            while (rs.next()) {
+                int id = rs.getInt("Id_Emprego");
+                String empresa = rs.getString("Empresa");
+                String titulo = rs.getString("Titulo");
+                String posicao = rs.getString("Posicao");
+                int salarioMin = rs.getInt("SalarioMin");
+                int salarioMax = rs.getInt("SalarioMax");
+                String setor = rs.getString("Setor");
+                String localizacao = rs.getString("Localizacao");
+                String tipo = rs.getString("Tipo");
+                String descricao = rs.getString("Descricao");
+                String requisitos = rs.getString("Requisitos");
+    
+                EmpregosDTO emprego = new EmpregosDTO();
+                emprego.setIdEmprego(id);
+                emprego.setEmpresa(empresa);
+                emprego.setTitulo(titulo);
+                emprego.setPosicao(posicao);
+                emprego.setSalarioMin(salarioMin);
+                emprego.setSalarioMax(salarioMax);
+                emprego.setSetor(setor);
+                emprego.setLocalizacao(localizacao);
+                emprego.setTipo(tipo);
+                emprego.setDescricao(descricao);
+                emprego.setRequisitos(requisitos);
+    
+                listaEmpregos.add(emprego);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            if (stmt != null) {
+                stmt.close();
+            }
+            if (rs != null) {
+                rs.close();
+            }
+            conexao.close();
+        }
+        
+        return listaEmpregos;
+    }
+    
 
 }
