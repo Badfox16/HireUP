@@ -28,7 +28,7 @@
             }
 
         %>
-        <header>  <%@include file="header-admin.jsp" %> </header>
+        <header>  <%@include file="header_empresa.jsp" %> </header>
 
     <section>
       <div class="top-info">

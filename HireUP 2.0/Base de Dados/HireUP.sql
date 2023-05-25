@@ -61,6 +61,7 @@ Nome varchar(150)
  Id_UsuarioFK int,
  Id_EmpresaFK int,
  Comentario varchar(1000),
+ Data varchar(8);
  foreign key(Id_UsuarioFK) references tbUsuarios(Id_Usuario),
  foreign key(Id_EmpresaFK) references tbEmpresas(Id_Empresa)
  );
@@ -77,6 +78,5 @@ insert into tbCategorias
   ("Segurança"),
   ("Outro");
 
-alter table tbComentarios add Data varchar(8);
 -- select * from tbComentarios as Coments join tbUsuarios as Users on Coments.Id_UsuarioFK = Users.Id_Usuario order by  Id_Comentario;
 -- select * from tbComentarios;
