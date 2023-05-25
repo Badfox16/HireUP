@@ -55,11 +55,12 @@
                     </span>
 
                     <div class="text logo-text">
-                        <span class="name"> Seu Nome aqui </span>
+                        <span class="name"> ${user} </span>
+
                         <span class="profession" >
-                            <i class="bx bx-time" style="font-size: 1.2rem; font-weight: bold;" id="live-time">14:49</i>
+                            Administrador
                         </span>
-                        
+
                     </div>
                 </div>
 

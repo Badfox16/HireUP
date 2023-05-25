@@ -1,4 +1,4 @@
-<%-- 
+    <%-- 
     Document   : loginA
     Created on : 16 May,2023, 16:52:44
     Author     : mutizo
@@ -15,6 +15,9 @@
     </head>
     <body>
         <%
+            
+             request.setCharacterEncoding("UTF-8");
+            
             AdminDTO objAdminDTO = new AdminDTO();
             objAdminDTO.setUsername(request.getParameter("username"));
             objAdminDTO.setSenha(request.getParameter("senha"));

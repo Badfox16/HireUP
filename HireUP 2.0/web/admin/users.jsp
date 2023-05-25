@@ -96,7 +96,7 @@
                         <td> <%=newCat.getLocalizacao()%> </td>
                         <td> <%=newCat.getFormacao()%> </td>
                         <td>
-                            <form action="editUser.jsp" method="get" accept-charset="UTF-8">
+                            <form action="editUser.jsp" method="POST" accept-charset="UTF-8">
                                 <input type="hidden" value="<%=newCat.getEmail()%> " name="Email">
                                 <input type="hidden" value="<%=newCat.getNome()%>" name="Nome">
                                 <input type="hidden" value="<%=newCat.getApelido()%>" name="Apelido">

@@ -16,6 +16,8 @@
     </head>
     <body>
         <%
+            
+            request.setCharacterEncoding("UTF-8");
             try{
                 EmpresasDTO empresaDTO = new EmpresasDTO();
                 

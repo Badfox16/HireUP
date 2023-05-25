@@ -13,6 +13,8 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Edit Company's Data</title>
+        
+         <link rel="shortcut icon" href="../img/logo.png" type="image/x-icon" />
 
         <!-- Latest compiled and minified CSS -->
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
@@ -32,6 +34,8 @@
             if(session.getAttribute("user")==null){
                 response.sendRedirect("loginA.jsp");
             }
+            
+            request.setCharacterEncoding("UTF-8");
 
         %>
         
@@ -44,7 +48,7 @@
             </div>
             <div class="col-lg-8 push-lg-4 personal-info">
 
-                <form action="verifyEmpresaEdit.jsp" method="POST">
+                <form action="verifyEmpresaEdit.jsp" method="get">
 
                     <div class="form-group row">
                         <label class="col-lg-3 col-form-label form-control-label">ID</label>
@@ -65,7 +69,7 @@
 
                         <div class="col-lg-9">
 
-                            <select class="form-select p-2 w-100" aria-label="Default select example"  name="Tipo">
+                            <select class="form-control w-100" aria-label="Default select example"  name="Tipo">
 
 
                                 <%
@@ -96,12 +100,12 @@
                         <label class="col-lg-3 col-form-label form-control-label">Setor</label>
                         <div class="col-lg-9">
 
-                            <select class="form-select p-2 w-100" aria-label="Default select example"  name="Setor">
+                            <select class="form-control  w-100" aria-label="Default select example"  name="Setor">
 
                                 <%
                                     String[] setores = {"Tecnologias de Informacao", "Marketing", "Telecomunicao", "Administracao", "Construcao", "Saude", "Industrial", "Multimedia", "Seguranca", "Outro"};
 
-                                    String selectedSetor = request.getParameter("Setor");
+                                    String selectedSetor = request.getParameter("Setor").trim();
                                     
                                     
                                     for (int i = 0; i < setores.length; i++) {

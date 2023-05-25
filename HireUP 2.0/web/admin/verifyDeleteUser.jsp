@@ -13,10 +13,16 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <title>DELETE USER</title>
     </head>
     <body>
         <%
+            if(session.getAttribute("user")==null){
+                response.sendRedirect("loginA.jsp");
+            }
+            
+            request.setCharacterEncoding("UTF-8");
+            
             try{
                 UsuariosDTO usersDTO = new UsuariosDTO();
 

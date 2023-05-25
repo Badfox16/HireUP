@@ -34,10 +34,11 @@
     </head>
     <body>
         <%
-            if(session.getAttribute("user")==null){
+            if (session.getAttribute("user") == null) {
                 response.sendRedirect("loginA.jsp");
             }
-
+            
+            request.setCharacterEncoding("UTF-8");
         %>
         <div class="container mt-5">
             <!-- edit form column -->
@@ -48,7 +49,7 @@
             </div>
             <div class="col-lg-8 push-lg-4 personal-info">
 
-                <form action="verifyUserEdit.jsp" accept-charset="UTF-8">
+                <form action="verifyUserEdit.jsp" method="POST" accept-charset="UTF-8">
 
                     <div class="form-group row">
                         <label class="col-lg-3 col-form-label form-control-label">Nome</label>
@@ -81,24 +82,24 @@
                                 <%
                                     CategoriasDAO categorias = new CategoriasDAO();
                                     List<CategoriasDTO> listaCategoria = (List<CategoriasDTO>) categorias.listarCategorias();
-
-                                    String selected = request.getParameter("Setor");
-
+                                    
+                                    String selected = request.getParameter("Setor").trim();
+                                    
                                     for (CategoriasDTO novaCategoria : listaCategoria) {
-
                                         if (novaCategoria.getNome().equals(selected)) {
-
                                 %>
-                                <option checked class="form-control"  value="<%=novaCategoria.getNome()%>"><%=novaCategoria.getNome()%></option>
+                                <option selected value="<%=novaCategoria.getNome()%>"><%=novaCategoria.getNome()%></option>
                                 <%
                                 } else {
                                 %>
-                                <option class="form-control"  value="<%= novaCategoria.getNome()%>"><%= novaCategoria.getNome()%></option>
+                                <option value="<%=novaCategoria.getNome()%>"><%=novaCategoria.getNome()%></option>
                                 <%
                                         }
                                     }
                                 %>
+
                             </select>
+
 
 
                         </div>
@@ -130,6 +131,6 @@
                 </form>
             </div>
         </div>
-                       
+
     </body>
 </html>

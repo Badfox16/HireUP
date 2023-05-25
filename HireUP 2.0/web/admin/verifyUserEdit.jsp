@@ -18,8 +18,14 @@
         <title>verifyEditUser Page</title>
     </head>
     <body>
+
         <%
-         
+
+            if (session.getAttribute("user") == null) {
+                response.sendRedirect("loginA.jsp");
+            }
+
+            request.setCharacterEncoding("UTF-8");
 
             try {
                 UsuariosDTO usersDTO = new UsuariosDTO();
@@ -33,7 +39,6 @@
 
                 UsuariosDAO usersDAO = new UsuariosDAO();
                 usersDAO.editarUsuario(usersDTO);
-
 
                 response.sendRedirect("users.jsp");
 
