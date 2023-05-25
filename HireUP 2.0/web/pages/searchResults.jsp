@@ -4,8 +4,8 @@
     Author     : Pedro Nhamirre
 --%>
 
-<%@page import="DAO.EmpregosDAO"%>
 <%@page import="java.util.*"%>
+<%@page import="DAO.EmpregosDAO"%>
 <%@page import="DTO.EmpregosDTO"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>

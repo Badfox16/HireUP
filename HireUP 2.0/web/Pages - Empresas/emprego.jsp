@@ -64,7 +64,29 @@
                 </div>
             </div>
             <div class="right">
+                
                 <!-- Conteúdo da seção 'right' -->
+                <div class="courses-container">
+                    <div class="course">
+                        <div class="course-preview">
+                            <h6>Nome da empresa</h6>
+                            <h2>Area</h2>
+                            <a href="#" role="button">Apagar vaga <i class="fas fa-chevron-right"></i></a>
+                        </div>
+                        <div class="course-info">
+                            <div class="progress-container">
+                                <div class="progress"></div>
+                                <span class="progress-text">
+                                Salario-min - Salario-max
+                                </span>
+                            </div>
+                            <h6>Localizacao</h6>
+                            <h2>Posicao do emprego</h2>
+                            <button class="btn">Editar</button>
+                        </div>
+                    </div>
+                </div>
+
             </div>
         </div>
     <% } %>
