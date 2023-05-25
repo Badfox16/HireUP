@@ -4,6 +4,13 @@
     Author     : Pedro Nhamirre
 --%>
 
+<%@page import="DTO.EmpresasDTO"%>
+<%@page import="DTO.UsuariosDTO"%>
+<%@page import="DTO.EmpregosDTO"%>
+<%@page import="DTO.CandidaturasDTO"%>
+<%@page import="DTO.CandidaturasDTO"%>
+<%@page import="java.util.List"%>
+<%@page import="DAO.CandidaturasDAO"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -33,14 +40,84 @@
             <table class="table align-middle mb-0 bg-white">
                 <thead class="bg-light">
                     <tr>
-                        <th>Name</th>
-                        <th>Title</th>
-                        <th>Status</th>
-                        <th>Position</th>
+                        <th>#</th>
+                        <th>Empresa</th>
+                        <th>Cargo</th>
+                        <th>Estado</th>
+                        <th>Localização</th>
                         <th>Actions</th>
+                        <th></th>
+                        <th></th>
                     </tr>
                 </thead>
+
                 <tbody>
+                    <%--                        // Instanciar o DAO de Candidaturas
+                         CandidaturasDAO candidaturasDAO = new CandidaturasDAO();
+
+                        try {
+                            // Obter a lista de candidaturas com informações de empresas, usuários e empregos
+                            List<CandidaturasDTO> listaCandidaturas = candidaturasDAO.listarCandidaturasTeste();
+
+                            // Exibir as informações
+                            for (CandidaturasDTO candidatura : listaCandidaturas) {
+                                out.println("ID da Candidatura: " + candidatura.getIdCandidatura() + "<br>");
+                                out.println("Estado: " + candidatura.getEstado() + "<br>");
+                                out.println("Fale sobre: " + candidatura.getFaleSobre() + "<br>");
+                                out.println("Por que você: " + candidatura.getPqVoce() + "<br>");
+
+                                // Informações da empresa
+                                EmpresasDTO empresa = candidatura.getEmpresaFK();
+                                out.println("ID da Empresa: " + empresa.getIdEmpresa() + "<br>");
+                                out.println("Nome da Empresa: " + empresa.getNomeEmpresa() + "<br>");
+                                out.println("Tipo da Empresa: " + empresa.getTipoEmpresa() + "<br>");
+                                out.println("Setor da Empresa: " + empresa.getSetor() + "<br>");
+                                out.println("Email da Empresa: " + empresa.getEmail() + "<br>");
+                                out.println("Localização da Empresa: " + empresa.getLocalizacao() + "<br>");
+
+                                // Informações do usuário
+                                UsuariosDTO usuario = candidatura.getUsuarioFK();
+                                out.println("ID do Usuário: " + usuario.getIdUsuario() + "<br>");
+                                out.println("Email do Usuário: " + usuario.getEmail() + "<br>");
+                                out.println("Nome do Usuário: " + usuario.getNome() + "<br>");
+                                out.println("Apelido do Usuário: " + usuario.getApelido() + "<br>");
+                                out.println("Setor do Usuário: " + usuario.getSetor() + "<br>");
+                                out.println("Localização do Usuário: " + usuario.getLocalizacao() + "<br>");
+
+                                // Informações do emprego
+                                EmpregosDTO emprego = candidatura.getEmpregoFK();
+                                out.println("ID do Emprego: " + emprego.getIdEmprego() + "<br>");
+                                out.println("Empresa do Emprego: " + emprego.getEmpresa() + "<br>");
+                                out.println("Título do Emprego: " + emprego.getTitulo() + "<br>");
+                                out.println("Posição do Emprego: " + emprego.getPosicao() + "<br>");
+                                out.println("Salário Mínimo: " + emprego.getSalarioMin() + "<br>");
+                                out.println("Salário Máximo: " + emprego.getSalarioMax() + "<br>");
+                                out.println("Setor do Emprego: " + emprego.getSetor() + "<br>");
+                                out.println("Localização do Emprego: " + emprego.getLocalizacao() + "<br>");
+                                out.println("Tipo do Emprego: " + emprego.getTipo() + "<br>");
+                                out.println("Descrição do Emprego: " + emprego.getDescricao() + "<br>");
+                                out.println("Requisitos do Emprego: " + emprego.getRequisitos() + "<br>");
+
+                                out.println("<br><br>");
+                            }
+                        } catch (Exception e) {
+                            out.println("Erro ao listar candidaturas: " + e.getMessage());
+                        } 
+                    --%>
+
+                    <%                        CandidaturasDAO candidaturasDAO = new CandidaturasDAO();
+
+                        try {
+                            // Obter a lista de candidaturas com informações de empresas, usuários e empregos
+                            List<CandidaturasDTO> listaCandidaturas = candidaturasDAO.listarCandidaturasTeste();
+
+                            // Exibir as informações
+                            for (CandidaturasDTO candidatura : listaCandidaturas) {
+
+                                EmpresasDTO empresa = candidatura.getEmpresaFK();
+                                UsuariosDTO usuario = candidatura.getUsuarioFK();
+                                EmpregosDTO emprego = candidatura.getEmpregoFK();
+                    %>
                     <tr>
                         <td>
                             <div class="d-flex align-items-center">
@@ -51,17 +128,19 @@
                                     class="rounded-circle"
                                     />
                                 <div class="ms-3">
-                                    <p class="fw-bold mb-1">John Doe</p>
-                                    <p class="text-muted mb-0">john.doe@gmail.com</p>
+                                    <p class="fw-bold mb-1"> <%=usuario.getNome() + " " + usuario.getApelido()%> </p>
+                                    <p class="text-muted mb-0"><%= usuario.getEmail()%></p>
                                 </div>
                             </div>
                         </td>
                         <td>
-                            <p class="fw-normal mb-1">Software engineer</p>
-                            <p class="text-muted mb-0">IT department</p>
+                            <p class="fw-normal mb-1"><%= empresa.getNomeEmpresa()%></p>
+                            <p class="text-muted mb-0"> <%=empresa.getSetor()%></p>
                         </td>
                         <td>
-                            <span class="badge badge-success rounded-pill d-inline">Active</span>
+                            <span class="badge badge-success rounded-pill d-inline" 
+                                  style="color: black; font-size: 1rem; text-align: center;"
+                                  >Active</span>
                         </td>
                         <td>Senior</td>
                         <td>
@@ -70,76 +149,25 @@
                             </button>
                         </td>
                     </tr>
-                    <tr>
-                        <td>
-                            <div class="d-flex align-items-center">
-                                <img
-                                    src="https://mdbootstrap.com/img/new/avatars/6.jpg"
-                                    class="rounded-circle"
-                                    alt=""
-                                    style="width: 45px; height: 45px"
-                                    />
-                                <div class="ms-3">
-                                    <p class="fw-bold mb-1">Alex Ray</p>
-                                    <p class="text-muted mb-0">alex.ray@gmail.com</p>
-                                </div>
-                            </div>
-                        </td>
-                        <td>
-                            <p class="fw-normal mb-1">Consultant</p>
-                            <p class="text-muted mb-0">Finance</p>
-                        </td>
-                        <td>
-                            <span class="badge badge-primary rounded-pill d-inline"
-                                  >Onboarding</span
-                            >
-                        </td>
-                        <td>Junior</td>
-                        <td>
-                            <button
-                                type="button"
-                                class="btn btn-link btn-rounded btn-sm fw-bold"
-                                data-mdb-ripple-color="dark"
-                                >
-                                Edit
-                            </button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <div class="d-flex align-items-center">
-                                <img
-                                    src="https://mdbootstrap.com/img/new/avatars/7.jpg"
-                                    class="rounded-circle"
-                                    alt=""
-                                    style="width: 45px; height: 45px"
-                                    />
-                                <div class="ms-3">
-                                    <p class="fw-bold mb-1">Kate Hunington</p>
-                                    <p class="text-muted mb-0">kate.hunington@gmail.com</p>
-                                </div>
-                            </div>
-                        </td>
-                        <td>
-                            <p class="fw-normal mb-1">Designer</p>
-                            <p class="text-muted mb-0">UI/UX</p>
-                        </td>
-                        <td>
-                            <span class="badge badge-warning rounded-pill d-inline">Awaiting</span>
-                        </td>
-                        <td>Senior</td>
-                        <td>
-                            <button
-                                type="button"
-                                class="btn btn-link btn-rounded btn-sm fw-bold"
-                                data-mdb-ripple-color="dark"
-                                >
-                                Edit
-                            </button>
-                        </td>
-                    </tr>
+                    <%}%>
+
+                    <% } catch (Exception e) {
+                            out.println("Erro ao listar candidaturas: " + e.getMessage());
+                        }
+                    %>
+
+
+
                 </tbody>
             </table>
+
+
+
+
+
+
+
+
 
         </div>
     </body>

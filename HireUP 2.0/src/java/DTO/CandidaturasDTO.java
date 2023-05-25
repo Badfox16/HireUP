@@ -1,22 +1,13 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package DTO;
 
-/**
- *
- * @author Pedro Nhamirre
- */
 public class CandidaturasDTO {
-
     private int idCandidatura;
     private String estado;
     private String faleSobre;
     private String pqVoce;
-    private int empresaFK;
-    private int usuarioFK;
-    private int empregoFK;
+    private EmpresasDTO empresaFK;
+    private UsuariosDTO usuarioFK;
+    private EmpregosDTO empregoFK;
 
     public int getIdCandidatura() {
         return idCandidatura;
@@ -50,29 +41,27 @@ public class CandidaturasDTO {
         this.pqVoce = pqVoce;
     }
 
-    public int getEmpresaFK() {
+    public EmpresasDTO getEmpresaFK() {
         return empresaFK;
     }
 
-    public void setEmpresaFK(int empresaFK) {
+    public void setEmpresaFK(EmpresasDTO empresaFK) {
         this.empresaFK = empresaFK;
     }
 
-    public int getUsuarioFK() {
+    public UsuariosDTO getUsuarioFK() {
         return usuarioFK;
     }
 
-    public void setUsuarioFK(int usuarioFK) {
+    public void setUsuarioFK(UsuariosDTO usuarioFK) {
         this.usuarioFK = usuarioFK;
     }
 
-    public int getEmpregoFK() {
+    public EmpregosDTO getEmpregoFK() {
         return empregoFK;
     }
 
-    public void setEmpregoFK(int empregoFK) {
+    public void setEmpregoFK(EmpregosDTO empregoFK) {
         this.empregoFK = empregoFK;
     }
-
-    
 }
