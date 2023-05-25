@@ -48,12 +48,12 @@
     </head>
 
     <body>
-        <%--
+        <%
             if(session.getAttribute("user")==null){
                 response.sendRedirect("loginA.jsp");
             }
 
-        --%>
+        %>
 
         <%@include file="header.jsp" %>
 

@@ -33,12 +33,12 @@
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
     </head>
     <body>
-        <%--
+        <%
             if(session.getAttribute("user")==null){
                 response.sendRedirect("loginA.jsp");
             }
 
-        --%>
+        %>
         <div class="container mt-5">
             <!-- edit form column -->
             <div class="col-lg-12 text-lg-center">

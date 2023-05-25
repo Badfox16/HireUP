@@ -4,7 +4,9 @@
     Author     : Pedro Nhamirre
 --%>
 
+<%@page import="javax.servlet.annotation.WebServlet"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -59,12 +61,12 @@
 
     <body>
 
-        <%--
+        <%
             if (session.getAttribute("user") == null) {
                 response.sendRedirect("loginA.jsp");
             }
 
-        --%>
+        %>
 
         <%@include file="header.jsp" %>
 
