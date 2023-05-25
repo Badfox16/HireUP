@@ -31,77 +31,93 @@
 
 
         <title>Empresas</title>
+
+        <style>
+
+            .firstTitle{
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                margin: 2rem;
+                margin-top: 10rem;
+            }
+
+            #carouselExampleControls{
+
+                margin-top: 10rem;
+            }
+
+            .carousel-inner{
+                border: solid red !important;
+            }
+
+            .carousel-item{
+                border: solid blue !important;
+            }
+
+            .card{
+                border: solid gold !important;
+            }
+
+        </style>
     </head>
     <body>
 
         <%@include file="header.jsp" %>
 
-        <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="false">
-            <div class="carousel-indicators">
 
-                <%                    EmpresasDAO dao = new EmpresasDAO();
-                    List<EmpresasDTO> listar = (List<EmpresasDTO>) dao.listar();
+        <div class="firstTitle">
+            <h1>Empresas Parceiras</h1>
+        </div>
 
-                    int count = 0;
 
-                    for (int i = 0; i < listar.size(); i++) {
-                        count++;
-
-                        if (count == 1) {
-                %>        
-                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-
-                <%
-                    }
-                %>
-                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide <%=count%>"></button>
-                <%};
-                %>
-            </div>
+        <div id="carouselExampleControls" class="carousel carousel-dark slide" data-bs-ride="carousel">
 
             <div class="carousel-inner">
-                <%
-                    for (int i = 0; i < listar.size(); i++) {
+                <%        int cardsPerItem = 3;
+                    EmpresasDAO empresaDAO = new EmpresasDAO();
+                    List<EmpresasDTO> lista = (List<EmpresasDTO>) empresaDAO.listar();
 
-                        EmpresasDTO lister = listar.get(i);
-
+                    for (int i = 0; i < lista.size(); i += cardsPerItem) {
                         if (i == 0) {
                 %>
-
                 <div class="carousel-item active">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/3/35/Tux.svg" class="d-block w-100" alt="...">
-                    <div class="carousel-caption d-none d-md-block">
-                        <h5><%=lister.getNomeEmpresa()%></h5>
-                        <p><%=lister.getEmail()%></p>
+                    <% } else { %>
+                    <div class="carousel-item">
+                        <% } %>
+
+                        <div class="card-wrapper container-sm d-flex justify-content-around">
+                            <% for (int j = i; j < Math.min(i + cardsPerItem, lista.size()); j++) {
+                                    EmpresasDTO empresa = lista.get(j);
+                            %>
+                            <div class="card" style="width: 18rem;">
+                                <img src="https://upload.wikimedia.org/wikipedia/commons/3/35/Tux.svg" class="card-img-top" alt="...">
+                                <div class="card-body">
+                                    <h5 class="card-title"><%= empresa.getNomeEmpresa()%></h5>
+                                </div>
+                            </div>
+                            <% } %>
+                        </div>
+                        <% if ((i + cardsPerItem) >= lista.size() || (i + cardsPerItem + 1) > lista.size()) {
+                    break;
+                } %>
+                        <% }%>
                     </div>
                 </div>
-                <%
-                } else {
-                %>
-                <div class="carousel-item">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/3/35/Tux.svg" class="d-block w-100" alt="...">
-                    <div class="carousel-caption d-none d-md-block">
-                        <h5>Slide label</h5>
-                        <p>Placeholder content for the slide.</p>
-                    </div>
-                </div>
-                <%
-                        }
-                    }
-                %>
 
 
+
+
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
             </div>
-            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Previous</span>
-            </button>
-            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Next</span>
-            </button>
-        </div>
-                
+
     </body> 
 </html>
 
