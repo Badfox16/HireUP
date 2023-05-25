@@ -43,22 +43,9 @@
             }
 
             #carouselExampleControls{
-
-                margin-top: 10rem;
+                margin-top: 8rem;
             }
-
-            .carousel-inner{
-                border: solid red !important;
-            }
-
-            .carousel-item{
-                border: solid blue !important;
-            }
-
-            .card{
-                border: solid gold !important;
-            }
-
+            
         </style>
     </head>
     <body>
@@ -82,41 +69,39 @@
                         if (i == 0) {
                 %>
                 <div class="carousel-item active">
-                    <% } else { %>
-                    <div class="carousel-item">
+                    <div class="card-wrapper container-sm d-flex justify-content-around">
+                        <% } else { %>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <div class="card-wrapper container-sm d-flex justify-content-around">
                         <% } %>
 
-                        <div class="card-wrapper container-sm d-flex justify-content-around">
-                            <% for (int j = i; j < Math.min(i + cardsPerItem, lista.size()); j++) {
-                                    EmpresasDTO empresa = lista.get(j);
-                            %>
-                            <div class="card" style="width: 18rem;">
-                                <img src="https://upload.wikimedia.org/wikipedia/commons/3/35/Tux.svg" class="card-img-top" alt="...">
-                                <div class="card-body">
-                                    <h5 class="card-title"><%= empresa.getNomeEmpresa()%></h5>
-                                </div>
+                        <% for (int j = i; j < Math.min(i + cardsPerItem, lista.size()); j++) {
+                                EmpresasDTO empresa = lista.get(j);
+                        %>
+                        <div class="card" style="width: 18rem;">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/3/35/Tux.svg" class="card-img-top" alt="..." style="padding: 1rem;">
+                            <div class="card-body">
+                                <h5 class="card-title"><%= empresa.getNomeEmpresa()%></h5>
                             </div>
-                            <% } %>
                         </div>
-                        <% if ((i + cardsPerItem) >= lista.size() || (i + cardsPerItem + 1) > lista.size()) {
-                    break;
-                } %>
+                        <% } %>
                         <% }%>
                     </div>
                 </div>
-
-
-
-
-                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
-                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                    <span class="visually-hidden">Previous</span>
-                </button>
-                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
-                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                    <span class="visually-hidden">Next</span>
-                </button>
             </div>
+
+
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+        </div>
 
     </body> 
 </html>
