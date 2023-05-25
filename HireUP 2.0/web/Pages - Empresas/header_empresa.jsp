@@ -16,7 +16,7 @@
                     <a href="../index.html" class="nav-link">Home</a>
                     <a href="/candidaturas.jsp" class="nav-link">Candidaturas</a>
                     <a href="./emprego.jsp" class="nav-link">Empregos</a>
-                    <a href="../Perfil da Empresa/index.jsp" class="nav-link">Perfil da Empresa</a>
+                    <a href="./criarvagas.jsp" class="nav-link">Criar vagas</a>
                 </nav>
             </div>
             <div>

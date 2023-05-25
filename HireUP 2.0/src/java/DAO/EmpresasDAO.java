@@ -18,9 +18,8 @@ public class EmpresasDAO {
     ResultSet rSet;
 
 
-    public ResultSet LoginEmpresa(EmpresasDTO objEmpresasDTO) throws ClassNotFoundException {
+    public EmpresasDTO LoginEmpresa(EmpresasDTO objEmpresasDTO) throws ClassNotFoundException {
         String sql = "select * from tbEmpresas where Email = ? and Senha = ?";
-        String sql2 = "select * from tbEmpresas where Email = ?";
         conexao = new ConexaoDAO().conexaoBD();
 
         try {
@@ -30,7 +29,14 @@ public class EmpresasDAO {
             prepS.setString(2, objEmpresasDTO.getSenha());
 
             rSet = prepS.executeQuery();
-            return rSet;
+            if (rSet.next()) {
+                EmpresasDTO empresasDTO = new EmpresasDTO();
+                empresasDTO.setEmail(rSet.getString("Email"));
+                empresasDTO.setSenha(rSet.getString("Senha"));
+                empresasDTO.setNomeEmpresa(rSet.getString("Nome_Empresa"));
+
+                return empresasDTO;
+            }
 
         } catch (SQLException erro) {
             JOptionPane.showMessageDialog(null, "Verificar credenciais: ");

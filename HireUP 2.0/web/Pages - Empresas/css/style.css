@@ -6,6 +6,7 @@ body {
 	margin:  0 auto;
 	background: #fff;
 	display: flex;
+	justify-content: center;
 	}
 .form-v10-content  {
 	background: #fafafa;

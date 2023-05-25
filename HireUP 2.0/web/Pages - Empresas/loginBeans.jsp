@@ -25,13 +25,14 @@
             objEmpresasDTO.setSenha(request.getParameter("senha"));
             
             EmpresasDAO objEmpresasDAO = new EmpresasDAO();
-            ResultSet rSetUSR = objEmpresasDAO.LoginEmpresa(objEmpresasDTO);
+            EmpresasDTO resultadoLogin = objEmpresasDAO.LoginEmpresa(objEmpresasDTO);
             
-            if (rSetUSR.next()) {
+            if (resultadoLogin != null) {
               
                 session = request.getSession();
+               
                 session.setAttribute("email", objEmpresasDTO.getEmail());
-                
+               
                 response.sendRedirect("emprego.jsp");
                    
                 } else {
