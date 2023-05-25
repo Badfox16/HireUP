@@ -76,7 +76,7 @@
                             <a class="btn btn-middle-link m-2" href="./browse.jsp">Empregos</a>
                         </li>
                         <li class="nav-item">
-                            <a class="btn btn-middle-link m-2" href="">Candidaturas</a>
+                            <a class="btn btn-middle-link m-2" href="./candidaturas.jsp">Candidaturas</a>
                         </li>
                         <li class="nav-item">
                             <a class="btn btn-middle-link m-2" href="../Pages - Empresas/login_empresa.jsp">Para Empregadores</a>

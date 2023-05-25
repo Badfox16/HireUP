@@ -58,10 +58,10 @@
                 text-decoration: none;
                 border: 1px solid #443fde;
                 padding: 0.5rem;
-                background-color: #443fde;
+                background-color: #443fdd;
                 color: white;
-                margin: 0 3.8rem;
-                border-radius: 1rem;
+                margin: 0 5rem;
+                
             }
         </style>
     </head>
@@ -72,6 +72,7 @@
 
         <div class="firstTitle">
             <h1>Empresas Parceiras</h1>
+            <hr> 
         </div>
 
 
@@ -98,11 +99,12 @@
                                 EmpresasDTO empresa = lista.get(j);
                         %>
                         <div class="card" style="width: 18rem;">
-                            <img src="https://upload.wikimedia.org/wikipedia/commons/3/35/Tux.svg" class="card-img-top" alt="..." style="padding: 1.5rem;">
+                            <img src="https://seeklogo.com/images/E/electricidade-de-mocambique-edm-logo-A6FAC89485-seeklogo.com.png?v=637896797820000000" class="card-img-top" alt="..." style="padding: 1.5rem;">
                             <div class="card-body">
                                 <h5 class="card-title"><%= empresa.getNomeEmpresa()%></h5>
-                                <p class="card-title"><%= empresa.getEmail()%></p>
-                                <a href="#" class="vermais">Go somewhere</a>
+                                
+                                <br>
+                                <a href="#" class="vermais">Saiba Mais</a>
                             </div>
 
                         </div>
