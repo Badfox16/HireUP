@@ -33,7 +33,7 @@
                 EmpresasDAO dao = new EmpresasDAO();
                 dao.update(dto);
 
-                response.sendRedirect("../index.jsp");
+                response.sendRedirect("../perfil-da-empresa.jsp");
             } catch (Exception e) {
                 out.print(e.getMessage());
             }

@@ -29,7 +29,7 @@
                 dto.setDescricao(request.getParameter("inpDescricao"));
                 dao.editarUsuario(dto);
 
-                response.sendRedirect("../index.jsp");
+                response.sendRedirect("../perfil-do-usuario.jsp");
             } catch (Exception e) {
                 out.print(e.getMessage());
             }
