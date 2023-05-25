@@ -8,11 +8,6 @@ import java.sql.*;
 import javax.swing.JOptionPane;
 
 import DTO.EmpresasDTO;
-import java.io.ByteArrayOutputStream;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -21,6 +16,29 @@ public class EmpresasDAO {
     Connection conexao;
     PreparedStatement prepS;
     ResultSet rSet;
+
+
+    public ResultSet LoginEmpresa(EmpresasDTO objEmpresasDTO) throws ClassNotFoundException {
+        String sql = "select * from tbEmpresas where Email = ? and Senha = ?";
+        String sql2 = "select * from tbEmpresas where Email = ?";
+        conexao = new ConexaoDAO().conexaoBD();
+
+        try {
+            prepS = conexao.prepareStatement(sql);
+
+            prepS.setString(1, objEmpresasDTO.getEmail());
+            prepS.setString(2, objEmpresasDTO.getSenha());
+
+            rSet = prepS.executeQuery();
+            return rSet;
+
+        } catch (SQLException erro) {
+            JOptionPane.showMessageDialog(null, "Verificar credenciais: ");
+        }
+        return null;
+        
+
+    }
 
     public void Cadastrar(EmpresasDTO objEmpresasDTO) throws ClassNotFoundException {
         String sql = "insert into tbEmpresas(Nome_Empresa, Tipo_Empresa, Setor, Email, Senha, Descricao, Localizacao) values(?,?,?,?,?,?,?)";
@@ -47,7 +65,7 @@ public class EmpresasDAO {
     }
 
     public List<EmpresasDTO> listar() throws SQLException, ClassNotFoundException {
-        List<EmpresasDTO> listaUsuarios = new ArrayList<>();
+        List<EmpresasDTO> listaEmpresas = new ArrayList<>();
         String sql = "SELECT * FROM tbEmpresas";
         conexao = new ConexaoDAO().conexaoBD();
 
@@ -66,13 +84,16 @@ public class EmpresasDAO {
             objEmpresa.setDescricao(rSet.getString("Descricao"));
             objEmpresa.setLocalizacao(rSet.getString("Localizacao"));
             objEmpresa.setEmpregos(rSet.getString("Empregos"));
+            objEmpresa.setCandidaturas(rSet.getString("Candidaturas"));
 
-            listaUsuarios.add(objEmpresa);
+            listaEmpresas.add(objEmpresa);
         }
         prepS.close();
         conexao.close();
-        return listaUsuarios;
+        return listaEmpresas;
     }
+
+
 
     public void update(EmpresasDTO update) throws ClassNotFoundException {
         String sql = "update tbEmpresas set Nome_Empresa = ?,Senha = ?,Email = ?,Descricao = ?,Setor = ?,Empregos = ?,Tipo_Empresa = ?,Localizacao = ? where Id_Empresa = ?;";
@@ -134,6 +155,9 @@ public class EmpresasDAO {
             dto.setIdEmpresa(rSet.getInt("Id_Empresa"));
             dto.setLocalizacao(rSet.getString("localizacao"));
             dto.setTipoEmpresa(rSet.getString("Tipo_Empresa"));
+            dto.setEmpregos(rSet.getString("Empregos"));
+            dto.setCandidaturas(rSet.getString("Candidaturas"));
+
             listar.add(dto);
 
             prepS.close();

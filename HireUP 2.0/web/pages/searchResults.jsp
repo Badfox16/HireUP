@@ -57,7 +57,7 @@
                         List<EmpregosDTO> teste = dao.pesquisarEmpregos(pesquisa);
 
                         if (teste.isEmpty()) {
-                            out.print("<div class=\"card-jobs\"><h3>nenhum dado existente encontrado</h3></div>");
+                            out.print("<div class=\"card-jobs\"><h3>Nenhum dado existente encontrado</h3></div>");
                         } else {
                             for (EmpregosDTO novoDado : teste) {
                     %>

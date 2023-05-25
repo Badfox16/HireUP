@@ -107,7 +107,7 @@ public class UsuariosDAO {
 
     public void editarUsuario(UsuariosDTO usuario) throws ClassNotFoundException {
 
-        String sql = "UPDATE tbUsuarios SET Nome = ?, Apelido = ?, Setor = ?, Localizacao = ?, Formacao = ?, Descricao = ? WHERE Email = ?;";
+        String sql = "UPDATE tbUsuarios SET Nome = ?, Apelido = ?, Setor = ?,Localizacao = ?, Formacao = ?, Descricao = ?,Contato = ? WHERE Email = ?;";
         conexao = new ConexaoDAO().conexaoBD();
 
         try {
@@ -119,7 +119,8 @@ public class UsuariosDAO {
             prepS.setString(4, usuario.getLocalizacao());
             prepS.setString(5, usuario.getFormacao());
             prepS.setString(6, usuario.getDescricao());
-            prepS.setString(7, usuario.getEmail());
+            prepS.setString(7, usuario.getContato());
+            prepS.setString(8, usuario.getEmail());
 
             prepS.executeUpdate();
             prepS.close();
@@ -164,6 +165,7 @@ public class UsuariosDAO {
             dto.setLocalizacao(rSet.getString("Localizacao"));
             dto.setSetor(rSet.getString("Setor"));
             dto.setDescricao(rSet.getString("Descricao"));
+            dto.setContato(rSet.getString("Contato"));
             listar.add(dto);
             prepS.close();
             conexao.close();

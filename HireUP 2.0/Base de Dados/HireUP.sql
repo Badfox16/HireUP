@@ -11,7 +11,8 @@ Setor varchar(120),
 Localizacao varchar(120),
 Formacao varchar(120),
 Senha varchar(50),
-Descricao varchar(500)
+Descricao varchar(500),
+Contato varchar(16)
 );
 
 create table tbEmpregos(
@@ -61,7 +62,7 @@ Nome varchar(150)
  Id_UsuarioFK int,
  Id_EmpresaFK int,
  Comentario varchar(1000),
- Data varchar(8);
+ Data varchar(8),
  foreign key(Id_UsuarioFK) references tbUsuarios(Id_Usuario),
  foreign key(Id_EmpresaFK) references tbEmpresas(Id_Empresa)
  );

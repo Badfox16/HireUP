@@ -2,7 +2,7 @@ package DTO;
 
 public class UsuariosDTO {
 
-    private String email, nome, apelido, setor, localizacao, formacao, senha, descricao;
+    private String email, nome, apelido, setor, localizacao, formacao, senha, descricao, contato;
     private int IdUsuario;
     // getters e setters para todos os campos
 
@@ -76,6 +76,14 @@ public class UsuariosDTO {
 
     public void setIdUsuario(int Id_Usuario) {
         this.IdUsuario = Id_Usuario;
+    }
+
+    public String getContato() {
+        return contato;
+    }
+
+    public void setContato(String contato) {
+        this.contato = contato;
     }
 
 }

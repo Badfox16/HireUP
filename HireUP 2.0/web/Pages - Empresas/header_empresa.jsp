@@ -15,14 +15,16 @@
                 <nav class="nav-menu">
                     <a href="../index.html" class="nav-link">Home</a>
                     <a href="/candidaturas.jsp" class="nav-link">Candidaturas</a>
-                    <a href="./vagas.jsp" class="nav-link">Vagas</a>
+                    <a href="./emprego.jsp" class="nav-link">Empregos</a>
                     <a href="../Perfil da Empresa/index.jsp" class="nav-link">Perfil da Empresa</a>
                 </nav>
             </div>
             <div>
                 <nav class="right-nav">
                     <a href="./submitJob.jsp" class="nav-link">Poste um Emprego</a>
-                    <button class="btn-primary">Log out</button>
+                    <form action="./signupEmpresa.jsp" method="get">
+                        <button class="btn-primary">Log out</button>
+                    </form>
                 </nav>
             </div>
         </div>
