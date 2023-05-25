@@ -3,13 +3,14 @@ package DTO;
 
 public class EmpresasDTO {
     private int IdEmpresa;
-    private String NomeEmpresa, TipoEmpresa, Setor, Email, Senha, Descricao, Localizacao, Empregos, Categorias;
+    private String NomeEmpresa, TipoEmpresa, Setor, Email, Senha, Descricao, Localizacao, Empregos, Candidaturas;
     
-    public String getCategorias() {
-        return Categorias;
+   
+    public String getCandidaturas() {
+        return Candidaturas;
     }
-    public void setCategorias(String categorias) {
-        Categorias = categorias;
+    public void setCandidaturas(String candidaturas) {
+        Candidaturas = candidaturas;
     }
     public int getIdEmpresa() {
         return IdEmpresa;

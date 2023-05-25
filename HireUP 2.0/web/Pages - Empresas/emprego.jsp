@@ -1,6 +1,10 @@
+<%@page import="java.util.List"%>
 <%@page contentType="text/html" pageEncoding="UTF-8" %>
-<%@page import="DTO.EmpresasDTO,DAO.EmpresasDAO,java.util.*" %>
-<%@page import="java.sql.*"%>
+
+<%@ page import="DTO.EmpresasDTO" %>
+<%@ page import="DAO.EmpresasDAO" %>
+
+
     <!DOCTYPE html>
     <html lang="en">
 
@@ -14,59 +18,57 @@
     </head>
 
     <body>
-        <%@include file="header_empresa.jsp" %>
-       <%
-                    EmpresasDAO dao = new EmpresasDAO();
-                    EmpresasDTO dto = new EmpresasDTO();
-                    String email = (String) session.getAttribute("mail");
-                    dto.setEmail(email);
-                    List<EmpresasDTO> listar = (List<EmpresasDTO>) dao.perfilEmpresa(dto);
-                %>
-                <%
-                    for (EmpresasDTO lister : listar) {
-                %>
-            <div class="content">
-                <div class="left">
+    <%@ include file="header_empresa.jsp" %>
+    <% 
+        EmpresasDAO dao = new EmpresasDAO();
+        EmpresasDTO listarDTO = new EmpresasDTO();
+        String a = "";
+        a = (String) session.getAttribute("email");
+        listarDTO.setEmail(a);
+        List<EmpresasDTO> listaEmpresas = (List<EmpresasDTO>)  dao.perfilEmpresa(listarDTO);
+    %>
 
-                    <div class="card">
-                        <div class="infos">
-                            
-                            <div class="info">
-                                <div>
-                                    <p class="name">
-                                        <%= lister.getNomeEmpresa() %>
-                                    </p>
-                                    <p class="function">
-                                        ${email}
-                                    </p>
-                                </div>
-                                <div class="stats">
-                                    <p class="flex flex-col">
-                                        Candidaturas
-                                        <span class="state-value">
-                                            34
-                                        </span>
-                                    </p>
-                                    <p class="flex">
-                                        <%= lister.getEmpregos() %>
-                                        <span class="state-value">
-                                            <%= lister.getCategorias() %>
-                                        </span>
-                                    </p>
-
-                                </div>
+    <% for (EmpresasDTO empresa : listaEmpresas) { %>
+        <div class="content">
+            <div class="left">
+                <div class="card">
+                    <div class="infos">
+                        <div class="info">
+                            <div>
+                                <p>
+                                    <%= empresa.getNomeEmpresa() %>
+                                </p>
+                                <p class="function">
+                                    ${email}
+                                </p>
+                            </div>
+                            <div class="stats">
+                                <p class="flex flex-col">
+                                    Candidaturas
+                                    <span class="state-value">
+                                       <%= empresa.getCandidaturas() %>
+                                    </span>
+                                </p>
+                                <p class="flex">
+                                    Empregos
+                                    <span class="state-value">
+                                         <%= empresa.getEmpregos() %>
+                                    </span>
+                                </p>
                             </div>
                         </div>
-                        <button class="request" type="button">
-                            Editar Perfil
-                        </button>
-                        <% } ;%>
                     </div>
-                </div>
-                <div class="right">
-
+                    <button class="request" type="button">
+                        Editar Perfil
+                    </button>
                 </div>
             </div>
-    </body>
+            <div class="right">
+                <!-- Conteúdo da seção 'right' -->
+            </div>
+        </div>
+    <% } %>
+</body>
+
 
     </html>

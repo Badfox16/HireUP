@@ -84,7 +84,7 @@ public class EmpresasDAO {
             objEmpresa.setDescricao(rSet.getString("Descricao"));
             objEmpresa.setLocalizacao(rSet.getString("Localizacao"));
             objEmpresa.setEmpregos(rSet.getString("Empregos"));
-            objEmpresa.setCategorias(rSet.getString("Categorias"));
+            objEmpresa.setCandidaturas(rSet.getString("Candidaturas"));
 
             listaEmpresas.add(objEmpresa);
         }
@@ -156,7 +156,7 @@ public class EmpresasDAO {
             dto.setLocalizacao(rSet.getString("localizacao"));
             dto.setTipoEmpresa(rSet.getString("Tipo_Empresa"));
             dto.setEmpregos(rSet.getString("Empregos"));
-            dto.setCategorias(rSet.getString("Categorias"));
+            dto.setCandidaturas(rSet.getString("Candidaturas"));
 
             listar.add(dto);
 
