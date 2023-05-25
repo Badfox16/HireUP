@@ -39,7 +39,7 @@
                 align-items: center;
                 justify-content: center;
                 font-size: 2.5rem;
-                border: solid red;
+     
             }
 
             .lds-dual-ring {
