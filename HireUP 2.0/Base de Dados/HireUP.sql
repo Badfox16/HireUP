@@ -62,7 +62,7 @@ Nome varchar(150)
  Id_UsuarioFK int,
  Id_EmpresaFK int,
  Comentario varchar(1000),
- Data varchar(8);
+ Data varchar(8),
  foreign key(Id_UsuarioFK) references tbUsuarios(Id_Usuario),
  foreign key(Id_EmpresaFK) references tbEmpresas(Id_Empresa)
  );
