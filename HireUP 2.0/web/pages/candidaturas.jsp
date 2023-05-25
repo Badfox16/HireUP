@@ -4,6 +4,7 @@
     Author     : Pedro Nhamirre
 --%>
 
+<%@page import="DAO.UsuariosDAO"%>
 <%@page import="DTO.EmpresasDTO"%>
 <%@page import="DTO.UsuariosDTO"%>
 <%@page import="DTO.EmpregosDTO"%>
@@ -32,6 +33,14 @@
         <title>JSP Page</title>
     </head>
     <body>
+
+        <%
+            if (session.getAttribute("mail") == null) {
+                response.sendRedirect("login.jsp");
+            }
+
+            request.setCharacterEncoding("UTF-8");
+        %>
 
         <%@include file="header.jsp" %>
 
@@ -107,9 +116,21 @@
 
                     <%                        CandidaturasDAO candidaturasDAO = new CandidaturasDAO();
 
+                        UsuariosDTO dtoUser = new UsuariosDTO();
+                        dtoUser.setEmail((String) session.getAttribute("mail"));
+
+                        UsuariosDAO daoUser = new UsuariosDAO();
+                        List<UsuariosDTO> listaUser = (List<UsuariosDTO>) daoUser.perfilUsuario(dtoUser);
+
+                        int idUser = 0;
+
+                        for (UsuariosDTO novoDtoUser : listaUser) {
+                            idUser = novoDtoUser.getIdUsuario();
+                        }
+
                         try {
                             // Obter a lista de candidaturas com informações de empresas, usuários e empregos
-                            List<CandidaturasDTO> listaCandidaturas = candidaturasDAO.listarCandidaturasTeste();
+                            List<CandidaturasDTO> listaCandidaturas = candidaturasDAO.listarCandidaturasPorUsuario(idUser);
 
                             // Exibir as informações
                             for (CandidaturasDTO candidatura : listaCandidaturas) {
