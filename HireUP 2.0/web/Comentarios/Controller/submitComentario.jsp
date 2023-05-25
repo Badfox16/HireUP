@@ -14,7 +14,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <title>HireUP - Comentarios</title>
     </head>
     <body>
         <%
@@ -28,7 +28,7 @@
 
                 objComentarioDAO.comentarioUsuario(objComentarioDTO);
 
-                response.sendRedirect("../index.jsp");
+                response.sendRedirect("../comentarios.jsp");
             } catch (Exception e) {
                 JOptionPane.showMessageDialog(null, "SQL ERRO EM" + e.getMessage());
             }

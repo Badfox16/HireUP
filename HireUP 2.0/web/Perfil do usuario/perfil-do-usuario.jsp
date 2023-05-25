@@ -20,7 +20,7 @@
         <script src="https://kit.fontawesome.com/1f168297b1.js" crossorigin="anonymous"></script>
         <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
         <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-        <title>Perfil do usuário</title>
+        <title>Perfil do Usuario</title>
     </head>
 
     <body>
