@@ -27,11 +27,8 @@ Localizacao varchar(45),
 Tipo varchar (45),
 Descricao varchar(500),
 Requisitos varchar(500)
-)default charset = utf8;
-
-create table tbCategorias(
-Nome varchar(150)
 );
+
 
  create table tbEmpresas(
  Id_Empresa int primary key auto_increment,
@@ -42,20 +39,34 @@ Nome varchar(150)
  Senha varchar(100),
  Descricao varchar(500),
  Localizacao varchar(100),
- Empregos varchar(100)
+ Empregos varchar(100) default '0',
+ Candidaturas varchar(100) default '0'
  );
 
- create table tbAdmin(
+
+
+ create table tbCandidaturas(
+    Id_Candidatura int primary key auto_increment,
+    Estado VARCHAR(50) default 'Pendente',
+	Fale_Sobre varchar(500),
+    Pq_Voce varchar(500),
+    EmpresaFK int,
+    UsuarioFK int,
+    EmpregoFK int,
+    foreign key(EmpresaFK) references tbEmpresas(Id_Empresa),
+    foreign key(UsuarioFK) references tbUsuarios(Id_Usuario),
+    foreign key(EmpregoFK) references tbEmpregos(Id_Emprego)
+ );
+ 
+  create table tbAdmin(
     Username VARCHAR(50) primary key,
     Senha varchar(50)
  );
 
- create table tbCandidatura(
-    Id_Candidatura int primary key auto_increment,
-    Estado VARCHAR(50) not null,
-    EmpregoId int not null,
-    EmpresaId int not null
- );
+create table tbCategorias(
+Nome varchar(150)
+);
+
 
  create table tbComentarios(
  Id_Comentario int primary key auto_increment,
@@ -79,5 +90,6 @@ insert into tbCategorias
   ("Segurança"),
   ("Outro");
 
+drop table tbCandidatura;
 -- select * from tbComentarios as Coments join tbUsuarios as Users on Coments.Id_UsuarioFK = Users.Id_Usuario order by  Id_Comentario;
--- select * from tbComentarios;
+-- select * from tbCandidaturas join tbUsuarios on tbCandidaturas.UsuarioFK = tbUsuarios.Id_Usuario join tbEmpresas on tbCandidaturas.EmpresaFK = tbEmpresas.Id_Empresa;
