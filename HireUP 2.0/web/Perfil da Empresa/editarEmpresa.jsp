@@ -27,6 +27,12 @@
         </head>
 
         <body>
+            <!-- Login obrigatorio -->
+            <%
+                if (session.getAttribute("mail") == null) {
+                    response.sendRedirect("../pages/login.jsp");
+                }
+            %>
             <div class="navbar">
                 <div class="left-nav">
                     <a href="#" class="brand"><img src="../img/logo.png" alt="Logo" class="logo" height="30"></a>

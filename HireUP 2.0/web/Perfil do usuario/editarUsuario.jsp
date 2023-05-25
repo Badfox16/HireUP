@@ -80,6 +80,7 @@
                                 <div class="col-md-12">
                                     <label class="labels">Telefone</label
                                     ><input
+                                        name="inpContato"
                                         type="text"
                                         class="form-control"
                                         placeholder="+258 84 0000000"
@@ -124,7 +125,7 @@
                                         name="inpNovaSenha"
                                         type="password"
                                         class="form-control"
-                                        value="<%=lister.getFormacao()%>"
+                                        value="<%=lister.getSenha()%>"
                                         />
                                 </div>
                                 <div class="col-md-6">
@@ -133,12 +134,13 @@
                                         name="inpConfirmarSenha"
                                         type="password"
                                         class="form-control"
-                                        value="<%=lister.getFormacao()%>"
+                                        value="<%=lister.getSenha()%>"
                                         />
                                 </div>
                             </div>
                             <div class="row mt-3">
                                 <div class="col-md-6">
+
                                     <select name="inpSetor" class="form-control">
                                         <%
                                             CategoriasDAO categorias = new CategoriasDAO();
