@@ -14,7 +14,7 @@
             <div class="nav-middle">
                 <nav class="nav-menu">
                     <a href="../index.jsp" class="nav-link">Home</a>
-                    <a href="/candidaturas.jsp" class="nav-link">Candidaturas</a>
+                    <a href="candidaturas.jsp" class="nav-link">Candidaturas</a>
                     <a href="./empregos.jsp" class="nav-link">Empregos</a>
                     <a href="./criarvagas.jsp" class="nav-link">Criar vagas</a>
                 </nav>

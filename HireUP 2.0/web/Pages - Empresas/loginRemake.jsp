@@ -44,7 +44,7 @@
           <h3>Login</h3>
           <p>Faça login e comece a gerir o perfil da sua empresa!</p>
         </div>
-        <form action="loginE.jsp" method="post">
+        <form action="loginEmpresa.jsp" method="post">
           <label for="email">Email</label>
           <input type="email" name="email" maxlength="120" required="" placeholder="" id="email" class="form-field w-input">
           <label for="password">Senha</label>

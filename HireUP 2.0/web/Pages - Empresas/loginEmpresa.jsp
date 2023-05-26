@@ -6,6 +6,7 @@
 <%@page import="java.util.List"%>
 <%@page import="DAO.EmpresasDAO"%>
 <%@page import="DTO.EmpresasDTO"%>
+<%@page import="java.sql.ResultSet"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>

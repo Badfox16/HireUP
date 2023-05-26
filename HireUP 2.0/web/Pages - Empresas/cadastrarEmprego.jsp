@@ -19,7 +19,7 @@
         <%
 // Obtendo os parâmetros do formulário
            
-
+            String empresa = request.getParameter("empresa");
             String posicao = request.getParameter("posicao");
             String tipo = request.getParameter("tipo");
             int salarioMin = Integer.parseInt(request.getParameter("salario_min"));
@@ -31,6 +31,7 @@
 
 // Criando o objeto EmpregosDTO com os dados do formulário
             EmpregosDTO emprego = new EmpregosDTO();
+            emprego.setEmpresa(empresa);
             emprego.setPosicao(posicao);
             emprego.setTipo(tipo);
             emprego.setSalarioMin(salarioMin);
@@ -48,7 +49,7 @@
                 empregoDAO.cadastrarEmprego(emprego); // Chame o método cadastrarEmprego passando o objeto emprego
 
                 // Redirecione para uma página de sucesso ou exiba uma mensagem informando que o cadastro foi realizado com sucesso
-                response.sendRedirect("emprego.jsp");
+                response.sendRedirect("empregos.jsp");
             } catch (Exception e) {
                 e.printStackTrace();
 

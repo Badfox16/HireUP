@@ -34,11 +34,11 @@
                     
                     
                 } catch (Exception e) {
-                    RequestDispatcher rd = request.getRequestDispatcher("signupEmpresa.html");
+                    RequestDispatcher rd = request.getRequestDispatcher("signupEmpresa.jsp");
                 
                 }
         
-                response.sendRedirect("loginEmpresa.html");
+                response.sendRedirect("loginRemake.jsp");
         %>
 
     </body>

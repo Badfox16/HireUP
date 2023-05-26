@@ -195,59 +195,34 @@ public class EmpregosDAO {
         return listaEmpregos;
     }
 
-    public List<EmpregosDTO> ListarEmpregosEmpresas(String nomeEmpresa) throws SQLException, ClassNotFoundException {
-        List<EmpregosDTO> listaEmpregos = new ArrayList<>();
-        String sql = "SELECT * FROM tbEmpregos WHERE LOWER(Empresa) = ?";
+    public List<EmpregosDTO> perfilEmprego(EmpregosDTO empregosDTO) throws SQLException, ClassNotFoundException {
+        List<EmpregosDTO> listar = new ArrayList<>();
         conexao = new ConexaoDAO().conexaoBD();
-        PreparedStatement stmt = null;
-        ResultSet rs = null;
-        
-        try {
-            stmt = conexao.prepareStatement(sql);
-            stmt.setString(1, nomeEmpresa.toLowerCase());
-            rs = stmt.executeQuery();
-    
-            while (rs.next()) {
-                int id = rs.getInt("Id_Emprego");
-                String empresa = rs.getString("Empresa");
-                String titulo = rs.getString("Titulo");
-                String posicao = rs.getString("Posicao");
-                int salarioMin = rs.getInt("SalarioMin");
-                int salarioMax = rs.getInt("SalarioMax");
-                String setor = rs.getString("Setor");
-                String localizacao = rs.getString("Localizacao");
-                String tipo = rs.getString("Tipo");
-                String descricao = rs.getString("Descricao");
-                String requisitos = rs.getString("Requisitos");
-    
-                EmpregosDTO emprego = new EmpregosDTO();
-                emprego.setIdEmprego(id);
-                emprego.setEmpresa(empresa);
-                emprego.setTitulo(titulo);
-                emprego.setPosicao(posicao);
-                emprego.setSalarioMin(salarioMin);
-                emprego.setSalarioMax(salarioMax);
-                emprego.setSetor(setor);
-                emprego.setLocalizacao(localizacao);
-                emprego.setTipo(tipo);
-                emprego.setDescricao(descricao);
-                emprego.setRequisitos(requisitos);
-    
-                listaEmpregos.add(emprego);
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-        } finally {
-            if (stmt != null) {
-                stmt.close();
-            }
-            if (rs != null) {
-                rs.close();
-            }
+        EmpregosDTO dto = new EmpregosDTO();
+        String sql = "select * from tbEmpregos where Empresa=?;";
+
+        prepS = conexao.prepareStatement(sql);
+        prepS.setString(1, empregosDTO.getEmpresa());
+
+        rSet = prepS.executeQuery();
+        if (rSet.next()) {
+            dto.setEmpresa(rSet.getString("Empresa"));
+            dto.setPosicao(rSet.getString("Posicao"));
+            dto.setDescricao(rSet.getString("Descricao"));
+            dto.setSetor(rSet.getString("Setor"));
+            dto.setIdEmprego(rSet.getInt("Id_Emprego"));
+            dto.setLocalizacao(rSet.getString("localizacao"));
+            dto.setSalarioMin(rSet.getInt("SalarioMin"));
+            dto.setSalarioMax(rSet.getInt("SalarioMax"));
+            dto.setRequisitos(rSet.getString("Requisitos"));
+            dto.setDescricao(rSet.getString("Descricao"));
+
+            listar.add(dto);
+
+            prepS.close();
             conexao.close();
         }
-        
-        return listaEmpregos;
+        return listar;
     }
     
 
