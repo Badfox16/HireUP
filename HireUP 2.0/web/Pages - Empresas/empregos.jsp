@@ -14,12 +14,12 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="./css/empregos.css">
         <link rel="shortcut icon" href="../img/logo.png" type="image/x-icon" class="hr1" />
-        <title>Empregos</title>
+        <title>Sign Up</title>
     </head>
 
     <body>
     <%@ include file="header_empresa.jsp" %>
-     <% 
+    <% 
         EmpresasDAO dao = new EmpresasDAO();
         EmpresasDTO listarDTO = new EmpresasDTO();
         String a = "";
@@ -27,14 +27,8 @@
         listarDTO.setEmail(a);
         List<EmpresasDTO> listaEmpresas = (List<EmpresasDTO>)  dao.perfilEmpresa(listarDTO);
     %>
+
     <% for (EmpresasDTO empresa : listaEmpresas) { %>
-    <div class="content">
-        <!-- ... rest of the code ... -->
-        <h1><%= empresa.getNomeEmpresa() %></h1> <!-- Verifica o nome da empresa -->
-        <p><%= empresa.getCandidaturas() %></p> <!-- Verifica o número de candidaturas -->
-        <p><%= empresa.getEmpregos() %></p> <!-- Verifica o número de empregos -->
-    </div>
-<% } %>
         <div class="content">
             <div class="left">
                 <div class="card">
@@ -42,23 +36,23 @@
                         <div class="info">
                             <div>
                                 <p>
-                                   nome aqui
+                                    <%= empresa.getNomeEmpresa() %>
                                 </p>
                                 <p class="function">
-                                   mmmmmm
+                                    ${email}
                                 </p>
                             </div>
                             <div class="stats">
                                 <p class="flex flex-col">
                                     Candidaturas
                                     <span class="state-value">
-                                       0
+                                       <%= empresa.getCandidaturas() %>
                                     </span>
                                 </p>
                                 <p class="flex">
                                     Empregos
                                     <span class="state-value">
-                                        0
+                                         <%= empresa.getEmpregos() %>
                                     </span>
                                 </p>
                             </div>
@@ -95,7 +89,7 @@
 
             </div>
         </div>
-0
+    <% } %>
 </body>
 
 

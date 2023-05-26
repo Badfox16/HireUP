@@ -5,6 +5,7 @@
 <head>
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<link rel="stylesheet" href="./css/header.css">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="stylesheet" href="./css/SignUp.css">
 	<link rel="shortcut icon" href="../img/logo.png" type="image/x-icon" class="hr1" />
@@ -12,7 +13,27 @@
 </head>
 
 <body>
-	<%@include file="header_empresa.jsp" %>
+	<div class="navbar">
+		<div class="left-nav">
+			<a href="#" class="brand"><img src="./img/recursos-humanos.png" alt="Logo" class="logo" height="30"></a>
+		</div>
+		<div class="nav-middle">
+			<nav class="nav-menu">
+				<a href="../index.jsp" class="nav-link">Home</a>
+				<a href="/candidaturas.jsp" class="nav-link">Candidaturas</a>
+				<a href="./empregos.jsp" class="nav-link">Empregos</a>
+				<a href="./criarvagas.jsp" class="nav-link">Criar vagas</a>
+			</nav>
+		</div>
+		<div>
+			<nav class="right-nav">
+				<a href="../pages/searchResults.jsp" class="nav-link">Procure um Emprego</a>
+				<form action="./loginRemake.jsp" method="get">
+					<button class="btn-primary">Log in</button>
+				</form>
+			</nav>
+		</div>
+	</div>
 	<div class="content">
 		<div class="left">
 			<div class="form-block">
