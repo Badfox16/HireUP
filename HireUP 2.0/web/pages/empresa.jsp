@@ -17,7 +17,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <link rel="shortcut icon" href="../img/logo.png" type="image/x-icon" />
-        
+
         <title>Empresas</title>
 
         <style>
@@ -34,7 +34,7 @@
                 margin-top: 8rem;
             }
 
-     
+
             .card-title{
                 font-size: 1.2rem;
                 text-align: center;
@@ -49,7 +49,7 @@
                 background-color: #443fdd;
                 color: white;
                 margin: 0 5rem;
-                
+
             }
         </style>
     </head>
@@ -65,54 +65,57 @@
 
 
         <div id="carouselExampleControls" class="carousel carousel-dark slide" data-bs-ride="carousel">
+            <form action="../Perfil da Empresa/detalhesEmpresa.jsp" method="POST">
 
-            <div class="carousel-inner">
-                <%        int cardsPerItem = 3;
-                    EmpresasDAO empresaDAO = new EmpresasDAO();
-                    List<EmpresasDTO> lista = (List<EmpresasDTO>) empresaDAO.listar();
+                <div class="carousel-inner">
+                    <%        int cardsPerItem = 3;
+                        EmpresasDAO empresaDAO = new EmpresasDAO();
+                        List<EmpresasDTO> lista = (List<EmpresasDTO>) empresaDAO.listar();
 
-                    for (int i = 0; i < lista.size(); i += cardsPerItem) {
-                        if (i == 0) {
-                %>
-                <div class="carousel-item active">
-                    <div class="card-wrapper container-sm d-flex justify-content-around">
-                        <% } else { %>
-                    </div>
-                </div>
-                <div class="carousel-item">
-                    <div class="card-wrapper container-sm d-flex justify-content-around">
-                        <% } %>
-
-                        <% for (int j = i; j < Math.min(i + cardsPerItem, lista.size()); j++) {
-                                EmpresasDTO empresa = lista.get(j);
-                        %>
-                        <div class="card" style="width: 18rem;">
-                            <img src="https://seeklogo.com/images/E/electricidade-de-mocambique-edm-logo-A6FAC89485-seeklogo.com.png?v=637896797820000000" class="card-img-top" alt="..." style="padding: 1.5rem;">
-                            <div class="card-body">
-                                <h5 class="card-title"><%= empresa.getNomeEmpresa()%></h5>
-                                
-                                <br>
-                                <a href="#" class="vermais">Saiba Mais</a>
-                            </div>
-
+                        for (int i = 0; i < lista.size(); i += cardsPerItem) {
+                            if (i == 0) {
+                    %>
+                    <div class="carousel-item active">
+                        <input type="hidden" name="inpEmail" value="<%=lista.get(i).getEmail()%>"> <!--Selecionar a empresa -->
+                        <div class="card-wrapper container-sm d-flex justify-content-around">
+                            <% } else { %>
                         </div>
-                        <% } %>
-                        <% }%>
                     </div>
-                </div>
-            </div>
+                    <div class="carousel-item">
+                        <div class="card-wrapper container-sm d-flex justify-content-around">
+                            <% } %>
 
+                            <% for (int j = i; j < Math.min(i + cardsPerItem, lista.size()); j++) {
+                                    EmpresasDTO empresa = lista.get(j);
+                            %>
+                            <div class="card" style="width: 18rem;">
+                                <img src="https://seeklogo.com/images/E/electricidade-de-mocambique-edm-logo-A6FAC89485-seeklogo.com.png?v=637896797820000000" class="card-img-top" alt="..." style="padding: 1.5rem;">
+                                <div class="card-body">
+                                    <h5 class="card-title"><%= empresa.getNomeEmpresa()%></h5>
 
-            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Previous</span>
-            </button>
-            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Next</span>
-            </button>
+                                    <br>
+                                    <button class="btn btn-primary" style="margin-left: 26%">Saiba Mais </button>
+                                </div>
+
+                            </div>
+                            <% } %>
+                            <% }%>
+                        </div>
+                    </div>
+            </form>
         </div>
 
-    </body> 
+
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+    </div>
+
+</body> 
 </html>
 

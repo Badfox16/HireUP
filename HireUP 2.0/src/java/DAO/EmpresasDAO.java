@@ -17,7 +17,6 @@ public class EmpresasDAO {
     PreparedStatement prepS;
     ResultSet rSet;
 
-
     public EmpresasDTO LoginEmpresa(EmpresasDTO objEmpresasDTO) throws ClassNotFoundException {
         String sql = "select * from tbEmpresas where Email = ? and Senha = ?";
         conexao = new ConexaoDAO().conexaoBD();
@@ -42,7 +41,6 @@ public class EmpresasDAO {
             JOptionPane.showMessageDialog(null, "Verificar credenciais: ");
         }
         return null;
-        
 
     }
 
@@ -98,8 +96,6 @@ public class EmpresasDAO {
         conexao.close();
         return listaEmpresas;
     }
-
-
 
     public void update(EmpresasDTO update) throws ClassNotFoundException {
         String sql = "update tbEmpresas set Nome_Empresa = ?,Senha = ?,Email = ?,Descricao = ?,Setor = ?,Empregos = ?,Tipo_Empresa = ?,Localizacao = ? where Id_Empresa = ?;";
@@ -176,24 +172,24 @@ public class EmpresasDAO {
         String nomeEmpresa = null;
         String sql = "SELECT Nome_Empresa FROM tbEmpresas WHERE Email = ?";
         conexao = new ConexaoDAO().conexaoBD();
-    
+
         try {
             prepS = conexao.prepareStatement(sql);
             prepS.setString(1, email);
             rSet = prepS.executeQuery();
-    
+
             if (rSet.next()) {
                 nomeEmpresa = rSet.getString("Nome_Empresa");
             }
-    
+
         } catch (SQLException erro) {
             // Trate o erro de acordo com suas necessidades
         } finally {
             // Feche os recursos (Statement, ResultSet, Connection) adequadamente
             // para evitar vazamento de recursos
         }
-    
+
         return nomeEmpresa;
     }
-    
+
 }

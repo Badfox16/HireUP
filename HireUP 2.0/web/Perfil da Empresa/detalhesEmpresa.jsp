@@ -24,11 +24,6 @@
         <title>HireUP - Perfil da Empresa</title>
     </head>
     <body>
-        <%
-            if (session.getAttribute("email") == null) {
-                response.sendRedirect("../Pages - Empresas/login_empresa.jsp");
-            }
-        %>
         <%@include file="../Pages - Empresas/header_empresa.jsp" %>
         <form action="editarEmpresa.jsp" method="post">
             <div class="container-fluid rounded bg-white">
@@ -39,8 +34,7 @@
                             >
                             <%                                EmpresasDAO dao = new EmpresasDAO();
                                 EmpresasDTO dto = new EmpresasDTO();
-                                String email = (String) session.getAttribute("email");
-                                dto.setEmail(email);
+                                dto.setEmail(request.getParameter("inpEmail"));
                                 List<EmpresasDTO> listar = (List<EmpresasDTO>) dao.perfilEmpresa(dto);
                             %>
                             <%
@@ -97,53 +91,29 @@
                                 </div>
                                 <div class="col-md-12 mt-3">
                                     <label class="labels">Tipo de Empresa</label>
-                                    <select class="form-control w-100" aria-label="Default select example"  name="inpTipoEmpresa" readonly="true">
-                                        <%
-                                            String[] tipos = {"Empresa - Publica", "Empresa - Privada", "Sem Fins Lucrativos", "Governo", "Subsidiaria", "Firma", "Contratual", "Outro"};
-
-                                            String selectedOne = request.getParameter("inpTipoEmpresa");
-
-                                            for (int i = 0; i < tipos.length; i++) {
-                                                if (tipos[i].equals(selectedOne)) {
-                                        %>
-                                        <option selected value="<%= selectedOne%>"><%= selectedOne%></option> 
-                                        <%
-                                        } else {
-                                        %>
-                                        <option value="<%= tipos[i]%>"><%= tipos[i]%></option> 
-                                        <%
-                                                }
-                                            }
-                                        %>
-                                    </select>
+                                    <input
+                                        readonly="true"
+                                        name="inpEmail"
+                                        type="text"
+                                        class="form-control"
+                                        placeholder="Email"
+                                        value="<%=lister.getTipoEmpresa()%>"
+                                        />
                                 </div>  
                             </div>
                             <div class="row mt-3">
                             </div>
                             <div class="row mt-3">
                                 <div class="col-md-6">
-
-                                    <select name="inpSetor" class="form-control" readonly="true">
-                                        <%                                            CategoriasDAO categorias = new CategoriasDAO();
-                                            List<CategoriasDTO> listaCategoria = (List<CategoriasDTO>) categorias.listarCategorias();
-
-                                            String selected = request.getParameter("Setor");
-
-                                            for (CategoriasDTO novaCategoria : listaCategoria) {
-
-                                                if (novaCategoria.getNome().equals(selected)) {
-
-                                        %>
-                                        <option checked class="form-control"  value="<%=novaCategoria.getNome()%>"><%=novaCategoria.getNome()%></option>
-                                        <%
-                                        } else {
-                                        %>
-                                        <option class="form-control"  value="<%= novaCategoria.getNome()%>"><%= novaCategoria.getNome()%></option>
-                                        <%
-                                                }
-                                            }
-                                        %>
-                                    </select>
+                                    <label class="labels">Setor</label>
+                                    <input
+                                        readonly="true"
+                                        name="inpEmail"
+                                        type="text"
+                                        class="form-control"
+                                        placeholder="Email"
+                                        value="<%=lister.getSetor()%>"
+                                        />
                                 </div>
                             </div>
                             <div class="row mt-3">
@@ -153,15 +123,6 @@
                                 </div>
                             </div>
                             <%}%>
-                            <div class="mt-5 text-center d-flex justify-content-between">
-                                <button
-                                    class="btn btn-primary profile-button"
-                                    type="submit"
-                                    >
-                                    Editar o Perfil
-                                </button>
-
-                            </div>
                         </div>
                     </div>
                 </div>
@@ -169,4 +130,6 @@
             <%@include file="../Pages - Empresas/footer.jsp" %>
         </form>
     </body>
+</html>
+
 </html>

@@ -14,7 +14,7 @@
         <link rel="stylesheet" href="../css/navbar.css">
         <link rel="stylesheet" href="../Pages - Empresas/css/footer.css">
         <script defer src="../js/form.js"></script>
-        <link rel="shortcut icon" href="../img/logo.png" type="image/x-icon" />
+        <link rel="shortcut icon" href="../img/logo.png" type="image/x-icon" class="hr1" />
 
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
@@ -26,11 +26,12 @@
     </head>
     <body>
         <%
-            if (session.getAttribute("mail") == null) {
-                response.sendRedirect("../pages/login.jsp");
+            if (session.getAttribute("email") == null) {
+                response.sendRedirect("../Pages - Empresas/login_empresa.jsp");
             }
         %>
-        <%@include file="../pages/header.jsp" %>
+        <%@include file="../Pages - Empresas/header_empresa.jsp" %>
+
         <form action="Controller/updateEmpresa.jsp" method="post" id="myForm">
             <div class="container-fluid rounded bg-white">
                 <div class="row">
@@ -40,7 +41,7 @@
                             >
                             <%                                EmpresasDAO dao = new EmpresasDAO();
                                 EmpresasDTO dto = new EmpresasDTO();
-                                String email = (String) session.getAttribute("mail");
+                                String email = (String) session.getAttribute("email");
                                 dto.setEmail(email);
                                 List<EmpresasDTO> listar = (List<EmpresasDTO>) dao.perfilEmpresa(dto);
                             %>
@@ -97,25 +98,27 @@
                                         value="<%=lister.getEmail()%>"
                                         />
                                 </div>
-                                <div class="col-md-12">
-                                    <label class="labels">Tipo de Empresa</label
-                                    <%
-                                        String[] tipos = {"Empresa - Publica", "Empresa - Privada", "Sem Fins Lucrativos", "Governo", "Subsidiaria", "Firma", "Contratual", "Outro"};
+                                <div class="col-md-12 mt-3">
+                                    <label class="labels">Tipo de Empresa</label>
+                                    <select class="form-control w-100" aria-label="Default select example"  name="inpTipoEmpresa">
+                                        <%
+                                            String[] tipos = {"Empresa - Publica", "Empresa - Privada", "Sem Fins Lucrativos", "Governo", "Subsidiaria", "Firma", "Contratual", "Outro"};
 
-                                        String selectedOne = request.getParameter("Tipo");
+                                            String selectedOne = request.getParameter("inpTipoEmpresa");
 
-                                        for (int i = 0; i < tipos.length; i++) {
-                                            if (tipos[i].equals(selectedOne)) {
-                                    %>
-                                    <option selected value="<%= selectedOne%>"><%= selectedOne%></option> 
-                                    <%
-                                    } else {
-                                    %>
-                                    <option value="<%= tipos[i]%>"><%= tipos[i]%></option> 
-                                    <%
+                                            for (int i = 0; i < tipos.length; i++) {
+                                                if (tipos[i].equals(selectedOne)) {
+                                        %>
+                                        <option selected value="<%= selectedOne%>"><%= selectedOne%></option> 
+                                        <%
+                                        } else {
+                                        %>
+                                        <option value="<%= tipos[i]%>"><%= tipos[i]%></option> 
+                                        <%
+                                                }
                                             }
-                                        }
-                                    %>
+                                        %>
+                                    </select>
                                 </div>
                             </div>
                             <div class="row mt-3">
