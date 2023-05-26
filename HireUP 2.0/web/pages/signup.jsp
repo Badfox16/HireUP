@@ -24,6 +24,7 @@
                     objUsuariosDTO.setLocalizacao(request.getParameter("localizacao"));
                     objUsuariosDTO.setFormacao(request.getParameter("formacao"));
                     objUsuariosDTO.setSenha(request.getParameter("senha"));
+                    objUsuariosDTO.setContato(request.getParameter("contato"));
                     
                     UsuariosDAO objUsuariosDAO = new UsuariosDAO();
                     objUsuariosDAO.Cadastrar(objUsuariosDTO);

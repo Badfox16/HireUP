@@ -28,7 +28,7 @@
     </head>
     <body>
         <%
-            if(session.getAttribute("user")==null){
+            if (session.getAttribute("user") == null) {
                 response.sendRedirect("loginA.jsp");
             }
 
@@ -42,9 +42,16 @@
                 <p>Tem certeza que deseja <span class="text-danger text-lg-start">excluir</span> o usuário abaixo ?</p>
             </div>
             <div class="col-lg-8 push-lg-4 personal-info">
-                
+
                 <form action="verifyDeleteUser.jsp" method="POST">
-                    
+
+                    <div class="form-group row">
+                        <label class="col-lg-3 col-form-label form-control-label">ID</label>
+                        <div class="col-lg-9">
+                            <input class="form-control" name="Id" type="text" value="<%= request.getParameter("Id")%>" name="Id" readonly/>
+                        </div>
+                    </div>
+
                     <div class="form-group row">
                         <label class="col-lg-3 col-form-label form-control-label">Nome</label>
                         <div class="col-lg-9">
@@ -89,10 +96,17 @@
 
 
                     <div class="form-group row">
+                        <label class="col-lg-3 col-form-label form-control-label">Contato</label>
+                        <div class="col-lg-9">
+                            <input class="form-control" type="text" value="<%= request.getParameter("Contato")%>" name="Contato" readonly/>
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
                         <label class="col-lg-3 col-form-label form-control-label"></label>
                         <div class="col-lg-9">
                             <a href="users.jsp" class="btn btn-secondary">Cancelar</a>
-                            
+
                             <input type="submit" class="btn btn-danger" value="Confirmar" />
                         </div>
                     </div>

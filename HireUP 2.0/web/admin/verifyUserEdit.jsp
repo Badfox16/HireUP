@@ -30,12 +30,14 @@
             try {
                 UsuariosDTO usersDTO = new UsuariosDTO();
 
+                usersDTO.setEmail(request.getParameter("Id"));
                 usersDTO.setEmail(request.getParameter("Email"));
                 usersDTO.setNome(request.getParameter("Nome"));
                 usersDTO.setApelido(request.getParameter("Apelido"));
                 usersDTO.setSetor(request.getParameter("Setor"));
                 usersDTO.setLocalizacao(request.getParameter("Localizacao"));
                 usersDTO.setFormacao(request.getParameter("Formacao"));
+                usersDTO.setFormacao(request.getParameter("Contato"));
 
                 UsuariosDAO usersDAO = new UsuariosDAO();
                 usersDAO.editarUsuario(usersDTO);

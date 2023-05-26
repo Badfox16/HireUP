@@ -49,7 +49,7 @@
 
     <body>
         <%
-            if(session.getAttribute("user")==null){
+            if (session.getAttribute("user") == null) {
                 response.sendRedirect("loginA.jsp");
             }
 
@@ -65,6 +65,7 @@
             <table class="table ">
                 <thead>
                     <tr>
+                        <th>ID</th>
                         <th>Email</th>
                         <th>Nome</th>
                         <th>Apelido</th>
@@ -76,19 +77,17 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <%
-                        UsuariosDAO usersDAO = new UsuariosDAO();
+                    <%                        UsuariosDAO usersDAO = new UsuariosDAO();
                         List<UsuariosDTO> listaCat = (List<UsuariosDTO>) usersDAO.listarUsuarios();
-
-                        String texto = "";
 
                         for (UsuariosDTO newCat : listaCat) {
 
-                            texto = newCat.getSetor();
+
                     %>
                     <tr>
 
 
+                        <td> <%=newCat.getIdUsuario()%> </td>
                         <td> <%=newCat.getEmail()%> </td>
                         <td> <%=newCat.getNome()%> </td>
                         <td> <%=newCat.getApelido()%> </td>
@@ -97,24 +96,28 @@
                         <td> <%=newCat.getFormacao()%> </td>
                         <td>
                             <form action="editUser.jsp" method="POST" accept-charset="UTF-8">
+                                <input type="hidden" value="<%=newCat.getIdUsuario()%> " name="Id">
                                 <input type="hidden" value="<%=newCat.getEmail()%> " name="Email">
                                 <input type="hidden" value="<%=newCat.getNome()%>" name="Nome">
                                 <input type="hidden" value="<%=newCat.getApelido()%>" name="Apelido">
                                 <input type="hidden" value="<%=newCat.getSetor()%> " name="Setor">
                                 <input type="hidden" value="<%=newCat.getLocalizacao()%>" name="Localizacao">
                                 <input type="hidden" value="<%=newCat.getFormacao()%>" name="Formacao">
+                                <input type="hidden" value="<%=newCat.getContato()%>" name="Contato">
 
                                 <button type="submit" class="btn btn-warning text-bg-warning" >EDITAR</button>
                             </form>
                         </td>
                         <td>
                             <form action="deleteUser.jsp" method="POST" accept-charset="UTF-8">
+                                <input type="hidden" value="<%=newCat.getIdUsuario()%> " name="Id">
                                 <input type="hidden" value="<%=newCat.getEmail()%> " name="Email">
                                 <input type="hidden" value="<%=newCat.getNome()%>" name="Nome">
                                 <input type="hidden" value="<%=newCat.getApelido()%>" name="Apelido">
                                 <input type="hidden" value="<%=newCat.getSetor()%> " name="Setor">
                                 <input type="hidden" value="<%=newCat.getLocalizacao()%>" name="Localizacao">
                                 <input type="hidden" value="<%=newCat.getFormacao()%>" name="Formacao">
+                                <input type="hidden" value="<%=newCat.getContato()%>" name="Contato">
 
                                 <button type="submit" class="btn btn-danger">EXCLUIR</button>
                             </form>
@@ -128,7 +131,7 @@
                 </tbody>
             </table>
         </div>
-      
+
 
 
     </body>
