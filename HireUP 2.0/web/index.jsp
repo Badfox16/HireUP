@@ -74,7 +74,7 @@
                             <a class="btn btn-middle-link m-2" href="">Candidaturas</a>
                         </li>
                         <li class="nav-item">
-                            <a class="btn btn-middle-link m-2" href="Pages - Empresas/login_empresa.jsp">Para Empregadores</a>
+                            <a class="btn btn-middle-link m-2" href="Pages - Empresas/loginRemake.jsp">Para Empregadores</a>
 
                         </li>
 
@@ -129,7 +129,7 @@
                 </div>
                 <div class="left-content">
                     <p>
-                       Descubra os tesouros profissionais do mercado: os trabalhos mais interessantes que o aguardam! Desperte sua paixão, desafie-se e conquiste o sucesso com oportunidades empolgantes!
+                       Descubra os tesouros profissionais do mercado: os trabalhos mais interessantes que o aguardam! Desperte sua paixï¿½o, desafie-se e conquiste o sucesso com oportunidades empolgantes!
                     </p>
                 </div>
                 <div class="search">
@@ -145,7 +145,7 @@
                     <figure>
                         <img src="https://assets.website-files.com/63337525695d8ba70ab44222/6358b2bbb9fdec69f1b1c7a4_adam-rhodes-ep5lX958f7E-unsplash-p-2000.webp"
                              alt="" />
-                        <figcaption> O mais alto que você possa ir. </figcaption>
+                        <figcaption> O mais alto que vocï¿½ possa ir. </figcaption>
                     </figure>
                 </div>
             </section>
