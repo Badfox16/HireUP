@@ -22,6 +22,12 @@
                 dto.setEmail(request.getParameter("inpEmail"));
                 dao.deletarUsuario(dto);
 
+                // Obtém a sessão atual
+                request.getSession(false);
+                if (session != null) {
+                    // Limpa todos os atributos da sessão
+                    session.invalidate();
+                }
                 response.sendRedirect("../../index.html");
             } catch (Exception e) {
                 out.print(e.getMessage());

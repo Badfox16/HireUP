@@ -24,7 +24,7 @@
        
         <%
             if(session.getAttribute("mail")==null){
-                response.sendRedirect("login.jsp");
+                response.sendRedirect("login_empresa.jsp");
             }
 
         %>

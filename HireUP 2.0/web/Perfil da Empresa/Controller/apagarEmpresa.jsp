@@ -15,15 +15,21 @@
     </head>
     <body>
         <%
-            
+
             try {
                 EmpresasDAO dao = new EmpresasDAO();
                 EmpresasDTO dto = new EmpresasDTO();
-                
+
                 dto.setIdEmpresa(Integer.parseInt(request.getParameter("inpIdEmpresa")));
                 dao.deletEmpresa(dto);
-                
-                session.isNew();
+
+                // Obtém a sessão atual
+                request.getSession(false);
+                if (session != null) {
+                    // Limpa todos os atributos da sessão
+                    session.invalidate();
+                }
+
                 response.sendRedirect("../../index.html");
             } catch (Exception e) {
                 out.print(e.getMessage());

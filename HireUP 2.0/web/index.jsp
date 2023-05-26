@@ -129,9 +129,7 @@
                 </div>
                 <div class="left-content">
                     <p>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                        Mauris rhoncus pharetra cursus. Suspendisse sodales porta leo,
-                        ac placerat ex pretium quis.
+                       Descubra os tesouros profissionais do mercado: os trabalhos mais interessantes que o aguardam! Desperte sua paixão, desafie-se e conquiste o sucesso com oportunidades empolgantes!
                     </p>
                 </div>
                 <div class="search">
@@ -147,7 +145,7 @@
                     <figure>
                         <img src="https://assets.website-files.com/63337525695d8ba70ab44222/6358b2bbb9fdec69f1b1c7a4_adam-rhodes-ep5lX958f7E-unsplash-p-2000.webp"
                              alt="" />
-                        <figcaption> <a href="./Perfil da Empresa/perfil-da-empresa.jsp">O mais alto que você possa ir.</a> </figcaption>
+                        <figcaption> O mais alto que você possa ir. </figcaption>
                     </figure>
                 </div>
             </section>

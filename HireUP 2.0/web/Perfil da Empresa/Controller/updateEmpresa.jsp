@@ -24,7 +24,7 @@
 
                         EmpresasDTO dto = new EmpresasDTO();
                         dto.setNomeEmpresa(request.getParameter("inpEmpresa"));
-                        dto.setSetor(request.getParameter("inpseto"));
+                        dto.setSetor(request.getParameter("inpSetor"));
                         dto.setSenha(request.getParameter("inpNovaSenha"));
                         dto.setEmail(request.getParameter("inpEmail"));
                         dto.setTipoEmpresa(request.getParameter("inpTipoEmpresa"));
