@@ -108,7 +108,7 @@
                             </button>
 
                             <ul class="dropdown-menu dropdown">
-                                <li><a class="dropdown-item" href="#">Perfil</a></li>
+                                <li><a class="dropdown-item" href="../Perfil do usuario/perfil-do-usuario.jsp">Perfil</a></li>
                                 <li><a class="dropdown-item " href="../logout/fazerLogout.jsp">Logout</a></li>
                             </ul>
                         </div>
