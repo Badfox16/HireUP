@@ -51,9 +51,9 @@ foreign key (Empresa) references tbEmpresas(Email)
     EmpresaFK int,
     UsuarioFK int,
     EmpregoFK int,
-    foreign key(EmpresaFK) references tbEmpresas(Id_Empresa),
-    foreign key(UsuarioFK) references tbUsuarios(Id_Usuario),
-    foreign key(EmpregoFK) references tbEmpregos(Id_Emprego)
+    foreign key(EmpresaFK) references tbEmpresas(Id_Empresa) ON DELETE CASCADE,
+    foreign key(UsuarioFK) references tbUsuarios(Id_Usuario) ON DELETE CASCADE,
+    foreign key(EmpregoFK) references tbEmpregos(Id_Emprego) ON DELETE CASCADE
  );
  
   create table tbAdmin(
@@ -72,9 +72,10 @@ Nome varchar(150)
  Id_EmpresaFK int,
  Comentario varchar(1000),
  Data varchar(8),
- foreign key(Id_UsuarioFK) references tbUsuarios(Id_Usuario),
- foreign key(Id_EmpresaFK) references tbEmpresas(Id_Empresa)
+ foreign key(Id_UsuarioFK) references tbUsuarios(Id_Usuario) ON DELETE CASCADE,
+ foreign key(Id_EmpresaFK) references tbEmpresas(Id_Empresa) ON DELETE CASCADE
  );
+
 
 insert into tbCategorias
  values ("Tecnologias de Informação"),
