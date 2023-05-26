@@ -126,10 +126,7 @@ public class CandidaturasDAO {
         }
     }
      */
-    
-    
     //VAI APRENDER NO PAGES/Candidaturas.jsp como listar
-    
     public List<CandidaturasDTO> listarCandidaturas() throws SQLException, ClassNotFoundException {
         List<CandidaturasDTO> listaCandidaturas = new ArrayList<>();
         String sql = "SELECT c.Id_Candidatura, c.Estado, c.Fale_Sobre, c.Pq_Voce, "
@@ -288,6 +285,26 @@ public class CandidaturasDAO {
         }
 
         return listaCandidaturas;
+    }
+
+    public void deletarCandidatura(int idCandidatura) throws ClassNotFoundException, SQLException {
+        String sql = "DELETE FROM tbCandidaturas WHERE Id_Candidatura = ?";
+
+        conexao = new ConexaoDAO().conexaoBD();
+
+        try {
+            prepS = conexao.prepareStatement(sql);
+            prepS.setInt(1, idCandidatura);
+
+            prepS.executeUpdate();
+        } finally {
+            if (prepS != null) {
+                prepS.close();
+            }
+            if (conexao != null) {
+                conexao.close();
+            }
+        }
     }
 
 }

@@ -167,7 +167,7 @@
                         </td>
                         <td>
                             <form action="candidaturaDetails.jsp" method="POST">
-                                
+
                                 <input type="hidden" value="<%=empresa.getNomeEmpresa()%>" name="Empresa">
                                 <input type="hidden" value="<%=emprego.getPosicao()%>" name="Posicao">
                                 <input type="hidden" value="<%=emprego.getLocalizacao()%>" name="Localizacao">
@@ -181,16 +181,40 @@
                                 <input type="hidden" value="<%=usuario.getEmail()%>" name="Email">
                                 <input type="hidden" value="<%=candidatura.getFaleSobre()%>" name="About">
                                 <input type="hidden" value="<%=candidatura.getPqVoce()%>" name="Why">
-                                    
+
                                 <input class="btn btn-primary" type="submit" value="VER MAIS">
                             </form>
                         </td>
                         <td>
-                            <form action="action">
-                                
-                                
-                                <input class="btn btn-danger" type="submit" value="CANCELAR CANDIDATURA">
-                            </form>
+
+
+                            <!-- Button trigger modal -->
+                            <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                CANCELAR CANDIDATURA
+                            </button>
+
+                            <!-- Modal -->
+                            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="exampleModalLabel">Cancelar Candidatura</h5>
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                        </div>
+                                        <div class="modal-body">
+                                            Deseja cancelar a candidatura?
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                            <form action="cancelarCandidatura.jsp">
+                                                <input type="hidden" value="<%=candidatura.getIdCandidatura()%>" name="idCandidatura">
+
+                                                <input class="btn btn-danger" type="submit" value="CANCELAR CANDIDATURA">
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </td>
 
                     </tr>

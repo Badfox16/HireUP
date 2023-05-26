@@ -39,7 +39,7 @@ public class UsuariosDAO {
     }
 
     public void Cadastrar(UsuariosDTO objUsuariosDTO) throws ClassNotFoundException {
-        String sql = "insert into tbUsuarios(Email, Nome, Apelido, Setor, Localizacao, Formacao, Senha) values(?,?,?,?,?,?,?)";
+        String sql = "insert into tbUsuarios(Email, Nome, Apelido, Setor, Localizacao, Formacao, Senha, Contato) values(?,?,?,?,?,?,?,?)";
         conexao = new ConexaoDAO().conexaoBD();
 
         try {
@@ -52,6 +52,7 @@ public class UsuariosDAO {
             prepS.setString(5, objUsuariosDTO.getLocalizacao());
             prepS.setString(6, objUsuariosDTO.getFormacao());
             prepS.setString(7, objUsuariosDTO.getSenha());
+            prepS.setString(8, objUsuariosDTO.getContato());
 
             prepS.execute();
             prepS.close();
@@ -76,6 +77,7 @@ public class UsuariosDAO {
             rs = stmt.executeQuery(sql);
 
             while (rs.next()) {
+                String id = rs.getString("Id_Usuario");
                 String email = rs.getString("Email");
                 String nome = rs.getString("Nome");
                 String apelido = rs.getString("Apelido");
@@ -83,8 +85,10 @@ public class UsuariosDAO {
                 String localizacao = rs.getString("Localizacao");
                 String formacao = rs.getString("Formacao");
                 String senha = rs.getString("Senha");
+                String contato = rs.getString("Contato");
 
                 UsuariosDTO usuario = new UsuariosDTO();
+                usuario.setIdUsuario(Integer.parseInt(id));
                 usuario.setEmail(email);
                 usuario.setNome(nome);
                 usuario.setApelido(apelido);
@@ -92,6 +96,7 @@ public class UsuariosDAO {
                 usuario.setLocalizacao(localizacao);
                 usuario.setFormacao(formacao);
                 usuario.setSenha(senha);
+                usuario.setContato(contato);
 
                 listaUsuarios.add(usuario);
             }
