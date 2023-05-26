@@ -171,4 +171,29 @@ public class EmpresasDAO {
         }
         return listar;
     }
+
+    public String getNomeEmpresaByEmail(String email) throws ClassNotFoundException {
+        String nomeEmpresa = null;
+        String sql = "SELECT Nome_Empresa FROM tbEmpresas WHERE Email = ?";
+        conexao = new ConexaoDAO().conexaoBD();
+    
+        try {
+            prepS = conexao.prepareStatement(sql);
+            prepS.setString(1, email);
+            rSet = prepS.executeQuery();
+    
+            if (rSet.next()) {
+                nomeEmpresa = rSet.getString("Nome_Empresa");
+            }
+    
+        } catch (SQLException erro) {
+            // Trate o erro de acordo com suas necessidades
+        } finally {
+            // Feche os recursos (Statement, ResultSet, Connection) adequadamente
+            // para evitar vazamento de recursos
+        }
+    
+        return nomeEmpresa;
+    }
+    
 }

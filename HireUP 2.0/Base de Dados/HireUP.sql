@@ -26,25 +26,22 @@ Setor varchar (50),
 Localizacao varchar(45),
 Tipo varchar (45),
 Descricao varchar(500),
-Requisitos varchar(500)
--- foreign key (Empresa) references tbEmpresas (Nome_Empresa)
+Requisitos varchar(500),
+foreign key (Empresa) references tbEmpresas(Email)
 );
-
 
  create table tbEmpresas(
  Id_Empresa int primary key auto_increment,
  Nome_Empresa varchar(120) unique,
  Tipo_Empresa varchar(100),
  Setor varchar(100),
- Email varchar(100),
+ Email varchar(100) unique,
  Senha varchar(100),
  Descricao varchar(500),
  Localizacao varchar(100),
  Empregos varchar(100) default '0',
  Candidaturas varchar(100) default '0'
  );
-
-
 
  create table tbCandidaturas(
     Id_Candidatura int primary key auto_increment,

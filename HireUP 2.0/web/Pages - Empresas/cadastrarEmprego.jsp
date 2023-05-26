@@ -5,6 +5,8 @@
 --%>
 <%@ page import="DTO.EmpregosDTO" %>
 <%@ page import="DAO.EmpregosDAO" %>
+<%@ page import="DTO.EmpresasDTO" %>
+<%@ page import="DAO.EmpresasDAO" %>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -16,6 +18,8 @@
     <body>
         <%
 // Obtendo os parâmetros do formulário
+           
+
             String posicao = request.getParameter("posicao");
             String tipo = request.getParameter("tipo");
             int salarioMin = Integer.parseInt(request.getParameter("salario_min"));
