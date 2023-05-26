@@ -24,7 +24,7 @@
         <link rel="shortcut icon" href="../img/logo.png" type="image/x-icon" />
 
 
-        <title>JSP Page</title>
+        <title>Candidaturas Page</title>
 
     </head>
     <body>
@@ -166,12 +166,29 @@
                             <%= emprego.getLocalizacao()%>
                         </td>
                         <td>
-                            <form action="action">
+                            <form action="candidaturaDetails.jsp" method="POST">
+                                
+                                <input type="hidden" value="<%=empresa.getNomeEmpresa()%>" name="Empresa">
+                                <input type="hidden" value="<%=emprego.getPosicao()%>" name="Posicao">
+                                <input type="hidden" value="<%=emprego.getLocalizacao()%>" name="Localizacao">
+                                <input type="hidden" value="<%=emprego.getSalarioMin()%>" name="SalarioMin">
+                                <input type="hidden" value="<%=emprego.getSalarioMax()%>" name="SalarioMax">
+                                <input type="hidden" value="<%=emprego.getLocalizacao()%>" name="Localizacao">
+                                <input type="hidden" value="<%=emprego.getRequisitos()%>" name="Requisitos">
+                                <input type="hidden" value="<%=emprego.getDescricao()%>" name="Descricao">
+                                <input type="hidden" value="<%=usuario.getNome()%>" name="Nome">
+                                <input type="hidden" value="<%=usuario.getApelido()%>" name="Apelido">
+                                <input type="hidden" value="<%=usuario.getEmail()%>" name="Email">
+                                <input type="hidden" value="<%=candidatura.getFaleSobre()%>" name="About">
+                                <input type="hidden" value="<%=candidatura.getPqVoce()%>" name="Why">
+                                    
                                 <input class="btn btn-primary" type="submit" value="VER MAIS">
                             </form>
                         </td>
                         <td>
                             <form action="action">
+                                
+                                
                                 <input class="btn btn-danger" type="submit" value="CANCELAR CANDIDATURA">
                             </form>
                         </td>
