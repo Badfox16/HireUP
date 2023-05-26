@@ -1,123 +1,200 @@
-<%-- 
-    Document   : editar
-    Created on : May 10, 2023, 12:19:55 AM
-    Author     : godal
---%>
-
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
-<%@page import="DTO.EmpresasDTO,DAO.EmpresasDAO,java.util.*" %>
+<%@page import="DTO.CategoriasDTO"%>
+<%@page import="DAO.CategoriasDAO"%>
+<%@page import="DAO.EmpresasDAO"%>
+<%@page import="DTO.EmpresasDTO"%>
+<%@page import="java.util.List"%>
+<%@page import="DTO.UsuariosDTO"%>
+<%@page import="DAO.UsuariosDAO"%>
 <!DOCTYPE html>
-<html>
-    <!DOCTYPE html>
-    <html lang="en">
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="../css/navbar.css">
+        <link rel="stylesheet" href="../Pages - Empresas/css/footer.css">
+        <script defer src="../js/form.js"></script>
+        <link rel="shortcut icon" href="../img/logo.png" type="image/x-icon" />
 
-        <head>
-            <meta charset="UTF-8">
-            <meta http-equiv="X-UA-Compatible" content="IE=edge">
-            <meta name="viewport" content="width=device-width, initial-scale=1.0">
-            <link rel="stylesheet" href="style.css">
-            <link rel="stylesheet" href="../css/navbar.css">
-            <link rel="shortcut icon" href="../img/logo.png" type="image/x-icon" />
-            <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-            <script src="https://kit.fontawesome.com/1f168297b1.js" crossorigin="anonymous"></script>
-            <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
-            <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-            <script src="../js/form.js" defer></script>
-            <title>HireUp - Editar Perfil</title>
-        </head>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <link
+            rel="stylesheet"
+            href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+            />
+        <title>HireUP - Perfil</title>
+    </head>
+    <body>
+        <%
+            if (session.getAttribute("mail") == null) {
+                response.sendRedirect("../pages/login.jsp");
+            }
+        %>
+        <%@include file="../pages/header.jsp" %>
+        <form action="Controller/updateEmpresa.jsp" method="post" id="myForm">
+            <div class="container-fluid rounded bg-white">
+                <div class="row">
+                    <div class="col-md-3 border-right">
+                        <div
+                            class="d-flex flex-column align-items-center text-center p-3 py-5"
+                            >
+                            <%                                EmpresasDAO dao = new EmpresasDAO();
+                                EmpresasDTO dto = new EmpresasDTO();
+                                String email = (String) session.getAttribute("mail");
+                                dto.setEmail(email);
+                                List<EmpresasDTO> listar = (List<EmpresasDTO>) dao.perfilEmpresa(dto);
+                            %>
+                            <%
+                                for (EmpresasDTO lister : listar) {
+                            %>
+                            <input type="hidden" name="inpIdEmpresa" value="<%=lister.getIdEmpresa()%>">
+                            <img
+                                class="rounded-circle mt-5"
+                                src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQF2psCzfbB611rnUhxgMi-lc2oB78ykqDGYb4v83xQ1pAbhPiB&usqp=CAU"
+                                /><span class="font-weight-bold"><%=lister.getNomeEmpresa()%></span
+                            ><span class="text-black-50"><%=lister.getEmail()%></span
+                            ><span> </span>
+                        </div>
+                    </div>
+                    <div class="col-md-7">
+                        <div class="p-3 py-5">
+                            <div
+                                class="d-flex justify-content-between align-items-center mb-3"
+                                >
+                                <h4 class="text-right">Configuracoes do Perfil</h4>
+                            </div>
+                            <div class="row mt-2">
+                                <div class="col-md-6">
+                                    <label class="labels">Nome da Empresa</label
+                                    ><input 
+                                        name="inpEmpresa"
+                                        type="text"
+                                        class="form-control"
+                                        placeholder="Nome"
+                                        value="<%=lister.getNomeEmpresa()%>"
+                                        />
+                                </div>
+                            </div>
+                            <div class="row mt-3">
+                                <div class="col-md-12">
+                                    <label class="labels">Localizacao</label
+                                    ><input 
+                                        name="inpLocalizacao"
+                                        type="text"
+                                        class="form-control"
+                                        placeholder="Localizacao"
+                                        value="<%=lister.getLocalizacao()%>"
+                                        />
+                                </div>
+                                <div class="col-md-12">
+                                    <label class="labels">Email</label
+                                    ><input
+                                        readonly="true"
+                                        name="inpEmail"
+                                        type="text"
+                                        class="form-control"
+                                        placeholder="Email"
+                                        value="<%=lister.getEmail()%>"
+                                        />
+                                </div>
+                                <div class="col-md-12">
+                                    <label class="labels">Tipo de Empresa</label
+                                    <%
+                                        String[] tipos = {"Empresa - Publica", "Empresa - Privada", "Sem Fins Lucrativos", "Governo", "Subsidiaria", "Firma", "Contratual", "Outro"};
 
-        <body>
-            <!-- Login obrigatorio -->
-            <%
-                if (session.getAttribute("mail") == null) {
-                    response.sendRedirect("../pages/login.jsp");
-                }
-            %>
-            <div class="navbar">
-                <div class="left-nav">
-                    <a href="#" class="brand"><img src="../img/logo.png" alt="Logo" class="logo" height="30"></a>
+                                        String selectedOne = request.getParameter("Tipo");
 
-                </div>
+                                        for (int i = 0; i < tipos.length; i++) {
+                                            if (tipos[i].equals(selectedOne)) {
+                                    %>
+                                    <option selected value="<%= selectedOne%>"><%= selectedOne%></option> 
+                                    <%
+                                    } else {
+                                    %>
+                                    <option value="<%= tipos[i]%>"><%= tipos[i]%></option> 
+                                    <%
+                                            }
+                                        }
+                                    %>
+                                </div>
+                            </div>
+                            <div class="row mt-3">
+                                <div class="col-md-6">
+                                    <label class="labels">Senha</label
+                                    ><input 
+                                        name="inpNovaSenha"
+                                        type="password"
+                                        class="form-control"
+                                        value="<%=lister.getSenha()%>"
+                                        />
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="labels">Confirmar Senha</label
+                                    ><input 
+                                        name="inpConfirmarSenha"
+                                        type="password"
+                                        class="form-control"
+                                        value="<%=lister.getSenha()%>"
+                                        />
+                                </div>
 
-                <div class="nav-middle">
-                    <nav class="nav-menu">
-                        <a href="../index.html" class="nav-link">Home</a>
-                        <a href="./empresa.jsp" class="nav-link">Empresas</a>
-                        <!-- <a href="./browse.jsp" class="nav-link" style="visibility: hidden;">Vagas</a> -->
-                    </nav>
-                </div>
-                <div>
-                    <nav class="right-nav">
-                        <a href="./submitJob.jsp" class="nav-link">Poste um Emprego</a>
-                        <a href="./submitJob.jsp" class="nav-link"><i class="fa-solid fa-inbox"></i></a>
-                        <!-- <button class="btn-primary">Log in</button> -->
-                    </nav>
+                            </div>
+                            <div class="row mt-3">
+                                <div class="col-md-6">
 
+                                    <select name="inpseto" class="form-control">
+                                        <%
+                                            CategoriasDAO categorias = new CategoriasDAO();
+                                            List<CategoriasDTO> listaCategoria = (List<CategoriasDTO>) categorias.listarCategorias();
+
+                                            String selected = request.getParameter("Setor");
+
+                                            for (CategoriasDTO novaCategoria : listaCategoria) {
+
+                                                if (novaCategoria.getNome().equals(selected)) {
+
+                                        %>
+                                        <option checked class="form-control"  value="<%=novaCategoria.getNome()%>"><%=novaCategoria.getNome()%></option>
+                                        <%
+                                        } else {
+                                        %>
+                                        <option class="form-control"  value="<%= novaCategoria.getNome()%>"><%= novaCategoria.getNome()%></option>
+                                        <%
+                                                }
+                                            }
+                                        %>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="row mt-3">
+                                <div class="col-md-6">
+                                    <label for="exampleFormControlTextarea1" class="form-label">Descricao</label>
+                                    <textarea name="inpDescricao" class="form-control" id="exampleFormControlTextarea1" rows="3"><%=lister.getDescricao()%></textarea>
+                                </div>
+                            </div>
+                            <%}%>
+                            <div class="mt-5 text-center d-flex justify-content-between">
+                                <button
+                                    class="btn btn-primary profile-button"
+                                    type="submit"
+                                    >
+                                    Atulizar
+                                </button>
+
+                                <button
+                                    onclick="formEmpChange()" 
+                                    class="btn btn-danger profile-button"
+                                    type="submit"
+                                    >
+                                    Deletar
+                                </button>
+
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <!-- HEADER END  -->
-            <form action="Controller/updateEmpresa.jsp" method="post" id="myForm">
-                <%
-                    EmpresasDAO dao = new EmpresasDAO();
-                    EmpresasDTO dto = new EmpresasDTO();
-                    String email = (String) session.getAttribute("mail");
-                    dto.setEmail(email);
-                    List<EmpresasDTO> listar = (List<EmpresasDTO>) dao.perfilEmpresa(dto);
-                %>
-                <%
-                    for (EmpresasDTO lister : listar) {
-                %>
-                <div class="profile">
-                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS52y5aInsxSm31CvHOFHWujqUx_wWTS9iM6s7BAm21oEN_RiGoog"
-                         alt="" style="width: 15%;" />
-                    <input type="hidden" name="inpIdEmpresa" value="<%=lister.getIdEmpresa()%>">
-                </div>
-
-                <div class="container mt-3">
-                    <h2>Atualizar os dados</h2>
-                    <table class="table table-borderless tabela">
-
-                        <tr>
-                            <td> Nome</td>
-                            <td>
-                                <input type="text" name="inpEmpresa" value="<%=lister.getNomeEmpresa()%>" class="inptEmpresa">
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>Sector</td>
-                            <td> <input type="text" name="inpseto" value="<%=lister.getSetor()%>"> </td>
-                        </tr>
-                        <tr>
-                            <td>Email</td>
-                            <td><input type="text" name="inpEmail" value=" <%=lister.getEmail()%>"> </td>
-                        </tr>
-                        <tr>
-                            <td>Senha</td>
-                            <td><input type="text" name="inpSenha" value="<%=lister.getSenha()%>"> </td>
-                        </tr>
-                        <tr>
-                            <td>Foco da companhia</td>
-                            <td> <input type="text" name="inpTipoEmpresa" value="<%=lister.getTipoEmpresa()%>"> </td>
-                        </tr>
-                        <tr>
-                            <td>Localização</td>
-                            <td><input type="text" name="inpLocalizacao" value="<%=lister.getLocalizacao()%>"> </td>
-                        </tr>
-
-                        <tr>
-                            <td>Descrição</td>
-                            <td>
-                                <textarea name="inpDescricao" id="inpDescricao" cols="30" rows="10" >
-                                    <%=lister.getDescricao()%>
-                                </textarea>
-                            </td>
-                        </tr>
-                    </table>
-                    <input type="submit" class="btn-primary" id="btn-primary"  value="Atualizar" >
-                    <input type="submit" class="btn-primary" onclick="formEmpChange()" value="Deletar" />
-                </div>
-                <%};%>
-            </form>
-        </body>
-
-    </html> 
+            <%@include file="../Pages - Empresas/footer.jsp" %>
+        </form>
+    </body>
+</html>

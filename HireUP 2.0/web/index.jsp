@@ -147,7 +147,7 @@
                     <figure>
                         <img src="https://assets.website-files.com/63337525695d8ba70ab44222/6358b2bbb9fdec69f1b1c7a4_adam-rhodes-ep5lX958f7E-unsplash-p-2000.webp"
                              alt="" />
-                        <figcaption> <a href="./Perfil do usuario/newjsp.jsp">O mais alto que você possa ir.</a> </figcaption>
+                        <figcaption> <a href="./Perfil da Empresa/perfil-da-empresa.jsp">O mais alto que você possa ir.</a> </figcaption>
                     </figure>
                 </div>
             </section>

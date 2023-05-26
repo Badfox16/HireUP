@@ -16,26 +16,31 @@
     </head>
     <body>
         <%
-            try {
+            String senhaNova = request.getParameter("inpNovaSenha");
+            String senhaConfirmar = request.getParameter("inpConfirmarSenha");
+            if (senhaNova != null && senhaConfirmar != null) {
+                if (senhaNova.equals(senhaConfirmar)) {
+                    try {
 
-//                int k = Integer.parseInt(request.getParameter("idEmpresa"));
-                EmpresasDTO dto = new EmpresasDTO();
-                dto.setNomeEmpresa(request.getParameter("inpEmpresa"));
-                dto.setSetor(request.getParameter("inpseto"));
-                dto.setSenha(request.getParameter("inpSenha"));
-                dto.setEmail(request.getParameter("inpEmail"));
-                dto.setTipoEmpresa(request.getParameter("inpTipoEmpresa"));
-                dto.setLocalizacao(request.getParameter("inpLocalizacao"));
-                dto.setDescricao(request.getParameter("inpDescricao"));
-                dto.setIdEmpresa(Integer.parseInt(request.getParameter("inpIdEmpresa")));
-    
-//                out.print(k);
-                EmpresasDAO dao = new EmpresasDAO();
-                dao.update(dto);
+                        EmpresasDTO dto = new EmpresasDTO();
+                        dto.setNomeEmpresa(request.getParameter("inpEmpresa"));
+                        dto.setSetor(request.getParameter("inpseto"));
+                        dto.setSenha(request.getParameter("inpNovaSenha"));
+                        dto.setEmail(request.getParameter("inpEmail"));
+                        dto.setTipoEmpresa(request.getParameter("inpTipoEmpresa"));
+                        dto.setLocalizacao(request.getParameter("inpLocalizacao"));
+                        dto.setDescricao(request.getParameter("inpDescricao"));
+                        dto.setIdEmpresa(Integer.parseInt(request.getParameter("inpIdEmpresa")));
 
-                response.sendRedirect("../perfil-da-empresa.jsp");
-            } catch (Exception e) {
-                out.print(e.getMessage());
+                        EmpresasDAO dao = new EmpresasDAO();
+                        dao.update(dto);
+
+                        response.sendRedirect("../perfil-da-empresa.jsp");
+                    } catch (Exception e) {
+                        out.print(e.getMessage());
+                    }
+
+                }
             }
 
         %>
