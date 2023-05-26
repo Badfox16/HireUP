@@ -21,9 +21,9 @@
             objEmpresasDTO.setSenha(request.getParameter("senha"));
             
             EmpresasDAO objEmpresasDAO = new EmpresasDAO();
-            EmpresasDTO resultadoLogin = objEmpresasDAO.LoginEmpresa(objEmpresasDTO);
+            ResultSet rSetUSR = objEmpresasDAO.LoginEmpresa(objEmpresasDTO);
             
-            if (resultadoLogin != null) {
+            if (rSetUSR.next()) {
               
                 session = request.getSession();
                
