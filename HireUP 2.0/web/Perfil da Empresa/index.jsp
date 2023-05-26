@@ -1,33 +1,30 @@
-<%@page import="DTO.CategoriasDTO"%>
-<%@page import="DAO.CategoriasDAO"%>
+<%-- 
+    Document   : index
+    Created on : May 25, 2023, 6:39:27 PM
+    Author     : godal
+--%>
+
 <%@page import="java.util.List"%>
-<%@page import="DTO.UsuariosDTO"%>
-<%@page import="DAO.UsuariosDAO"%>
+<%@page import="DTO.EmpresasDTO"%>
+<%@page import="DAO.EmpresasDAO"%>
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<html lang="en">
+<html>
     <head>
-        <meta charset="UTF-8" />
-        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link rel="stylesheet" href="../css/navbar.css">
         <link rel="stylesheet" href="../Pages - Empresas/css/footer.css">
         <script defer src="../js/form.js"></script>
         <link rel="shortcut icon" href="../img/logo.png" type="image/x-icon" />
-
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
         <link
             rel="stylesheet"
             href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
             />
-        <title>HireUP - Editar perfil</title>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <title>HireUP - Perfil da Empresa</title>
     </head>
     <body>
-        <%
-            if (session.getAttribute("mail") == null) {
-                response.sendRedirect("../pages/login.jsp");
-            }
-        %>
         <%@include file="../pages/header.jsp" %>
         <form action="Controller/updateUsuario.jsp" method="post" id="myForm">
             <div class="container-fluid rounded bg-white">
@@ -36,19 +33,12 @@
                         <div
                             class="d-flex flex-column align-items-center text-center p-3 py-5"
                             >
-                            <%                                UsuariosDAO dao = new UsuariosDAO();
-                                UsuariosDTO dto = new UsuariosDTO();
-                                String email = (String) session.getAttribute("mail");
-                                dto.setEmail(email);
-
-                                List<UsuariosDTO> listar = (List<UsuariosDTO>) dao.perfilUsuario(dto);
-                                for (UsuariosDTO lister : listar) {
-                            %>
+                          
                             <img
                                 class="rounded-circle mt-5"
                                 src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQF2psCzfbB611rnUhxgMi-lc2oB78ykqDGYb4v83xQ1pAbhPiB&usqp=CAU"
-                                /><span class="font-weight-bold"><%=lister.getNome()%></span
-                            ><span class="text-black-50"><%=lister.getEmail()%></span
+                                /><span class="font-weight-bold"></span
+                            ><span class="text-black-50"></span
                             ><span> </span>
                         </div>
                     </div>
@@ -61,37 +51,17 @@
                             </div>
                             <div class="row mt-2">
                                 <div class="col-md-6">
-                                    <label class="labels">Nome</label
+                                    <label class="labels">Nome da Empresa</label
                                     ><input
                                         name="inpNome"
                                         type="text"
                                         class="form-control"
                                         placeholder="Nome"
-                                        value="<%=lister.getNome()%>"
-                                        />
-                                </div>
-                                <div class="col-md-6">
-                                    <label class="labels">Apelido</label
-                                    ><input
-                                        name="inpApelido"
-                                        type="text"
-                                        class="form-control"
-                                        value="<%=lister.getApelido()%>"
-                                        placeholder="Apelido"
+                                        value=""
                                         />
                                 </div>
                             </div>
                             <div class="row mt-3">
-                                <div class="col-md-12">
-                                    <label class="labels">Telefone</label
-                                    ><input
-                                        name="inpContato"
-                                        type="text"
-                                        class="form-control"
-                                        placeholder="+258 84 0000000"
-                                        value="<%=lister.getContato()%>"
-                                        />
-                                </div>
                                 <div class="col-md-12">
                                     <label class="labels">Localizacao</label
                                     ><input
@@ -99,7 +69,7 @@
                                         type="text"
                                         class="form-control"
                                         placeholder="Localizacao"
-                                        value="<%=lister.getLocalizacao()%>"
+                                        value=""
                                         />
                                 </div>
                                 <div class="col-md-12">
@@ -110,16 +80,7 @@
                                         type="text"
                                         class="form-control"
                                         placeholder="Email"
-                                        value="<%=lister.getEmail()%>"
-                                        />
-                                </div>
-                                <div class="col-md-12">
-                                    <label class="labels">Formacao</label
-                                    ><input
-                                        name="inpFormacao"
-                                        type="text"
-                                        class="form-control"
-                                        value="<%=lister.getFormacao()%>"
+                                        value=""
                                         />
                                 </div>
                             </div>
@@ -130,7 +91,7 @@
                                         name="inpNovaSenha"
                                         type="password"
                                         class="form-control"
-                                        value="<%=lister.getSenha()%>"
+                                        value=""
                                         />
                                 </div>
                                 <div class="col-md-6">
@@ -139,35 +100,32 @@
                                         name="inpConfirmarSenha"
                                         type="password"
                                         class="form-control"
-                                        value="<%=lister.getSenha()%>"
+                                        value=""
                                         />
                                 </div>
                             </div>
                             <div class="row mt-3">
                                 <div class="col-md-6">
-
-                                    <select name="inpSetor" class="form-control">
-                                        <%
-                                            CategoriasDAO categorias = new CategoriasDAO();
-                                            List<CategoriasDTO> listaCategoria = (List<CategoriasDTO>) categorias.listarCategorias();
-
-                                            String selected = request.getParameter("Setor");
-
-                                            for (CategoriasDTO novaCategoria : listaCategoria) {
-
-                                                if (novaCategoria.getNome().equals(selected)) {
-
-                                        %>
-                                        <option checked class="form-control"  value="<%=novaCategoria.getNome()%>"><%=novaCategoria.getNome()%></option>
-                                        <%
-                                        } else {
-                                        %>
-                                        <option class="form-control"  value="<%= novaCategoria.getNome()%>"><%= novaCategoria.getNome()%></option>
-                                        <%
-                                                }
-                                            }
-                                        %>
-                                    </select>
+                                    <label class="labels">Tipo de Empresa</label
+                                    ><input
+                                        readonly="true"
+                                        name="inpNome"
+                                        type="text"
+                                        class="form-control"
+                                        placeholder="Nome"
+                                        value=""
+                                        />    
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="labels">Tipo de Empresa</label
+                                    ><input
+                                        readonly="true"
+                                        name="inpNome"
+                                        type="text"
+                                        class="form-control"
+                                        placeholder="Nome"
+                                        value=""
+                                        />    
                                 </div>
                             </div>
                             <div class="row mt-3">

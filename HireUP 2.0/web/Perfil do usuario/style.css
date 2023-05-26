@@ -1,0 +1,104 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    background-color: rgb(247, 250, 252);
+}
+
+.main {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 95%;
+    margin: 2% auto;
+    border-radius: 1%;
+}
+.leftSide {
+    width: 50%;
+    height: 80vh;
+}
+.leftSide input {
+    display: flex;
+    flex-direction: column;
+    outline: none;
+    width: 88rem;
+    height: 4vh;
+    border: 1px solid rgba(133, 126, 126, 0.678);
+    border-radius: 5px;
+}
+#inpLocalizacao {
+    margin-left: -4%;
+    max-width: 77rem;
+}
+#inpSetor {
+    max-width: 50rem;
+}
+.leftSide input:focus {
+    border: cornflowerblue 1px solid;
+}
+.leftSide textarea {
+    display: block;
+    width: 93%;
+    font-size: 1.3rem;
+    outline: none;
+    overflow: auto;
+    resize: vertical;
+    border: 1px solid rgba(133, 126, 126, 0.678);
+    border-radius: 5px;
+    margin: 0 8%;
+}
+
+.userInfo,
+.addictionInfo {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin-top: 2%;
+}
+.name,
+.contact,
+.location,
+.password {
+    display: flex;
+    gap: 5%;
+}
+
+.name,
+.location {
+    margin-bottom: 2%;
+}
+
+.aboutMe {
+    margin-top: 10%;
+}
+.buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 5%;
+}
+.buttons button {
+    background-color: transparent;
+    border: none;
+    background-color: blue;
+    color: white;
+    padding: 2% 4%;
+    border-radius: 5px;
+}
+.buttons button:nth-child(2) {
+    background-color: red;
+}
+
+/* Right side */
+.rightSide {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 18vw;
+    min-height: 80vh;
+    border-left: 2px solid rgba(161, 153, 153, 0.192);
+}
+.profileImage {
+    margin: 0 auto;
+}

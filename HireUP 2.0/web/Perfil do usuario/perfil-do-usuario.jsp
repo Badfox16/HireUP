@@ -20,7 +20,7 @@
             rel="stylesheet"
             href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
             />
-        <title>HireUP - Editar perfil</title>
+        <title>HireUP - Perfil</title>
     </head>
     <body>
         <%
@@ -29,7 +29,7 @@
             }
         %>
         <%@include file="../pages/header.jsp" %>
-        <form action="Controller/updateUsuario.jsp" method="post" id="myForm">
+        <form action="editarUsuario.jsp" >
             <div class="container-fluid rounded bg-white">
                 <div class="row">
                     <div class="col-md-3 border-right">
@@ -62,7 +62,7 @@
                             <div class="row mt-2">
                                 <div class="col-md-6">
                                     <label class="labels">Nome</label
-                                    ><input
+                                    ><input readonly=""
                                         name="inpNome"
                                         type="text"
                                         class="form-control"
@@ -72,7 +72,7 @@
                                 </div>
                                 <div class="col-md-6">
                                     <label class="labels">Apelido</label
-                                    ><input
+                                    ><input readonly=""
                                         name="inpApelido"
                                         type="text"
                                         class="form-control"
@@ -84,7 +84,7 @@
                             <div class="row mt-3">
                                 <div class="col-md-12">
                                     <label class="labels">Telefone</label
-                                    ><input
+                                    ><input readonly=""
                                         name="inpContato"
                                         type="text"
                                         class="form-control"
@@ -94,7 +94,7 @@
                                 </div>
                                 <div class="col-md-12">
                                     <label class="labels">Localizacao</label
-                                    ><input
+                                    ><input readonly=""
                                         name="inpLocalizacao"
                                         type="text"
                                         class="form-control"
@@ -115,7 +115,7 @@
                                 </div>
                                 <div class="col-md-12">
                                     <label class="labels">Formacao</label
-                                    ><input
+                                    ><input readonly=""
                                         name="inpFormacao"
                                         type="text"
                                         class="form-control"
@@ -125,28 +125,20 @@
                             </div>
                             <div class="row mt-3">
                                 <div class="col-md-6">
-                                    <label class="labels">Nova senha</label
-                                    ><input
+                                    <label class="labels">Senha</label
+                                    ><input readonly=""
                                         name="inpNovaSenha"
                                         type="password"
                                         class="form-control"
                                         value="<%=lister.getSenha()%>"
                                         />
                                 </div>
-                                <div class="col-md-6">
-                                    <label class="labels">Confirmar senha</label
-                                    ><input
-                                        name="inpConfirmarSenha"
-                                        type="password"
-                                        class="form-control"
-                                        value="<%=lister.getSenha()%>"
-                                        />
-                                </div>
+                          
                             </div>
                             <div class="row mt-3">
                                 <div class="col-md-6">
 
-                                    <select name="inpSetor" class="form-control">
+                                    <select name="inpSetor" class="form-control" readonly="">
                                         <%
                                             CategoriasDAO categorias = new CategoriasDAO();
                                             List<CategoriasDTO> listaCategoria = (List<CategoriasDTO>) categorias.listarCategorias();
@@ -173,7 +165,7 @@
                             <div class="row mt-3">
                                 <div class="col-md-6">
                                     <label for="exampleFormControlTextarea1" class="form-label">Descricao</label>
-                                    <textarea name="inpDescricao" class="form-control" id="exampleFormControlTextarea1" rows="3"><%=lister.getDescricao()%></textarea>
+                                    <textarea readonly="true" name="inpDescricao" class="form-control" id="exampleFormControlTextarea1" rows="3"><%=lister.getDescricao()%></textarea>
                                 </div>
                             </div>
                             <%}%>
@@ -182,16 +174,9 @@
                                     class="btn btn-primary profile-button"
                                     type="submit"
                                     >
-                                    Atulizar
+                                    Editar o Perfil
                                 </button>
 
-                                <button
-                                    onclick="formUserChange()" 
-                                    class="btn btn-danger profile-button"
-                                    type="submit"
-                                    >
-                                    Deletar
-                                </button>
                             </div>
                         </div>
                     </div>
