@@ -21,6 +21,7 @@
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap" rel="stylesheet">
+        <link rel="shortcut icon" href="../img/logo.png" type="image/x-icon" />
 
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
 
@@ -31,6 +32,7 @@
         ></script>
 
         <title>JSP Page</title>
+
     </head>
     <body>
 
@@ -44,17 +46,18 @@
 
         <%@include file="header.jsp" %>
 
-        <div class="container">
+        <div class="container-fluid">
 
             <table class="table align-middle mb-0 bg-white">
                 <thead class="bg-light">
                     <tr>
-                        <th>#</th>
+                        <th>Candidato</th>
                         <th>Empresa</th>
+                        <th>Setor</th>
                         <th>Cargo</th>
                         <th>Estado</th>
                         <th>Localização</th>
-                        <th>Actions</th>
+                        <th></th>
                         <th></th>
                         <th></th>
                     </tr>
@@ -156,19 +159,30 @@
                         </td>
                         <td>
                             <p class="fw-normal mb-1"><%= empresa.getNomeEmpresa()%></p>
+                        </td>
+                        <td>
                             <p class="text-muted mb-0"> <%=empresa.getSetor()%></p>
                         </td>
                         <td>
                             <span class="badge badge-success rounded-pill d-inline" 
                                   style="color: black; font-size: 1rem; text-align: center;"
-                                  >Active</span>
+                                  ><%= emprego.getPosicao()%></span>
                         </td>
-                        <td>Senior</td>
+                        <td><%= candidatura.getEstado()%></td>
                         <td>
-                            <button type="button" class="btn btn-link btn-sm btn-rounded">
-                                Edit
-                            </button>
+                            <%= emprego.getLocalizacao()%>
                         </td>
+                        <td>
+                            <form action="action">
+                                <input class="btn btn-primary" type="submit" value="VER MAIS">
+                            </form>
+                        </td>
+                        <td>
+                            <form action="action">
+                                <input class="btn btn-danger" type="submit" value="CANCELAR CANDIDATURA">
+                            </form>
+                        </td>
+
                     </tr>
                     <%}%>
 

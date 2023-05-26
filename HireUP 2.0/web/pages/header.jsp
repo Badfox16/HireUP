@@ -107,7 +107,7 @@
                                 <i class="fa-solid fa-user"></i>
                             </button>
 
-                            <ul class="dropdown-menu">
+                            <ul class="dropdown-menu dropdown">
                                 <li><a class="dropdown-item" href="#">Perfil</a></li>
                                 <li><a class="dropdown-item " href="../logout/fazerLogout.jsp">Logout</a></li>
                             </ul>
